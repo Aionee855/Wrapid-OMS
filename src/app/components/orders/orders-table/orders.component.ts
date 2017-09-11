@@ -4,18 +4,18 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs/Rx';
 import { DatePipe } from '@angular/common';
 import { FilterService } from 'ng-filter';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { IMyDrpOptions} from 'mydaterangepicker';
 import { RouterModule, Routes} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { NavbarComOrdersService } from '../../services/navbar-com-orders.service';
-import { OrderDetailsService } from '../../services/order-details.service';
-import { OrderService} from '../../services/order.service';
+import { NavbarComOrdersService } from '../../../services/navbar-com-orders.service';
+import { OrderDetailsService } from '../../../services/order-details.service';
+import { OrderService} from '../../../services/order.service';
 
 
 @Component({
-  selector: 'app-orders',
+  selector: 'app-orders-table',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
 

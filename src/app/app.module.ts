@@ -17,7 +17,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ChartsComponent } from './components/charts/charts.component';
-import { OrdersComponent } from './components/orders/orders.component';
+import { OrdersComponent } from './components/orders/orders-table/orders.component';
 import { DashboardComponent} from './components/dashboard/dashboard.component';
 import { UploadsComponent} from './components/uploads/uploads.component';
 import { OrderDetailsComponent } from  './components/orders/order-details/order-details.component';
@@ -28,13 +28,14 @@ import { NavbarComOrdersService } from './services/navbar-com-orders.service';
 
 import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
 import { FilterPipe, FilterStatusPipe, FilterChannelPipe } from './pipes/filter.pipe';
+import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
 
 
 
 const appRoutes: Routes = [
   {path:'', component: DashboardComponent},
   {path:'dashboard', component: DashboardComponent},
-  {path:'orders', component:OrdersComponent},
+  {path:'orders', component:OrdersNavigationComponent},
   {path:'charts', component: ChartsComponent},
   {path:'uploads', component: UploadsComponent},
   {path: 'orders/orderDetails', component: OrderDetailsComponent},
@@ -53,7 +54,7 @@ const appRoutes: Routes = [
     FilterStatusPipe,
     FilterChannelPipe,
     FilterDateMinPipe,
-    FilterDateMaxPipe,
+    OrdersNavigationComponent
 
 
   ],
