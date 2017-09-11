@@ -1,0 +1,73 @@
+<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+          aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off">
+  <a href="#" href="#menu-toggle" id="menu-toggle">
+    <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+  </a>
+</button>
+  <a class="navbar-brand" href="#"><img src="../../assets/GSOT-Logo.gif" id="logo"></a>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="exCollapsingNavbar2">
+    <div class="navbar-nav ml-auto">
+
+      <a class="nav-item nav-link" routerLink="/jobs" routerLinkActive="active"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></a>
+      <a class="nav-item nav-link nav-profile" routerLink="/jobs/7" routerLinkActive="active">John Doe</a>
+      <a class="nav-item nav-link" routerLink="/transfers" routerLinkActive="active"><img src="../../assets/profile.png" id="profile"></a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+          <li>
+              <a [routerLink]="['dashboard']"  (click)="choice='dashboard'">
+                <img class="icons" src="../../assets/dashboard.png" alt="dashboard">
+                  Dashboard
+              </a>
+          </li>
+          <li>
+              <a [routerLink]="['channels']">
+                <img class="icons" src="../../assets/channels.png" alt="channels">
+                Channels</a>
+          </li>
+          <li>
+              <a [routerLink]="['orders']" (click)=" setChoiceNavbar('All Orders') || navbarHeadingChoiceStatus('All') || choice='orders'">
+                <img class="icons" src="../../assets/shoppingcart.png" alt="orders">
+                Orders</a>
+          </li>
+          <li>
+              <a [routerLink]="['shipment']">
+                <img class="icons" src="../../assets/shipment.png" alt="shipment">
+                Shipment</a>
+          </li>
+          <li>
+              <a [routerLink]="['inventory']">
+                <img class="icons" src="../../assets/inventory.png" alt="inventory">
+                Inventory</a>
+          </li>
+          <li>
+              <a [routerLink]="['returns']">
+                <img class="icons" src="../../assets/shoppingcart.png" alt="returns">
+                Returns</a>
+          </li>
+          <li>
+              <a [routerLink]="['charts']">
+                <img class="icons" src="../../assets/reports.png" alt="reports">
+                Charts</a>
+          </li>
+          <li>
+              <a [routerLink]="['uploads']">
+                <img class="icons" src="../../assets/reports.png" alt="uploads">
+                Uploads</a>
+          </li>
+      </ul>
+    </div>
+  </div>

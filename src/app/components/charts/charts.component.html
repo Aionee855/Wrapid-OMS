@@ -1,0 +1,40 @@
+
+<div style="display: block" class="col-md-4">
+  <div class="card-header">
+      Pie Chart - Total Orders
+  </div>
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<div class="columnsCharts">
+<div style="display: block" class="col-md-7">
+  <div class="card-header">
+      Columns Chart
+  </div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+
+</div>
+</div>
+
+
+
+<div *ngFor="let number of allOrdersToSort
+              ;let i = index">
+
+
+
+</div>

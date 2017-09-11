@@ -1,0 +1,36 @@
+<div class=push_border>
+<div *ngIf="order">
+<h1 class="page-header">{{order.customer_name}}</h1>
+<h4>Order Details</h4>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Channel: </strong>{{order.from}}</li>
+  <li class="list-group-item"><strong>Invoice Number: </strong>{{order.invoice_number}}</li>
+  <li class="list-group-item"><strong>Description: </strong>{{order.what}}</li>
+</ul>
+
+<h4 class="page-header">Invoices <a routerLink="/invoice/add/{{order._id}}">Create Invoice</a></h4>
+<div class="orders">
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Item Number</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{invoice._id}}</td>
+      <td>{{invoice.item_number}}</td>
+      <td>{{invoice.description}}</td>
+      <td>{{invoice.price}}</td>
+      <td>{{invoice.quantity}}</td>
+      <td>{{invoice.total}}</td>
+      <td>
+        <a href="" (click)="onDeleteClick(invoice._id)" class="btn btn-danger">Delete</a>
+      </td>
+  </table>
+</div>
+</div>
+</div>

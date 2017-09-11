@@ -1,0 +1,235 @@
+<div class="container">
+  <ngb-tabset>
+    <ngb-tab title="All">
+        <ng-template ngbTabContent>
+          <p class="mt-4">Content for tab 1.
+            <button type="button"
+                    class="btn btn-secondary"
+                    placement="bottom"
+                    ngbPopover="A popover in tab 1"
+                    popoverTitle="Bacon is good">
+              Click me
+            </button>
+          </p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Pending">
+        <ng-template ngbTabContent>
+          <p>Content for tab 2</p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Unverified">
+        <ng-template ngbTabContent>
+          <p>Content for tab 3</p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Cancelled">
+        <ng-template ngbTabContent>
+          <p>Content for tab 4</p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Failed">
+        <ng-template ngbTabContent>
+          <p>Content for tab 5</p>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+    <h1>{{navbarComOrdersService.choiceService}}</h1>
+    <hr/>
+<!-- Search box Start -->
+<div class="row">
+<form>
+  <div class="search-orders-form">
+    <div class="col-md-2">
+      <div class="btn-group" dropdown [dropdownToggle]="false">
+        <button type="button" class="btn btn-info btn-select-light" dropdown-open>{{dropdownSelection}}</button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a (click)="selectAll()">All</a></li>
+          <li *ngFor= "let pickchannel of dropChannelsList"><a (click)="selectChannel(pickchannel)">{{pickchannel}}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+    <div class="btn-group">
+          <input type="text" name="filter" class="form-control" placeholder="SKU/Order No." [(ngModel)]="filterSKUvalue">
+    </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="btn-group" dropdown [dropdownToggle]="false">
+        <button type="button" class="btn btn-info btn-select-light" dropdown-open>Stores</button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Default Global Store</a></li>
+          <li><a href="#">Ecom Puma Sports India</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="btn-group" dropdown [dropdownToggle]="false">
+        <button type="button" class="btn btn-info btn-select-light" dropdown-open>Order Status </button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Created</a></li>
+          <li><a href="#">Pending Invoice</a></li>
+          <li><a href="#">Paid</a></li>
+          <li><a href="#">Processed</a></li>
+          <li><a href="#">Ready To Ship</a></li>
+          <li><a href="#">Shipped</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Date range picker -->
+    <div class="col-md-3">
+    <div class="btn-group">
+      <th>
+        <my-date-range-picker [options]="myDateRangePickerOptions"
+                              (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+      </th>
+    </div>
+    </div>
+
+  </div>
+</form>
+<!-- Search box End -->
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<p> Displaying {{displayOnPageCounter+1}} of {{numberOfRows}} records <p>
+
+<!-- Datatable -->
+<div class="container-fluid">
+<div class="row">
+  <div class="col-lg-12">
+<table class="table table-striped" id="table_orders">
+  <thead>
+    <tr id="orderByMenu">
+      <th>{{checkBoxId}}</th>
+      <th [class.active]="order === 'salesChannel'"
+          (click)="setOrder('salesChannel')"
+                      >Channel
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th class="hide_columns">From</th>
+      <th [class.active]="order === 'salesChannelOrderId'"
+          (click)="setOrder('salesChannelOrderId')"
+                      >Order Id
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th [class.active]="order === 'orderStatus'"
+          (click)="setOrder('orderStatus')"
+                      >Status
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th [class.active]="order === 'orderType'"
+          (click)="setOrder('orderType')"
+                      >Order Type
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th [class.active]="order === 'buyerName'"
+          (click)="setOrder('buyerName')"
+                      >Buyer Name
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th [class.active]="order === 'buyerEmail'"
+          (click)="setOrder('buyerEmail')"
+                      >Buyer Email
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+
+      </th>
+      <th [class.active]="order === 'date'"
+          (click)="setOrder('date')" style="text-align:center;"
+                      >Date
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+<!-- Datatable - load from datatabse --------------------------------->
+<tr class="datatableBody" *ngFor="let order of orders
+                         | filterSKU: filterSKUvalue
+                         | filterChannel: selectChannelFilter
+                         | orderBy: order: reverse
+                         | paginate: { itemsPerPage: rowsOnPage, currentPage: p}
+                         ;let i = index
+                         "
+             [ngSwitch]="order.salesChannel">
+
+<!-- Counts how many rows showed after filter -->
+             {{DisplayOnPageCounter(i)}}
+
+      <td style="text-align:center;">
+        <input class="checkBox" type="checkbox" [value]="myVariable">
+      </td>
+      <td>
+      <div *ngSwitchCase="'eBay'">
+          <img class="icons" src="../../assets/ebay_logo.png" alt="dashboard">
+      </div>
+      <div *ngSwitchCase="'Amazon.in'">
+        <img class="icons" src="../../assets/amazon.in_logo.png" alt="dashboard">
+      </div>
+      <div *ngSwitchCase="'Amazon.co.uk'">
+        <img class="icons" src="../../assets/amazon.co.uk_logo.png" alt="dashboard">
+      </div>
+    </td>
+      <td class="hide_columns">{{order.salesChannel}}</td>
+      <td>{{order.salesChannelOrderId}}</td>
+      <td>{{order.orderStatus}}</td>
+      <td>{{order.orderType}}</td>
+      <td>{{order.buyerName}}</td>
+      <td>{{order.buyerEmail}}</td>
+
+      <td style="text-align: center;">{{order.date | date: 'dd/MM/yyyy'}}</td>
+      <td>
+        <a [routerLink]="['orderDetails']" class="btn btn-success" (click)="passValuesToService(order.id, order.salesChannelOrderId, order.salesChannel, order.orderStatus, order.orderType, order.buyerEmail,
+                                                                                                order.shippingAddress.name, order.shippingAddress.addressLine1, order.shippingAddress.city, order.shippingAddress.stateOrRegion, order.shippingAddress.postalCode, order.shippingAddress.countryCode )">Details</a>
+      </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- Footer -------------------------------------------------------->
+<!-- Select how many rows in one page to choose--------------------->
+<label class="label-control">Rows on page
+            <select class="show-page" [(ngModel)]="rowsOnPage">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="15">15</option>
+            </select>
+<!-- Page # -->
+            <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+</label>
+<script>
+$('th').click(function() {
+    $('th').removeClass('active-span');
+    $(this).addClass('active-span');
+});
+</script>
