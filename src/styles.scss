@@ -3,3 +3,7 @@
 
 @import "variables";
 @import "custom";
+
+body {
+  font-family: "Catamaran", $font-family-base;
+}

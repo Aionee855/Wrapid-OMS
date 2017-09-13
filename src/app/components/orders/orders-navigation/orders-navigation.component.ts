@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { OrdersComponent } from '../orders-table/orders.component';
 import { OrdersService } from '../orders-service/orders.service';
 
 @Component({
   selector: 'app-orders-navigation',
   templateUrl: './orders-navigation.component.html',
-  styleUrls: ['./orders-navigation.component.css']
+  styleUrls: ['./orders-navigation.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OrdersNavigationComponent implements OnInit {
 

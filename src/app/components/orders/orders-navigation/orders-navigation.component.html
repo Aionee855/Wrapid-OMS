@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <ngb-tabset>
-    <ngb-tab>
+    <ngb-tab id="all-tab">
       <ng-template ngbTabTitle>
         <div (click)="navbarChoiceClick('ALL')">All</div>
       </ng-template>
@@ -8,7 +8,7 @@
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
-      <ngb-tab>
+      <ngb-tab id="new-tab">
         <ng-template ngbTabTitle>
           <div (click)="navbarChoiceClick('PendingInvoice')">Pending</div>
         </ng-template>
@@ -16,19 +16,34 @@
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
-      <ngb-tab title="Unverified">
+
+      <ngb-tab id="confirmed-tab" title="Confirmed">
         <ng-template ngbTabContent>
           <p>Content for tab 3</p>
         </ng-template>
       </ngb-tab>
-      <ngb-tab title="Cancelled">
+
+      <ngb-tab id="rts-tab" title="Ready To Ship">
         <ng-template ngbTabContent>
           <p>Content for tab 4</p>
         </ng-template>
       </ngb-tab>
-      <ngb-tab title="Failed">
+
+      <ngb-tab id="shipped-tab" title="Shipped">
         <ng-template ngbTabContent>
           <p>Content for tab 5</p>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab id="cancelled-tab" title="Cancelled">
+        <ng-template ngbTabContent>
+          <p>Content for tab 6</p>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab id="failed-tab" title="Failed">
+        <ng-template ngbTabContent>
+          <p>Content for tab 7</p>
         </ng-template>
       </ngb-tab>
     </ngb-tabset>

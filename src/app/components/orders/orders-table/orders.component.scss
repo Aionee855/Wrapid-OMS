@@ -1,81 +1,56 @@
-/****** JUMBOTRON *********/
+$default-color: #015084;
+
 .jumbotron {
-
-  h1 {
-    text-align: center;
-    font-size: 3em;
-    color: #015084;
-  }
-  hr {
-    border: 1px solid #015084;
-    width: 1000px;
-  }
-  div.col-md-2 {
-    button.btn.btn-info.btn-select-light {
-      background: #fcfcfc;
-      color: #015084;
-      width: 139px;
-   }
-  }
-  div.col-md-3 {
-    button.btn.btn-info.btn-select-light {
-     background: #fcfcfc;
-     color: #015084;
-     width: 236px;
-  }
- }
+  margin-top: 15px;
+  background: #f7f8f9;
+  margin-bottom: 15px;
 }
 
-.form-control {
-  width: 263px;
+h1 {
+  width: 60%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 15px;
 }
 
-/************** NAVIGATION TABS *********************/
-.navigation-index-bar {
-  background-color: rgb(9, 114, 112);
-  height:350px;
-  width: 100%;
+.row {
+  padding: 0;
+  margin: 0
 }
 
-.nav-tabs {
-  width: 100%;
-  margin-top: 5px;
-  padding-left: 40px;
-  a {
-      background-color: rgb(9, 114, 112);
-      color: white;
-      border: 1px solid #ddd;
-  }
+.text-center {
+   text-align:center
 }
 
-/***************    ORDERS NAVBAR    ******************/
-.styleHr {
-  margin-top: 0;
+.btn.btn-outline-default.channel-button {
+  background-color: white;
+  border-color: #ddd;
+  text-align: left;
+  padding-right: 40px;
+
+
 }
-label {
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 0;
+#SKU-button {
+
+  margin: 0 20px 0 20px;
 }
-#Orders {
-  margin-left: 1%;
-  font-size: 2em;
-  font-weight: normal;
-  color: black;
+
+.date-picker-btn {
+  margin-top: 4px;
+  height: 38px;
 }
-.topNavbarButtons a{
-  color: black;
-  margin-left: 6%;
-  margin-right: auto;
-  font-weight: lighter;
+
+
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
 }
-#navbar-form-style {
-  width: 245px;
-  margin-left: 140px;
-  margin-right: 0;
-  padding-right: 0;
-  float: right;
-}
+
+
 /******************************************/
 
 .datatableBody:hover{
@@ -178,4 +153,32 @@ margin-right: 5%;
 /* DROPDOWN */
 .search-orders-form a:hover{
   cursor:pointer;
+}
+
+/********* Buttons Styling *******/
+.btn-default {
+  float: right;
+  color: black;
+  margin-left: 15px;
+  background: #f7f8f9;
+  border-color:#ddd;
+}
+
+.btn-default {
+  -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn-default:hover {
+    color: #0061ff;
+    font-weight: 500;
+    background: #ededed;
+}
+
+.btn-default:active {
+  margin-top: 3px;
+    margin-bottom: -3px;
+    background: #015084;
+    border-color: $default-color;
 }
