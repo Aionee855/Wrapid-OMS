@@ -3,7 +3,10 @@
 nav.navbar.navbar-toggleable-sm.navbar-inverse.bg-inverse {
   background: black !important;
   height: 70px !important;
+  font-family: $font-family-base;
 }
+
+
 
 #logo {
   width: 8.5rem;
@@ -21,6 +24,11 @@ a.nav-item.nav-link {
   width: 2.5rem;
 }
 
+#profile:hover {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
 .btn.btn-default {
   margin-right: 1.5rem;
   background-color: transparent;
@@ -30,7 +38,9 @@ a.nav-item.nav-link {
   color: white;
 }
 
-
+a:hover .fa-navicon::before, a:hover .fa-reorder::before, a:hover .fa-bars::before {
+  color: $green;
+}
 
 // ======= Sidebar Styling ======
 
@@ -66,7 +76,7 @@ a.nav-item.nav-link {
    margin-left: -250px;
    overflow-y: auto;
    background-color: black!important;
-   opacity: 0.8;
+   opacity: 0.9;
    -webkit-transition: all 0.5s ease;
    -moz-transition: all 0.5s ease;
    -o-transition: all 0.5s ease;
@@ -106,7 +116,6 @@ a.nav-item.nav-link {
   padding-bottom: 8px;
    text-indent: 20px;
    line-height: 50px;
-   border-bottom: 1px solid white;
 }
 
 .sidebar-nav li a {
@@ -117,8 +126,7 @@ a.nav-item.nav-link {
 
 .sidebar-nav li a:hover {
    text-decoration: none;
-   color: #fff;
-   background: rgba(255,255,255,0.2);
+   color: $green;
 }
 
 .sidebar-nav li a:active,

@@ -17,7 +17,7 @@ import { OrderService} from '../../../services/order.service';
 @Component({
   selector: 'app-orders-table',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
+  styleUrls: ['./orders.component.scss']
 
 })
 export class OrdersComponent implements OnInit, OnDestroy{
@@ -30,6 +30,7 @@ export class OrdersComponent implements OnInit, OnDestroy{
   orders;
   startDate;
   endDate;
+
 
   private subscription: Subscription;
 
@@ -55,6 +56,7 @@ export class OrdersComponent implements OnInit, OnDestroy{
                   this.numberOfRows=orders.length;
                   this.getDropdownChannelsList();
                 });
+
               }
 
 

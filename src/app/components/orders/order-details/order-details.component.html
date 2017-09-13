@@ -1,364 +1,263 @@
-<!--  ****** First Row of Boxes ****** -->
-<!--<div *ngFor="let orderDetails of ordersDetailsArray">-->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>Order Details
-        <button type="button" class="btn btn-default">Cancel Order</button>
-         <button type="button" class="btn btn-default">Invoice</button>
-          <button type="button" class="btn btn-default">Edit Order Details</button>
-           <button type="button" class="btn btn-default" [routerLink]="['../../orders']"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</button></h1>
+<div class="col-lg-12">
+  <h1>Order Details
+    <button type="button" class="btn btn-default">Cancel Order</button>
+     <button type="button" class="btn btn-default">Invoice</button>
+      <button type="button" class="btn btn-default">Edit Order Details</button>
+       <button type="button" class="btn btn-default" [routerLink]="['../../orders']">
+         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</button>
+       </h1>
 
-
-        <div class="row">
-          <div class="col-md-4 col-styling">
-            <table class="table">
-              <tr>
-                <th>Order #: {{orderId}}</th>
-              </tr>
-              <div class="row">
-                <div class="col-md-5">
-                  <tr>
-                    <td class="td-left">Order Date:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Order ID:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Sales Channel:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Order Status:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Order Type:</td>
-                  </tr>
-                </div>
-
-                <div class="col-md-7">
-                  <tr>
-                    <td>12th May 2018</td>
-                  </tr>
-                  <tr>
-                    <td>{{orderDetailsService.salesChannelOrderId}}</td>
-                  </tr>
-                  <tr>
-                    <td>{{orderDetailsService.salesChannel}}</td>
-                  </tr>
-                  <tr>
-                    <td>{{orderDetailsService.orderStatus}}</td>
-                  </tr>
-                  <tr>
-                    <td>{{orderDetailsService.orderType}}</td>
-                  </tr>
-                </div>
-              </div>
-            </table>
-          </div>
-
-          <div class="col-md-4 col-styling">
-            <table class="table">
-              <tr>
-                <th class="head-style">Payment Information: </th>
-              </tr>
-              <div class="row">
-                <div class="col-md-6">
-                  <tr>
-                    <td class="td-left">Credit Card No:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Expiry Date:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">CCV:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Paid by Paypal</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Order placed using USD</td>
-                  </tr>
-                </div>
-
-                <div class="col-md-6">
-                  <tr>
-                    <td>**** **** **** 1234</td>
-                  </tr>
-                  <tr>
-                    <td>10/20</td>
-                  </tr>
-                  <tr>
-                    <td>***</td>
-                  </tr>
-                </div>
-              </div>
-            </table>
-          </div>
-
-          <div class="col-md-4 col-styling end-table">
-            <table class="table">
-              <tr>
-                <th class="head-style">Account Information: </th>
-              </tr>
-              <div class="row">
-                <div class="col-md-5">
-                  <tr>
-                    <td class="td-left">Buyer's Name:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Buyer's Email:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Contact Number:</td>
-                  </tr>
-                  <tr>
-                    <td class="td-left">Customer Group:</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                  </tr>
-                </div>
-
-                <div class="col-md-7">
-                  <tr>
-                    <td>{{orderDetailsService.name}}</td>
-                  </tr>
-                  <tr>
-                    <td style="word-break:break-all;">{{orderDetailsService.buyerEmail}}</td>
-                  </tr>
-                  <tr>
-                    <td>01234 567890</td>
-                  </tr>
-                  <tr>
-                    <td>General</td>
-                  </tr>
-                </div>
-              </div>
-            </table>
-          </div>
-        </div>
-
-<br>
-<!--  ****** Second Row of Boxes ****** -->
-
+<!--   ===== ORDER BLOCK =======   -->
 <div class="row">
-  <div class="col-md-4 col-styling">
-    <table class="table">
-      <tr>
-        <th class="head-style">Billing Address: </th>
-      </tr>
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="card-header">Order #: {{orderId}}</h5>
+
       <div class="row">
-        <div class="col-md-5">
-          <tr>
-            <td class="td-left">Address Line 1</td>
-          </tr>
-
-          <tr>
-            <td class="td-left">City</td>
-          </tr>
-
-          <tr>
-            <td class="td-left">State/Region</td>
-          </tr>
-          <tr>
-            <td class="td-left">Postcode</td>
-          </tr>
-          <tr>
-            <td class="td-left">Country Code</td>
-          </tr>
+        <div class="col-sm-5">
+            <div class="card-block card-styling">
+              <p class="card-text">Order Date:</p>
+              <p class="card-text">Order ID:</p>
+              <p class="card-text">Sales Channel:</p>
+              <p class="card-text">Order Status:</p>
+              <p class="card-text">Order Type:</p>
+            </div>
         </div>
 
-        <div class="col-md-7">
-          <tr>
-            <td>123 Sesame Street</td>
-          </tr>
-          <tr>
-            <td>No Idea</td>
-          </tr>
-          <tr>
-            <td>Anywhere</td>
-          </tr>
-          <tr>
-            <td>AB12 3CD</td>
-          </tr>
-          <tr>
-            <td>IN</td>
-          </tr>
+        <div class="col-sm-7">
+            <div class="card-block">
+              <p class="card-text">12th May 2018</p>
+              <p class="card-text">{{orderDetailsService.salesChannelOrderId}}</p>
+              <p class="card-text">{{orderDetailsService.salesChannel}}</p>
+              <p class="card-text">{{orderDetailsService.orderStatus}}</p>
+              <p class="card-text">{{orderDetailsService.orderType}}</p>
+            </div>
         </div>
       </div>
-    </table>
+    </div>
   </div>
 
-  <div class="col-md-4 col-styling">
-    <table class="table">
-      <tr>
-        <th class="head-style">Shipping Address: </th>
-      </tr>
+
+<!--   ===== PAYMENT BLOCK =======   -->
+
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="card-header">Payment Information:</h5>
+
       <div class="row">
-        <div class="col-md-5">
-          <tr>
-            <td class="td-left">Address Line 1</td>
-          </tr>
-          <tr>
-            <td class="td-left">City</td>
-          </tr>
-
-          <tr>
-            <td class="td-left">State/Region</td>
-          </tr>
-          <tr>
-            <td class="td-left">Postcode</td>
-          </tr>
-          <tr>
-            <td class="td-left">Country Code</td>
-          </tr>
+        <div class="col-sm-5">
+            <div class="card-block card-styling">
+              <p class="card-text">Credit Card No:</p>
+              <p class="card-text">Expiry Date:</p>
+              <p class="card-text">CCV:</p>
+              <p class="card-text">Paid by Paypal</p>
+              <p class="card-text">Order placed using USD</p>
+            </div>
         </div>
 
-        <div class="col-md-7">
-          <tr>
-            <td>{{orderDetailsService.addressLine1}}</td>
-          </tr>
-          <tr>
-            <td>{{orderDetailsService.city}}</td>
-          </tr>
-          <tr>
-            <td>{{orderDetailsService.stateOrRegion}}</td>
-          </tr>
-          <tr>
-            <td>{{orderDetailsService.postalCode}}</td>
-          </tr>
-          <tr>
-            <td>{{orderDetailsService.countryCode}}</td>
-          </tr>
+        <div class="col-sm-7">
+            <div class="card-block">
+              <p class="card-text">**** **** **** 1234</p>
+              <p class="card-text">10/20</p>
+              <p class="card-text">***</p>
+
+            </div>
         </div>
       </div>
-    </table>
+    </div>
   </div>
 
-  <div class="col-md-4 col-styling end-table">
-    <table class="table">
-      <tr>
-        <th class="head-style">Shipping and Handling </th>
-      </tr>
+<!--   ===== ACCOUNT INFO BLOCK =======   -->
+
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="card-header">Account Information:</h5>
+
       <div class="row">
-        <div class="col-md-5">
-          <tr>
-            <td class="td-left">Flat Rate - Fixed:</td>
-          </tr>
-          <tr>
-            <td class="td-left">Courier Details:</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-            <td>&nbsp;</td>
+        <div class="col-sm-5">
+            <div class="card-block card-styling">
+              <p class="card-text">Buyer's Name:</p>
+              <p class="card-text">Buyer's Email:</p>
+              <p class="card-text">Contact Number:</p>
+              <p class="card-text">Customer Group:</p>
+              <p class="card-text">&nbsp;</p>
+            </div>
         </div>
 
-          <div class="col-md-7">
-            <tr>
-              <td>£5.00</td>
-            </tr>
-          </div>
+        <div class="col-sm-7">
+            <div class="card-block">
+              <p class="card-text">{{orderDetailsService.name}}</p>
+              <p class="card-text" style="word-break:break-all;">{{orderDetailsService.buyerEmail}}</p>
+              <p class="card-text">01234 567890</p>
+              <p class="card-text">General</p>
+            </div>
         </div>
-    </table>
-  </div>
-</div>
-<br>
-<!--  ******  Product Data Table ****** -->
-<div class="row table-box-styles">
-    <table class="table">
-      <tr>
-        <div class="col-md-3 data-table-styling"><th>Product</th></div>
-        <div class="col-md-1 data-table-styling"><th class="align-word">Qty</th></div>
-        <div class="col-md-2 data-table-styling"><th>Item Status</th></div>
-        <div class="col-md-2 data-table-styling"><th>Price</th></div>
-        <div class="col-md-2 data-table-styling"><th>Discount</th></div>
-        <div class="col-md-2 data-table-styling-extra"><th>Subtotal</th></div>
-      </tr>
-<div *ngFor="let orderDetails of ordersDetailsArray">
-        <div class="col-md-3 data-table-col-styling">
-          <tr>
-            <td><span class="word-styling">Product: </span> {{orderDetails.title}}</td>
-          </tr>
-          <tr>
-            <td><span class="word-styling">Product Type: </span> {{orderDetails.sellerSku}}</td>
-          </tr>
-          <tr>
-            <td><span class="word-styling">SKU: </span> {{orderDetails.orderItemId}}</td>
-          </tr>
-        </div>
-
-        <div class="col-md-1 data-table-col-styling">
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="align-word">{{orderDetails.quantityOrdered}}</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
       </div>
-
-        <div class="col-md-2 data-table-col-styling">
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>Pending</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-        </div>
-
-        <div class="col-md-2 data-table-col-styling">
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>£399.99</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-      </div>
-
-      <div class="col-md-2 data-table-col-styling">
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-          <td>£0.00</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-      </div>
-
-      <div class="col-md-2 data-table-col-styling-extra">
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>£399.99</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-      </div>
-
-</div>
-    </table>
-
-  </div>
-
     </div>
   </div>
 </div>
 
+<br>
+<!--   ===== BILLING ADDRESS =======   -->
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="card-header">Billing Address: </h5>
 
-<!--</div>-->
+      <div class="row">
+        <div class="col-sm-5">
+            <div class="card-block card-styling">
+              <p class="card-text">Address Line 1:</p>
+              <p class="card-text">City:</p>
+              <p class="card-text">State/Region:</p>
+              <p class="card-text">Postcode:</p>
+              <p class="card-text">Country Code:</p>
+            </div>
+        </div>
+
+        <div class="col-sm-7">
+            <div class="card-block">
+              <p class="card-text">123 Sesame Street</p>
+              <p class="card-text">No Idea</p>
+              <p class="card-text">Anywhere</p>
+              <p class="card-text">AB12 3CD</p>
+              <p class="card-text">UK</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--   ===== SHIPPING ADDRESS =======   -->
+
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="card-header">Shipping Address:</h5>
+
+      <div class="row">
+        <div class="col-sm-5">
+            <div class="card-block card-styling">
+              <p class="card-text">Address Line 1:</p>
+              <p class="card-text">City:</p>
+              <p class="card-text">State/Region:</p>
+              <p class="card-text">Postcode:</p>
+              <p class="card-text">Country Code:</p>
+            </div>
+        </div>
+
+        <div class="col-sm-7">
+            <div class="card-block">
+              <p class="card-text">{{orderDetailsService.addressLine1}}</p>
+              <p class="card-text">{{orderDetailsService.city}}</p>
+              <p class="card-text">{{orderDetailsService.stateOrRegion}}</p>
+              <p class="card-text">{{orderDetailsService.postalCode}}</p>
+              <p class="card-text">{{orderDetailsService.countryCode}}<</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--   ===== SHIPPING & HANDLING BLOCK =======   -->
+
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="card-header">Shipping and Handling</h5>
+
+      <div class="row">
+        <div class="col-sm-5">
+            <div class="card-block card-styling">
+              <p class="card-text">Flat Rate - Fixed:</p>
+              <p class="card-text">Courier Details:</p>
+              <p class="card-text">Courier Contact Number:</p>
+              <p class="card-text">&nbsp;</p>
+              <p class="card-text">&nbsp;</p>
+            </div>
+        </div>
+
+        <div class="col-sm-7">
+            <div class="card-block">
+              <p class="card-text">£5.00</p>
+              <p class="card-text">UPS</p>
+              <p class="card-text">01234 567890</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<!--   ===== TABLE =======   -->
+<div *ngFor="let orderDetails of ordersDetailsArray">
+<div class="row no-gutters">
+  <div class="col-md-3">
+    <div class="card card-table">
+      <h5 class="card-header">Product</h5>
+      <div class="card-block">
+        <p class="card-text">Product: {{orderDetails.title}}</p>
+        <p class="card-text">Product Type: {{orderDetails.sellerSku}}</p>
+        <p class="card-text">SKU: {{orderDetails.orderItemId}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1">
+    <div class="card text-center card-table">
+      <h5 class="card-header">Qty</h5>
+      <div class="card-block">
+        <p class="card-text">&nbsp;</p>
+        <p class="card-text">{{orderDetails.quantityOrdered}}</p>
+        <p class="card-text">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="card card-table">
+      <h5 class="card-header">Item Status</h5>
+      <div class="card-block">
+        <p class="card-text">&nbsp;</p>
+        <p class="card-text">Pending</p>
+        <p class="card-text">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="card card-table">
+      <h5 class="card-header">Price</h5>
+      <div class="card-block">
+        <p class="card-text">&nbsp;</p>
+        <p class="card-text">£399.99</p>
+        <p class="card-text">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="card card-table">
+      <h5 class="card-header">Discount</h5>
+      <div class="card-block">
+        <p class="card-text">&nbsp;</p>
+        <p class="card-text">£0.00</p>
+        <p class="card-text">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="card">
+      <h5 class="card-header">Subtotal</h5>
+      <div class="card-block">
+        <p class="card-text">&nbsp;</p>
+        <p class="card-text">£399.99</p>
+        <p class="card-text">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- row -->
+</div> <!-- ngfor -->
+</div> <!--col-lg-12-->

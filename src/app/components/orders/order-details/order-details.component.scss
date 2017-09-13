@@ -1,40 +1,24 @@
-.container-fluid {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.row {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-
+@import "../../../../_variables";
 
 $default-color: #015084;
-
-h1 {
-  color: $default-color;
-}
-
 /********* Buttons Styling *******/
 .btn-default {
   float: right;
   margin-left: 15px;
-  color: $default-color;
-  background: #e6e8ed;
-  border-color:$default-color;
+  background: #f7f8f9;
+  border-color:#ddd;
 }
 
 .btn-default {
-  -webkit-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:    0px 3px 0px rgba(0, 0, 0, 0.3);
-    box-shadow:         0px 3px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:    2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow:         2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .btn-default:hover {
-    background: $default-color;
+    color: #0061ff;
+    font-weight: 500;
+    background: #ededed;
 }
 
 .btn-default:active {
@@ -44,154 +28,17 @@ h1 {
     border-color: $default-color;
 }
 
-/********* Order Details Styling ******/
+/********* Cards Styling *******/
 
-div.col-md-4.col-styling{
-  padding-left: 0!important;
-  padding-right: 0!important;
-  border: 1px solid $default-color;
-  box-sizing: border-box;
-  border-right: 0;
-  }
-
-  div.col-md-4.col-styling.end-table{
-    border-right: 1px solid $default-color;
-  }
-
-th {
-  border-bottom: 1px solid $default-color;
-  background-color:#e6e8ed;
-  font-size: 1.2em;
-  font-weight: bolder;
-  color: $default-color;
+.card-block.card-styling {
+  font-weight: 600;
 }
 
-td {
-  color: black;
-  padding-top: 10px;
-  padding-left: 10px;
+/********* Table Styling *******/
+.card {
+  border-radius: 0px;
 }
 
-td.td-left{
-  color: $default-color;
-  font-weight: bolder;
-}
-
-/******** Data Table Styling ******/
-.row.table-box-styling {
-  width: 99%;
-}
-
-.data-table-styling {
-  padding: 5px 0px 5px 5px;
-  border: 1px solid $default-color;
+.card.card-table {
   border-right: none;
-  background-color:#e6e8ed;
-}
-
-.data-table-styling-extra{
-  padding: 5px 0px 5px 5px;
-  border: 1px solid $default-color;
-  background-color:#e6e8ed;
-}
-
-.data-table-styling th {
-  border-bottom: none;
-}
-
-.data-table-styling-extra th {
-  border-bottom: none;
-}
-
-
-.data-table-col-styling {
-  padding: 5px 0px 5px 5px;
-  border: 1px solid $default-color;
-  border-top: none;
-  border-right: none;
-}
-
-.data-table-col-styling-extra {
-  padding: 5px 0px 5px 5px;
-  border: 1px solid $default-color;
-  border-top: none;
-}
-
-.word-styling {
-  color: $default-color;
-  font-weight: bolder;
-}
-
-th.align-word {
-  width: 5%;
-  text-align: center;
-}
-td.align-word {
-  padding-left: 0!important;
-  width: 5%;
-  text-align: center;
-}
-
-/* column width */
-.col-*-12 {
-  width: 100%;
-}
-
-.col-*-11 {
-  width: 91.66666667%;
-}
-
-.col-*-10 {
-  width: 83.33333333%;
-}
-
-.col-*-9 {
-  width: 75%;
-}
-
-.col-*-8 {
-  width: 66.66666667%;
-}
-
-.col-*-7 {
-  width: 58.33333333%;
-}
-
-.col-*-6 {
-  width: 50%;
-}
-
-.col-*-5 {
-  width: 41.66666667%;
-}
-
-.col-*-4 {
-  width: 33.33333333%;
-}
-
-.col-*-3 {
-  width: 25%;
-}
-
-.col-*-2 {
-  width: 16.66666667%;
-}
-
-.col-*-1 {
-  width: 8.33333333%;
-}
-
-/* column width ends */
-div.col-md-4.col-styling th.head-style {
-  width: 100%!important;
-}
-
-div.col-md-3.data-table-styling,
-div.col-md-3.data-table-col-styling {
-  width: 28.33333333%!important;
-}
-
-div.col-md-1.data-table-styling,
-div.col-md-1.data-table-col-styling {
-  width: 5%!important;
 }
