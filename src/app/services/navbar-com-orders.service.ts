@@ -6,6 +6,8 @@ import { Subject }    from 'rxjs/Subject';
 
 export class NavbarComOrdersService {
 
+  choiceFromNavbar;
+
   //For Navbars
   choiceService;
   choiceStatus;

@@ -22,13 +22,17 @@ import { DashboardComponent} from './components/dashboard/dashboard.component';
 import { UploadsComponent} from './components/uploads/uploads.component';
 import { OrderDetailsComponent } from  './components/orders/order-details/order-details.component';
 
+//Services
+import { OrdersService} from './components/orders/orders-service/orders.service';
 import { OrderService} from './services/order.service';
 import { OrderDetailsService} from './services/order-details.service';
 import { NavbarComOrdersService } from './services/navbar-com-orders.service';
+import { CsvfileService} from './components/uploads/services/csvfile.service';
 
 import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
 import { FilterPipe, FilterStatusPipe, FilterChannelPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
+
 
 
 
@@ -54,7 +58,8 @@ const appRoutes: Routes = [
     FilterStatusPipe,
     FilterChannelPipe,
     FilterDateMinPipe,
-    OrdersNavigationComponent
+    OrdersNavigationComponent,
+
 
 
   ],
@@ -71,12 +76,11 @@ const appRoutes: Routes = [
     FilterPipeModule,
     MyDateRangePickerModule,
     FormsModule,
-    NgbModule.forRoot ()
-
-
-
+    NgbModule.forRoot (),
   ],
-  providers: [OrderService, OrderDetailsService, NavbarComOrdersService],
+
+
+  providers: [OrderService, OrderDetailsService, NavbarComOrdersService, OrdersService, CsvfileService],
   bootstrap: [AppComponent],
 
 

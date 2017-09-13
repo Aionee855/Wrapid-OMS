@@ -1,14 +1,19 @@
 <div class="container">
   <ngb-tabset>
-    <ngb-tab title="All">
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <div (click)="navbarChoiceClick('ALL')">All</div>
+      </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
-
         </ng-template>
       </ngb-tab>
-      <ngb-tab title="Pending">
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('PendingInvoice')">Pending</div>
+        </ng-template>
         <ng-template ngbTabContent>
-          <p>Content for tab 2</p>
+          <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
       <ngb-tab title="Unverified">

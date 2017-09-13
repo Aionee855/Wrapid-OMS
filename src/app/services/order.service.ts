@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import { environment } from '../../environments/environment';
 
@@ -10,7 +11,6 @@ export class OrderService {
 
   apiUrl = environment.apiUrl;
 
-
   constructor(private http: Http) {
 
    }
@@ -19,6 +19,48 @@ export class OrderService {
     return this.http.get(this.apiUrl + 'orders/')
     .map(res => res.json());
   }
+
+  getAllOrders(){
+    //let apiURL = '${this.apiUrl}?/orders/';
+    let results;
+    let promise = new Promise((resolve, reject) => {
+    this.http.get(this.apiUrl + 'orders/')
+        .toPromise()
+        .then(
+          res => {
+            results = res.json();
+            console.log(results);
+            resolve(results);
+          },
+          msg => {
+            console.log("ERROR - can't get orders!");
+            reject();
+          }
+        )
+      });
+      return promise;
+  }
+
+  getOrdersByStatus(ordersStatus){
+        let results;
+        let promise = new Promise((resolve, reject) => {
+        this.http.get(this.apiUrl + 'orders/orderStatus/' + ordersStatus)
+            .toPromise()
+            .then(
+              res => {
+                results = res.json();
+                console.log(results);
+                resolve(results);
+              },
+              msg => {
+                console.log("ERROR - can't get orders!");
+                reject();
+              }
+            )
+          });
+          return promise;
+  }
+
 
   getOrderId(id){
       return this.http.get(this.apiUrl + 'orderItems/order/'+ id)
@@ -45,6 +87,13 @@ export class OrderService {
         .map(res => res.json());
   }
 
+  saveData(value){
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://http://localhost:8080/orderItem', value, {headers: headers})
+    .map(res => res.json());
+  }
 
 /// OLD ROUTES
 

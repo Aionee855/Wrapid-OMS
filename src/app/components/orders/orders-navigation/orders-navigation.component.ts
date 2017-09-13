@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { OrdersComponent } from '../orders-table/orders.component';
+import { OrdersService } from '../orders-service/orders.service';
 
 @Component({
   selector: 'app-orders-navigation',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersNavigationComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private ordersService:OrdersService) {
+
+   }
 
   ngOnInit() {
+  }
+
+
+
+  navbarChoiceClick(value){
+    console.log("choice CLICK");
+     this.ordersService.tabsChoice = value;
   }
 
 }

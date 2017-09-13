@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, Pipe, OnDestroy} from '@angular/core';
+import { Component, OnInit, ViewContainerRef, Pipe, OnDestroy, Input } from '@angular/core';
 import { Router} from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs/Rx';
@@ -12,15 +12,20 @@ import { Subscription } from 'rxjs/Subscription';
 import { NavbarComOrdersService } from '../../../services/navbar-com-orders.service';
 import { OrderDetailsService } from '../../../services/order-details.service';
 import { OrderService} from '../../../services/order.service';
+import { OrdersService } from '../orders-service/orders.service';
+
+import { OrdersNavigationComponent } from '../orders-navigation/orders-navigation.component';
+
 
 
 @Component({
   selector: 'app-orders-table',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
+  styleUrls: ['./orders.component.scss']
 
 })
-export class OrdersComponent implements OnInit, OnDestroy{
+export class OrdersComponent implements OnInit, OnDestroy {
+
 
   displayOnPageCounter;
   selectChannelFilter;
@@ -48,15 +53,35 @@ export class OrdersComponent implements OnInit, OnDestroy{
   constructor(private orderService:OrderService,
               private orderDetailsService:OrderDetailsService,
               private router: Router,
-              private navbarComOrdersService:NavbarComOrdersService)
+              private navbarComOrdersService:NavbarComOrdersService,
+              private ordersService:OrdersService,
+            )
               {
-                this.orderService.getOrders().subscribe(orders => {
-                  this.orders = orders;
-                  this.numberOfRows=orders.length;
-                  this.getDropdownChannelsList();
-                });
+               if(ordersService.tabsChoice == "ALL"){
+                 setTimeout(() => {
+                      this.getAllOrders();
+                  }, 200);
               }
 
+              if(ordersService.tabsChoice != "ALL"){
+                setTimeout(()=> {
+               this.getOrdersByStatus(ordersService.tabsChoice);
+               },200);
+
+             }
+           }
+
+private getAllOrders(){
+  this.orderService.getAllOrders().then(
+    (results) => { this.orders = results }
+  )
+}
+
+private getOrdersByStatus(status){
+  this.orderService.getOrdersByStatus(status).then(
+    (results) => { this.orders = results }
+  )
+}
 
   //Date Picker
   private myDateRangePickerOptions: IMyDrpOptions = {
@@ -75,10 +100,12 @@ export class OrdersComponent implements OnInit, OnDestroy{
 
 //Life cycle hook called by Angular2
   ngOnInit() {
+
+
 //Communicating with the Navbar Component through the navbar-com-orders service
 //Get order list depends of the navbar header choice
 
-    this.subscription = this.navbarComOrdersService.notifyObservable$.subscribe((res) => {
+  /*  this.subscription = this.navbarComOrdersService.notifyObservable$.subscribe((res) => {
 
       if (res.hasOwnProperty('option') && res.option === 'Created') {
         this.getOrdersByStatus('Created');
@@ -124,24 +151,17 @@ export class OrdersComponent implements OnInit, OnDestroy{
         };
 
     }
-
+*/
   }
 
+
 ngOnDestroy(){
-    console.log("DESTROY");
-    this.subscription.unsubscribe();
+  //  console.log("DESTROY");
+  //  this.subscription.unsubscribe();
 }
 
 //GetOrdersByStatus
-getOrdersByStatus(choice){
-    this.orderService.getOrdersStatus(choice).subscribe(orders => {
-      this.orders = orders;
-      this.numberOfRows=orders.length;
-      console.log(this.orders);
-      this.getDropdownChannelsList();
-   });
 
-}
 
 
 //DROPDOWN channels

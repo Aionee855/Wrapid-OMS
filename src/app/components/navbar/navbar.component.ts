@@ -80,6 +80,7 @@ getNumberOfAllOrders(){
       numberOfAllOrders = number;
       this.numberOfAllOrders = numberOfAllOrders.length;
     });
+
 }
 
 getNumberOfOrdersByStatus(status){
