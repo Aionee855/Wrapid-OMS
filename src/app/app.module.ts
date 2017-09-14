@@ -32,6 +32,7 @@ import { CsvfileService} from './components/uploads/services/csvfile.service';
 import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
 import { FilterPipe, FilterStatusPipe, FilterChannelPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
 
 
 
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
   {path:'charts', component: ChartsComponent},
   {path:'uploads', component: UploadsComponent},
   {path: 'orders/orderDetails', component: OrderDetailsComponent},
+  {path:'inventory', component: InventoryComponent},
 ]
 
 @NgModule({
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     FilterChannelPipe,
     FilterDateMinPipe,
     OrdersNavigationComponent,
+    InventoryComponent,
 
 
 

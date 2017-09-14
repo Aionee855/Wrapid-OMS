@@ -8,40 +8,56 @@
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
+
       <ngb-tab id="new-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('PendingInvoice')">Pending</div>
+          <div (click)="navbarChoiceClick('PendingInvoice')">New</div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="confirmed-tab" title="Confirmed">
+      <ngb-tab id="confirmed-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Confirmed')">Confirmed</div>
+        </ng-template>
         <ng-template ngbTabContent>
           <p>Content for tab 3</p>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="rts-tab" title="Ready To Ship">
+      <ngb-tab id="rts-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('ReadyToShip')">Ready To Ship</div>
+        </ng-template>
         <ng-template ngbTabContent>
           <p>Content for tab 4</p>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="shipped-tab" title="Shipped">
+      <ngb-tab id="shipped-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Shipped')">Shipped</div>
+        </ng-template>
         <ng-template ngbTabContent>
           <p>Content for tab 5</p>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="cancelled-tab" title="Cancelled">
+      <ngb-tab id="pending-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('PendingInvoice')">Pending Invoice</div>
+        </ng-template>
         <ng-template ngbTabContent>
           <p>Content for tab 6</p>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="failed-tab" title="Failed">
+      <ngb-tab id="cancelled-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Cancelled')">Cancelled</div>
+        </ng-template>
         <ng-template ngbTabContent>
           <p>Content for tab 7</p>
         </ng-template>

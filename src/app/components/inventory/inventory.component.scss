@@ -1,0 +1,42 @@
+@import '../orders/orders-table/orders.component';
+
+.container-fluid.inventory-only {
+  height: 500px;
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 500;
+  &:hover {
+    color: #0061ff;
+    border: none;
+  }
+  &.active {
+  font-weight: 700;
+  background-color: #f7f8f9;
+}
+}
+
+.fa.fa-search:hover {
+  color: #0061ff;
+}
+
+.dropdown-menu-center {
+  left: 55% !important;
+  text-align: left !important;
+}
+
+#label-variants {
+
+  font-weight: 600;
+}
+#variants {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  transform: translateY(25%);
+}
