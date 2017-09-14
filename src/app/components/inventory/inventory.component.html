@@ -1,7 +1,7 @@
 <h1>Products</h1>
 
 <ngb-tabset>
-  <ngb-tab title="Products">
+  <ngb-tab id="product-tab" title="Products">
     <ng-template ngbTabContent>
       <div class="container-fluid inventory-only">
         <br>
@@ -10,7 +10,7 @@
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search by Product name or Product Code">
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
               </div>
             </div>
@@ -36,16 +36,16 @@
       </div>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="SKU & Inventory">
+  <ngb-tab id="sku-tab" title="SKU & Inventory">
     <ng-template ngbTabContent>
-      <div class="container-fluid">
+      <div class="container-fluid inventory-only">
         <p>Content 2 here</p>
       </div>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Channel Catalogue">
+  <ngb-tab id="catalogue-tab" title="Channel Catalogue">
     <ng-template ngbTabContent>
-      <div class="container-fluid">
+      <div class="container-fluid inventory-only">
         <p>Content 3 here</p>
       </div>
     </ng-template>

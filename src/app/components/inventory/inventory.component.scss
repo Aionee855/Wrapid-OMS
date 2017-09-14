@@ -1,13 +1,24 @@
 @import '../orders/orders-table/orders.component';
 
 .container-fluid.inventory-only {
-  height: 500px;
+  height: 700px;
+  background: $main-grey;
   border-left: 2px solid #ddd;
   border-right: 2px solid #ddd;
   border-bottom: 2px solid #ddd;
 }
 
-.nav-link {
+// ===================    TABS STYLING  ==================
+.nav-tabs {
+  box-shadow: 0px -1px 0px 0px #ddd inset;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  border: 2px solid #ddd;
+  border-bottom: none;
+}
+
+#product-tab, #sku-tab, #catalogue-tab {
   color: black;
   font-weight: 500;
   &:hover {
@@ -20,7 +31,13 @@
 }
 }
 
+// ===================    BUTTONS STYLING  ==================
+.btn.btn-secondary.search-btn {
+  background: $main-grey;
+}
+
 .fa.fa-search:hover {
+  background: #f7f8f9;
   color: #0061ff;
 }
 
@@ -30,11 +47,12 @@
 }
 
 #label-variants {
-
   font-weight: 600;
 }
+
 #variants {
   position: relative;
+  background-color: white;
   height: 25px;
   width: 25px;
   margin-right: 10px;
