@@ -45,18 +45,18 @@
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="cancelled-tab">
+      <ngb-tab id="pending-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('Cancelled', 'Cancelled Orders')">Cancelled</div>
+          <div (click)="navbarChoiceClick('PendingInvoice', 'Pending Invoice')">Pending Invoice</div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="failed-tab">
+      <ngb-tab id="cancelled-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('Failed', 'Failed Orders')">Failed</div>
+          <div (click)="navbarChoiceClick('Cancelled', 'Cancelled Orders')">Cancelled</div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>

@@ -5,9 +5,10 @@
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
   border: 2px solid #ddd;
   border-bottom: none;
+
 }
 
-#all-tab, #new-tab, #confirmed-tab, #rts-tab, #shipped-tab, #cancelled-tab, #failed-tab  {
+#all-tab, #new-tab, #confirmed-tab, #rts-tab, #shipped-tab, #cancelled-tab, #pending-tab  {
   color: black;
   font-weight: 500;
   &:hover {
@@ -21,17 +22,21 @@
 }
 }
 
-ul.nav-tabs li{
-  padding: 0 !important;
-  width: 7rem;
+ul.nav-tabs li {
+  padding: 0!important;
+  width: 7.4rem;
   height: 2.2rem;
+
 }
 
-ul.nav-tabs li a{
-  display:block;
-  padding: 0 !important;
-  width: 7rem;
+ul.nav-tabs li a {
+  display: block;
+  padding: 0!important;
+  width: 7.4rem;
   height: 2.2rem;
   text-align: center;
   line-height: 2em;
+
+
+
 }

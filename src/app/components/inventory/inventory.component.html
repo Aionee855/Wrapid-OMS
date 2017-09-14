@@ -1,0 +1,53 @@
+<h1>Products</h1>
+
+<ngb-tabset>
+  <ngb-tab title="Products">
+    <ng-template ngbTabContent>
+      <div class="container-fluid inventory-only">
+        <br>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by Product name or Product Code">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="btn-group" ngbDropdown>
+                <button type="button" class="btn btn-outline-default channel-button">All Categories</button>
+                <button class="btn btn-default dropdown-toggle-split" ngbDropdownToggle></button>
+                  <div class="dropdown-menu dropdown-menu-center" ngbDropdownMenu>
+                  <button class="dropdown-item">T-shirts</button>
+                  <button class="dropdown-item">Hoodies</button>
+                  <button class="dropdown-item">Trainers</button>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-2">
+            <input type="checkbox" value="None" id="variants" name="check" />
+            <label id="label-variants" for="variants"> Has Variants</label>
+          </div>
+
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="SKU & Inventory">
+    <ng-template ngbTabContent>
+      <div class="container-fluid">
+        <p>Content 2 here</p>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Channel Catalogue">
+    <ng-template ngbTabContent>
+      <div class="container-fluid">
+        <p>Content 3 here</p>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
