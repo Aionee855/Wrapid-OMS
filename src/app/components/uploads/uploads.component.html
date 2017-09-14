@@ -6,7 +6,20 @@
     <form class="form-inline">
     <button class="btn btn-warning" onclick="document.getElementById('txtFileUpload').click()">Choose file...</button>
     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Filename" value={{fileName}}>
-    <button class="btn btn-primary" id="saveButton" (click)="saveData()"> Save data</button>
+    <button class="btn btn-primary" id="saveButton" (click)="saveData()"> Upload</button>
     </form>
 </div>
 <br>
+
+<table class="table table-bordered">
+     <th *ngFor="let header of headers">{{header}}</th>
+  <tr *ngFor="let data of myJsonObcjects">
+
+      <td>{{data.name}}</td>
+      <td>{{data.surname}}</td>
+      <td>{{data.gender}}</td>
+
+  </tr>
+
+
+</table>

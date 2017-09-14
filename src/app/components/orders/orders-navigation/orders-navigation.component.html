@@ -2,48 +2,64 @@
   <ngb-tabset>
     <ngb-tab id="all-tab">
       <ng-template ngbTabTitle>
-        <div (click)="navbarChoiceClick('ALL')">All</div>
+        <div (click)="navbarChoiceClick('ALL', 'All Orders')">All</div>
       </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
+
       <ngb-tab id="new-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('PendingInvoice')">Pending</div>
+          <div (click)="navbarChoiceClick('Created', 'New Orders')">New</div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="confirmed-tab" title="Confirmed">
+      <ngb-tab id="confirmed-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Confirmed', 'Confirmed Orders')">Confirmed</div>
+        </ng-template>
         <ng-template ngbTabContent>
-          <p>Content for tab 3</p>
+          <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="rts-tab" title="Ready To Ship">
+      <ngb-tab id="rts-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('ReadyToShip', 'Ready To Ship')">Ready To Ship</div>
+        </ng-template>
         <ng-template ngbTabContent>
-          <p>Content for tab 4</p>
+          <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="shipped-tab" title="Shipped">
+      <ngb-tab id="shipped-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Shipped', 'Shipped Orders')">Shipped</div>
+        </ng-template>
         <ng-template ngbTabContent>
-          <p>Content for tab 5</p>
+          <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="cancelled-tab" title="Cancelled">
+      <ngb-tab id="cancelled-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Cancelled', 'Cancelled Orders')">Cancelled</div>
+        </ng-template>
         <ng-template ngbTabContent>
-          <p>Content for tab 6</p>
+          <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
 
-      <ngb-tab id="failed-tab" title="Failed">
+      <ngb-tab id="failed-tab">
+        <ng-template ngbTabTitle>
+          <div (click)="navbarChoiceClick('Failed', 'Failed Orders')">Failed</div>
+        </ng-template>
         <ng-template ngbTabContent>
-          <p>Content for tab 7</p>
+          <app-orders-table></app-orders-table>
         </ng-template>
       </ngb-tab>
     </ngb-tabset>

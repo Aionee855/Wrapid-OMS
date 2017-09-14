@@ -13,9 +13,25 @@
   &:hover {
     color: #0061ff;
     border: none;
-  }
+    }
+
   &.active {
   font-weight: 700;
   background-color: #f7f8f9;
 }
+}
+
+ul.nav-tabs li{
+  padding: 0 !important;
+  width: 7rem;
+  height: 2.2rem;
+}
+
+ul.nav-tabs li a{
+  display:block;
+  padding: 0 !important;
+  width: 7rem;
+  height: 2.2rem;
+  text-align: center;
+  line-height: 2em;
 }

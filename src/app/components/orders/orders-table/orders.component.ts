@@ -58,13 +58,14 @@ export class OrdersComponent implements OnInit, OnDestroy {
               private ordersService:OrdersService,
             )
               {
-               if(ordersService.tabsChoice == "ALL"){
+               if(ordersService.tabsChoice == "ALL" || ordersService.tabsChoice == undefined){
+                 ordersService.title = "All Orders";
                  setTimeout(() => {
                       this.getAllOrders();
                   }, 200);
               }
 
-              if(ordersService.tabsChoice != "ALL"){
+              if(ordersService.tabsChoice != "ALL" && ordersService.tabsChoice != undefined ){
                 setTimeout(()=> {
                this.getOrdersByStatus(ordersService.tabsChoice);
                },200);
