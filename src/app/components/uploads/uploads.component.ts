@@ -19,6 +19,9 @@ export class UploadsComponent implements OnInit {
 
 fileName: string;
 fileContent;
+headers;
+
+testValue= "name";
 
 myString: string;
 myStringfy: string;
@@ -39,6 +42,7 @@ myJsonObcjects: object[];
   readThis(inputValue: any) : void {
     var file:File = inputValue.files[0];
     var myReader:FileReader = new FileReader();
+    this.fileName = file.name;
     console.log(file);
 
 
@@ -79,13 +83,12 @@ myJsonObcjects: object[];
 
         result.push(obj);
     }
+    this.headers = headers;
     return JSON.stringify(result); //JSON
 }
 
 //Saving to database
-headers = new Headers({
-    'Content-Type': 'application/json'
-  });
+
 
 saveData(){
   console.log(JSON.stringify(this.myString));

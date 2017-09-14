@@ -16,13 +16,17 @@ export class OrdersNavigationComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
 
 
-  navbarChoiceClick(value){
+  navbarChoiceClick(value, title){
     console.log("choice CLICK");
      this.ordersService.tabsChoice = value;
+     this.ordersService.title = title;
   }
+
+
 
 }
