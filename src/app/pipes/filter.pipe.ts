@@ -30,9 +30,10 @@ export class FilterPipe implements PipeTransform {
   @Pipe({
           name: 'filterChannel',
       })
+
     export class FilterChannelPipe implements PipeTransform {
               transform(orders: any, term: any): any {
-                if( term === undefined) return orders;
+                if( term === undefined || term === "Channels" || term === "All") return orders;
               return orders.filter(function(order){
                 return order.salesChannel.toLowerCase().includes(term.toLowerCase());
           })

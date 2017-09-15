@@ -29,11 +29,17 @@ export class FilterDateMaxPipe implements PipeTransform {
 export class FilterDateMinPipe implements PipeTransform {
 
   transform(value, args?) {
+
+    console.log("filter date pipe run!!");
       if( args === undefined) return value;
 
-      let min = args;
+      //let min = args;
       return value.filter(orders => {
-        return orders.date >= min;
+        return orders.date == args;
       });
+
+
     }
+
+
 }

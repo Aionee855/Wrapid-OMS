@@ -1,18 +1,16 @@
 <div class="jumbotron">
   <h1 id="jumbo-h1"> {{ordersService.title}} </h1>
 
-
-
+<!-- FILTERS -->
 <div class="row justify-content-center">
   <div class="col col-md-8 col-offset-4">
     <div class="text-center">
     <div class="btn-group" ngbDropdown>
-      <button type="button" class="btn btn-outline-default channel-button">Channels</button>
+      <button type="button" class="btn btn-outline-default channel-button">{{dropSelected}}</button>
       <button class="btn btn-default dropdown-toggle-split" ngbDropdownToggle></button>
         <div class="dropdown-menu dropdown-menu-center" ngbDropdownMenu>
-        <button class="dropdown-item">Amazon.in</button>
-        <button class="dropdown-item">Amazon.co.uk</button>
-        <button class="dropdown-item">Flipkart</button>
+        <button class="dropdown-item" (click)="dropSelected = 'All'">All</button>
+        <button *ngFor="let channel of dropChannelsList" class="dropdown-item" (click)="dropSelected = channel">{{channel}}</button>
       </div>
     </div>
 
@@ -25,15 +23,20 @@
                             (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
   </div>
 </div>
-
-
 </div>   <!-- button-row -->
 </div>   <!-- jumbotron  -->
 </div>
 
 <br>
 
-<p> Displaying {{displayOnPageCounter+1}} of {{numberOfRows}} records <p>
+<div *ngIf="((p*rowsOnPage)-ordersNumberDisplayed)>=0">
+<p> Displaying {{(p*rowsOnPage)-(rowsOnPage-1)}} - {{ordersNumberDisplayed}} of {{ordersNumberDisplayed}} records <p>
+</div>
+<div *ngIf="((p*rowsOnPage)-ordersNumberDisplayed)<0">
+<p> Displaying {{(p*rowsOnPage)-(rowsOnPage-1)}} - {{p*rowsOnPage}} of {{ordersNumberDisplayed}} records <p>
+</div>
+
+
 
 <!-- Datatable -->
 <div class="container-fluid">
@@ -89,7 +92,7 @@
 <!-- Datatable - load from datatabse --------------------------------->
 <tr class="datatableBody" *ngFor="let order of orders
                          | filterSKU: filterSKUvalue
-                         | filterChannel: selectChannelFilter
+                         | filterChannel: dropSelected
                          | orderBy: order: reverse
                          | paginate: { itemsPerPage: rowsOnPage, currentPage: p}
                          ;let i = index

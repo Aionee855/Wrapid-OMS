@@ -1,6 +1,9 @@
+<!--<button onclick="document.getElementById('new-tab').click()">CLICK ME</button> -->
+
+
 <div class="container-fluid">
-  <ngb-tabset>
-    <ngb-tab id="all-tab">
+  <ngb-tabset #tabSet="ngbTabset">
+    <ngb-tab id="all-tab" >
       <ng-template ngbTabTitle>
         <div (click)="navbarChoiceClick('ALL', 'All Orders')">All</div>
       </ng-template>

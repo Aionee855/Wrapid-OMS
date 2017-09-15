@@ -2,10 +2,9 @@ import { Component, OnInit, ViewContainerRef, Pipe, OnDestroy, Input } from '@an
 import { Router} from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs/Rx';
-import { DatePipe } from '@angular/common';
 import { FilterService } from 'ng-filter';
 import { environment } from '../../../../environments/environment';
-import { IMyDrpOptions} from 'mydaterangepicker';
+import { IMyDrpOptions,IMyDateRangeModel} from 'mydaterangepicker';
 import { RouterModule, Routes} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -15,6 +14,8 @@ import { OrderService} from '../../../services/order.service';
 import { OrdersService } from '../orders-service/orders.service';
 
 import { OrdersNavigationComponent } from '../orders-navigation/orders-navigation.component';
+
+const moment = require('../../../../../node_modules/moment/moment.js');
 
 
 
@@ -26,6 +27,17 @@ import { OrdersNavigationComponent } from '../orders-navigation/orders-navigatio
 })
 export class OrdersComponent implements OnInit, OnDestroy {
 
+  public dropChannelsList: any[] = [];
+  public dropSelected: string = "Channels";
+
+  //pagination
+  p:number = 1;
+  ordersNumberDisplayed: number;
+
+  //date-picker
+  beginDate;
+  endDate;
+
 
   displayOnPageCounter;
   selectChannelFilter;
@@ -33,8 +45,7 @@ export class OrdersComponent implements OnInit, OnDestroy {
   filterSKUvalue;
   checkBoxId;
   orders;
-  startDate;
-  endDate;
+
 
 
   private subscription: Subscription;
@@ -58,6 +69,8 @@ export class OrdersComponent implements OnInit, OnDestroy {
               private ordersService:OrdersService,
             )
               {
+                console.log(this.testDate);
+
                if(ordersService.tabsChoice == "ALL" || ordersService.tabsChoice == undefined){
                  ordersService.title = "All Orders";
                  setTimeout(() => {
@@ -67,29 +80,107 @@ export class OrdersComponent implements OnInit, OnDestroy {
 
               if(ordersService.tabsChoice != "ALL" && ordersService.tabsChoice != undefined ){
                 setTimeout(()=> {
-               this.getOrdersByStatus(ordersService.tabsChoice);
-               },200);
+                     this.getOrdersByStatus(ordersService.tabsChoice);
+                 },200);
 
              }
            }
 
 private getAllOrders(){
   this.orderService.getAllOrders().then(
-    (results) => { this.orders = results }
+    (results) => { this.orders = results,
+                   this.getDropdownChannelsList(),
+                   this.ordersNumberDisplayed = this.orders.length }
   )
 }
 
 private getOrdersByStatus(status){
   this.orderService.getOrdersByStatus(status).then(
-    (results) => { this.orders = results }
+    (results) => { this.orders = results,
+                   this.getDropdownChannelsList(),
+                   this.ordersNumberDisplayed = this.orders.length  }
   )
 }
 
+//Get list for the DROPDOWN CHANNEL
+
+ getDropdownChannelsList(){
+   var counter: number = 0;
+   var testArrayCounter = 0;
+   var check:boolean;
+
+   this.dropChannelsList = [];
+
+ if(this.orders === undefined){console.log("!! Undefined orders object")};
+
+     if(this.orders != undefined){
+       console.log("Dropdown runned successfully!!");
+       if(this.orders.salesChannel != undefined){
+       this.dropChannelsList[0]=this.orders[0].salesChannel;
+       }
+       for(counter; counter<this.orders.length ; counter++){
+         testArrayCounter = 0;
+          for(testArrayCounter; testArrayCounter<=this.dropChannelsList.length; testArrayCounter++){
+             if(this.orders[counter].salesChannel === this.dropChannelsList[testArrayCounter]){
+               check = true;
+               break;
+             }
+             if(this.orders[counter].salesChannel !== this.dropChannelsList[testArrayCounter]){
+               check = false;
+             }
+           }
+        if(check === false){
+         this.dropChannelsList[this.dropChannelsList.length] = this.orders[counter].salesChannel ;
+        }
+       }
+     }
+       console.log(this.dropChannelsList);
+ }
+
+//PAGINATION
+//Counts how many rows display on page
+  DisplayOnPageCounter(value){
+     this.displayOnPageCounter = value;
+  }
+
+
+
+/////////////////////////**********************************************
+
   //Date Picker
+
+  testDate = '2017-08-02';
+
+
   private myDateRangePickerOptions: IMyDrpOptions = {
         // other options...
-        dateFormat: 'dd.mm.yyyy',
+        dateFormat: 'yyyy-mm-dd',
     };
+
+  onDateRangeChanged(event: IMyDateRangeModel) {
+        // event properties are: event.beginDate, event.endDate, event.formatted,
+        // event.beginEpoc and event.endEpoc
+
+        console.log(event.beginDate.month);
+
+
+        this.beginDate = new Date (event.beginDate.year, event.beginDate.month-1, event.beginDate.day,0,0,0,0 );
+        this.endDate = new Date (event.endDate.year, event.endDate.month-1, event.endDate.day,0,0,0,0 );
+
+        console.log(this.beginDate);
+        console.log(this.endDate);
+
+
+        console.log(this.orders[1].date);
+
+        var b = moment(this.beginDate).format('DD/MM/YYYY');
+        moment('01/12/2016', 'DD/MM/YYYY', true).format()
+
+        console.log(b);
+
+
+    }
+
 
 //Managing ▼ ▲ when sorted
   setOrder(value: string) {
@@ -104,56 +195,6 @@ private getOrdersByStatus(status){
   ngOnInit() {
 
 
-//Communicating with the Navbar Component through the navbar-com-orders service
-//Get order list depends of the navbar header choice
-
-  /*  this.subscription = this.navbarComOrdersService.notifyObservable$.subscribe((res) => {
-
-      if (res.hasOwnProperty('option') && res.option === 'Created') {
-        this.getOrdersByStatus('Created');
-      }
-      if (res.hasOwnProperty('option') && res.option === 'ReadyToShip') {
-        this.getOrdersByStatus('ReadyToShip');
-      }
-      if (res.hasOwnProperty('option') && res.option === 'Shipped') {
-        this.getOrdersByStatus('Shipped');
-      }
-      if (res.hasOwnProperty('option') && res.option === 'PendingInvoice') {
-        this.getOrdersByStatus('PendingInvoice');
-      }
-
-      if (res.hasOwnProperty('option') && res.option === 'All') {
-        this.orderService.getOrders().subscribe(orders => {
-          this.orders = orders;
-          this.numberOfRows=orders.length;
-          this.navbarComOrdersService.choiceService = 'All Orders';
-          this.getDropdownChannelsList();
-        });
-      }
-
-    });
-
-
-    if(this.navbarComOrdersService.choiceService === undefined){
-    this.orderService.getOrders().subscribe(orders => {
-      this.orders = orders;
-      this.numberOfRows=orders.length;
-      this.getDropdownChannelsList();
-    });
-  }
-
-    if(this.navbarComOrdersService.choiceService){
-      if(this.navbarComOrdersService.choiceService === 'All Orders'){
-        this.orderService.getOrders().subscribe(orders => {
-          this.orders = orders;
-          this.numberOfRows=orders.length;
-        });
-      }else
-        { this.getOrdersByStatus(this.navbarComOrdersService.choiceService);
-        };
-
-    }
-*/
   }
 
 
@@ -162,22 +203,9 @@ ngOnDestroy(){
   //  this.subscription.unsubscribe();
 }
 
-//GetOrdersByStatus
 
 
 
-//DROPDOWN channels
-dropdownSelection  = "Channels";
-  selectChannel(channel){
-      this.selectChannelFilter = channel;
-      this.dropdownSelection = channel;
- }
-
- selectAll(){
-
-     this.selectChannelFilter = '';
-     this.dropdownSelection = 'Channels';
- }
 
  passValuesToService(chosenOrderId: String, salesChannelOrderId: String, salesChannel: String, orderStatus: String, orderType: String, buyerEmail: String,
                      name: String, addressLine1: String, city: String, stateOrRegion: String, postalCode: String, countryCode: String )
@@ -196,46 +224,4 @@ dropdownSelection  = "Channels";
                        this.orderDetailsService.countryCode = countryCode;
                       }
 
-//Counts how many rows display on page
- DisplayOnPageCounter(value){
-    this.displayOnPageCounter = value;
- }
-
- //Get list for the DROPDOWN CHANNEL
- dropChannelsList = [];
-
-  getDropdownChannelsList(){
-    var counter: number = 0;
-    var testArrayCounter = 0;
-    var check:boolean;
-
-    this.dropChannelsList = [];
-
-  if(this.orders === undefined){console.log("!! Undefined orders object")};
-
-      if(this.orders != undefined){
-        console.log("Dropdown runned successfully!!");
-        if(this.orders.salesChannel != undefined){
-        this.dropChannelsList[0]=this.orders[0].salesChannel;
-        }
-        for(counter; counter<this.orders.length ; counter++){
-          testArrayCounter = 0;
-
-          for(testArrayCounter; testArrayCounter<=this.dropChannelsList.length; testArrayCounter++){
-              if(this.orders[counter].salesChannel === this.dropChannelsList[testArrayCounter]){
-                check = true;
-                break;
-              }
-              if(this.orders[counter].salesChannel !== this.dropChannelsList[testArrayCounter]){
-                check = false;
-              }
-        }
-        if(check === false){
-          this.dropChannelsList[this.dropChannelsList.length] = this.orders[counter].salesChannel ;
-        }
-
-        }
-      }
-        console.log(this.dropChannelsList);
-  }
 }

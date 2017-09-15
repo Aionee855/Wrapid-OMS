@@ -14,6 +14,8 @@ import { DropdownModule} from "ng2-dropdown";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
+
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ChartsComponent } from './components/charts/charts.component';
@@ -62,6 +64,7 @@ const appRoutes: Routes = [
     FilterDateMinPipe,
     OrdersNavigationComponent,
     InventoryComponent,
+
 
 
 

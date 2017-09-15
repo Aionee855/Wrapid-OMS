@@ -19,7 +19,50 @@ export class OrdersNavigationComponent implements OnInit {
 
   }
 
+  @ViewChild('tabSet') tabSet;
 
+  ngAfterViewInit() {
+
+    setTimeout(() => {
+
+    switch(this.ordersService.title) {
+   case 'All Orders': {
+      this.tabSet.select('all-tab');
+      break;
+   }
+   case 'New Orders': {
+      this.tabSet.select('new-tab');
+      break;
+   }
+   case 'Confirmed Orders': {
+      this.tabSet.select('confirmed-tab');
+      break;
+   }
+   case 'Ready To Ship': {
+      this.tabSet.select('rts-tab');
+      break;
+   }
+   case 'Shipped Orders': {
+      this.tabSet.select('shipped-tab');
+      break;
+   }
+   case 'Pending Invoice': {
+      this.tabSet.select('pending-tab');
+      break;
+   }
+   case 'Cancelled Orders': {
+      this.tabSet.select('cancelled-tab');
+      break;
+   }
+   default: {
+      //statements;
+      break;
+   }
+}
+},)
+
+
+  }
 
   navbarChoiceClick(value, title){
     console.log("choice CLICK");
