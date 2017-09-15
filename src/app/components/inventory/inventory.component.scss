@@ -41,13 +41,29 @@
   color: #0061ff;
 }
 
+input.form-control {
+  font-family: "Catamaran" sans-serif;
+  font-size: 0.9rem;
+  color: grey;
+}
+
+#category-btn {
+  font-family: "Catamaran" sans-serif;
+  font-size: 0.9rem;
+  height: 38px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .dropdown-menu-center {
   left: 55% !important;
   text-align: left !important;
 }
 
 #label-variants {
-  font-weight: 600;
+  font-family: "Catamaran" sans-serif;
+  color: black;
+  font-size: 1rem;
 }
 
 #variants {
@@ -57,4 +73,52 @@
   width: 25px;
   margin-right: 10px;
   transform: translateY(25%);
+}
+
+.btn.btn-outline-default {
+  font-family: "Catamaran" sans-serif;
+  color: black;
+  font-size: 0.9rem;
+  height: 38px;
+  background: white;
+  border-color: #ddd;
+  margin-left: 30px;
+  cursor: pointer;
+
+}
+
+#product-actions-btn {
+  margin-left: 30px;
+}
+
+.fa.fa-plus-circle {
+  margin-right: 10px;
+}
+
+.icon-box {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.btn.btn-secondary.btn-card-toggle {
+  margin-top: 25%;
+  cursor: pointer;
+  &:hover {
+    color: #0061ff;
+    text-decoration: underline;
+  }
+}
+
+// ===================    ACCORDION STYLING  ==================
+
+.img-thumbnail {
+  width: 100px;
+}
+
+.table-striped>tbody>tr:nth-child(odd) {
+  background: white;
+}
+
+.table-striped>tbody>tr:nth-child(even) {
+  background: $main-grey;
 }

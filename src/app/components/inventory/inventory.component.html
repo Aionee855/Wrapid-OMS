@@ -8,7 +8,7 @@
           <div class="row">
             <div class="col-md-3">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search by Product name or Product Code">
+                <input type="text" class="form-control" placeholder="Search by Product Name/Product Code">
                 <span class="input-group-btn">
                   <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
@@ -17,9 +17,8 @@
 
             <div class="col-md-2">
               <div class="btn-group" ngbDropdown>
-                <button type="button" class="btn btn-outline-default channel-button">All Categories</button>
-                <button class="btn btn-default dropdown-toggle-split" ngbDropdownToggle></button>
-                  <div class="dropdown-menu dropdown-menu-center" ngbDropdownMenu>
+                <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>All Categories </button>
+                <div ngbDropdownMenu dropdown-menu-center aria-labelledby="dropdownBasic1">
                   <button class="dropdown-item">T-shirts</button>
                   <button class="dropdown-item">Hoodies</button>
                   <button class="dropdown-item">Trainers</button>
@@ -32,10 +31,226 @@
             <label id="label-variants" for="variants"> Has Variants</label>
           </div>
 
+          <div class="col-md-5 text-right">
+            <button type="button" class="btn btn-outline-default"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Product</button>
+
+            <div class="btn-group" ngbDropdown>
+              <button class="btn btn-outline-default" id="product-actions-btn" ngbDropdownToggle>
+               <img class="icon-box" src="../../assets/box.png" alt="box"> Product Actions </button>
+              <div ngbDropdownMenu dropdown-menu-action aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item">Upload Products</button>
+                <button class="dropdown-item">Download Products</button>
+                <button class="dropdown-item">Fetch from Online Channel</button>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+        <br>
+          <!--   =========  CARD BLOCK 1   ==========       -->
+
+          <div class="card">
+            <div class="card-block">
+              <div class="row">
+                <div class="col-sm-1">
+                  <img src="../../assets/mens_rebel_t-shirt_white.jpg" alt="t-shirt-white" class="img-thumbnail">
+                </div>
+
+                <div class="col-sm-1 text-right">
+                  <p> Name: </p>
+                  <p> Code: </p>
+                </div>
+
+                <div class="col-sm-2">
+                  <p> White Rebel T-Shirt </p>
+                  <p> WRTS001</p>
+                </div>
+
+                <div class="col-sm-1 text-right">
+                  <p>Category:</p>
+                </div>
+
+                <div class="col-sm-2">
+                  <p>Mens T-shirts</p>
+                </div>
+
+                <div class="col-sm-1  text-right">
+                  <p>Has Variants:</p>
+                </div>
+
+                <div class="col-sm-1">
+                  <p>4</p>
+                </div>
+
+                <div class="col-sm-1 offset-sm-1">
+                  <a class="btn btn-secondary btn-card-toggle" (click)="isCollapsed = !isCollapsed"
+                          [attr.aria-expanded]="!isCollapsed" aria-controls="toggle-1">View Details</a>
+                </div>
+
+            </div>
+            </div>
+          </div>
+
+
+<div id="toggle-1" [ngbCollapse]="isCollapsed">
+  <div class="card">
+    <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <table class="table table-striped">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Name</th>
+                  <th>SKU</th>
+                  <th>Size</th>
+                  <th>In Stock</th>
+                  <th>Selling Price (£)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>White Rebel T-shirt</td>
+                  <td>Demo40000</td>
+                  <td>S</td>
+                  <td>50</td>
+                  <td>16</td>
+                </tr>
+                <tr>
+                  <td>White Rebel T-shirt</td>
+                  <td>Demo40001</td>
+                  <td>M</td>
+                  <td>23</td>
+                  <td>16</td>
+                </tr>
+                <tr>
+                  <td>White Rebel T-shirt</td>
+                  <td>Demo40002</td>
+                  <td>L</td>
+                  <td>35</td>
+                  <td>16</td>
+                </tr>
+                <tr>
+                  <td>White Rebel T-shirt</td>
+                  <td>Demo40003</td>
+                  <td>XL</td>
+                  <td>20</td>
+                  <td>16</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<br>
+  <!--   =========  CARD BLOCK 2 ==========       -->
+  <div class="card">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-sm-1">
+          <img src="../../assets/mens_rebel_t-shirt_black.jpg" alt="t-shirt-white" class="img-thumbnail">
+        </div>
+
+        <div class="col-sm-1 text-right">
+          <p> Name: </p>
+          <p> Code: </p>
+        </div>
+
+        <div class="col-sm-2">
+          <p> Black Rebel T-Shirt </p>
+          <p> BRTS001</p>
+        </div>
+
+        <div class="col-sm-1 text-right">
+          <p>Category:</p>
+        </div>
+
+        <div class="col-sm-2">
+          <p>Mens T-shirts</p>
+        </div>
+
+        <div class="col-sm-1  text-right">
+          <p>Has Variants:</p>
+        </div>
+
+        <div class="col-sm-1">
+          <p>4</p>
+        </div>
+
+        <div class="col-sm-1 offset-sm-1">
+          <a class="btn btn-secondary btn-card-toggle" (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="toggle-2">View Details</a>
+        </div>
+
+    </div>
+    </div>
+  </div>
+
+
+<div id="toggle-2" [ngbCollapse]="isCollapsed">
+<div class="card">
+<div class="card-body">
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <table class="table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>SKU</th>
+          <th>Size</th>
+          <th>In Stock</th>
+          <th>Selling Price (£)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Black Rebel T-shirt</td>
+          <td>Demo50000</td>
+          <td>S</td>
+          <td>50</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>Black Rebel T-shirt</td>
+          <td>Demo50001</td>
+          <td>M</td>
+          <td>23</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>Black Rebel T-shirt</td>
+          <td>Demo50002</td>
+          <td>L</td>
+          <td>35</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>Black Rebel T-shirt</td>
+          <td>Demo50003</td>
+          <td>XL</td>
+          <td>20</td>
+          <td>16</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+      </div>   <!-- CONTAINER-FLUID INVENTORY-ONLY -->
     </ng-template>
   </ngb-tab>
+
+
   <ngb-tab id="sku-tab" title="SKU & Inventory">
     <ng-template ngbTabContent>
       <div class="container-fluid inventory-only">
