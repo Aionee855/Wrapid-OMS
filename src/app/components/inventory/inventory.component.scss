@@ -1,13 +1,20 @@
 @import '../orders/orders-table/orders.component';
 
 .container-fluid.inventory-only {
-  height: 700px;
+  height: auto;
   background: $main-grey;
   border-left: 2px solid #ddd;
   border-right: 2px solid #ddd;
   border-bottom: 2px solid #ddd;
 }
 
+div.card {
+  margin-bottom: 20px;
+}
+
+.card.toggle-card {
+  margin-top: -20px;
+}
 // ===================    TABS STYLING  ==================
 .nav-tabs {
   box-shadow: 0px -1px 0px 0px #ddd inset;
@@ -47,6 +54,8 @@ input.form-control {
   color: grey;
 }
 
+//   ======= CATEGORIES DROPDOWN ==========
+
 #category-btn {
   font-family: "Catamaran" sans-serif;
   font-size: 0.9rem;
@@ -59,6 +68,48 @@ input.form-control {
   left: 55% !important;
   text-align: left !important;
 }
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: -10%;
+    left: 100%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-item:hover {
+  background-color: #ddd!important;
+}
+
+
+
+
+//   ======= VARIANTS ==========
 
 #label-variants {
   font-family: "Catamaran" sans-serif;
@@ -75,6 +126,9 @@ input.form-control {
   transform: translateY(25%);
 }
 
+
+//   ======= ADD NEW PRODUCT BTN ==========
+
 .btn.btn-outline-default {
   font-family: "Catamaran" sans-serif;
   color: black;
@@ -87,18 +141,24 @@ input.form-control {
 
 }
 
-#product-actions-btn {
-  margin-left: 30px;
-}
-
 .fa.fa-plus-circle {
   margin-right: 10px;
+}
+
+//   =======  PRODUCT ACTIONS BTN ==========
+
+#product-actions-btn {
+  margin-left: 30px;
+
 }
 
 .icon-box {
   width: 20px;
   margin-right: 10px;
 }
+
+
+//   ======= VIEW DETAILS BTN ==========
 
 .btn.btn-secondary.btn-card-toggle {
   margin-top: 25%;
@@ -115,10 +175,6 @@ input.form-control {
   width: 100px;
 }
 
-.table-striped>tbody>tr:nth-child(odd) {
-  background: white;
-}
-
-.table-striped>tbody>tr:nth-child(even) {
-  background: $main-grey;
+.table-striped {
+    margin-top: 10px;
 }

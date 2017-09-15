@@ -35,6 +35,7 @@ import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
 import { FilterPipe, FilterStatusPipe, FilterChannelPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { InventoryStockComponent } from './components/inventory-stock/inventory-stock.component';
 
 
 
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
     FilterDateMinPipe,
     OrdersNavigationComponent,
     InventoryComponent,
+    InventoryStockComponent,
 
 
 

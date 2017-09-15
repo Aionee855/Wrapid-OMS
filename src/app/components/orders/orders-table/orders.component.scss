@@ -146,7 +146,13 @@ input::-webkit-input-placeholder {
   color: lightgrey;
 }
 
+.table-striped>tbody>tr:nth-child(odd) {
+  background: white;
+}
 
+.table-striped>tbody>tr:nth-child(even) {
+  background: $main-grey;
+}
 /* FOOTER */
 .label-control{
 width: auto;

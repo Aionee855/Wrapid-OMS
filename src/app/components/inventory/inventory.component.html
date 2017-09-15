@@ -19,9 +19,45 @@
               <div class="btn-group" ngbDropdown>
                 <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>All Categories </button>
                 <div ngbDropdownMenu dropdown-menu-center aria-labelledby="dropdownBasic1">
-                  <button class="dropdown-item">T-shirts</button>
-                  <button class="dropdown-item">Hoodies</button>
-                  <button class="dropdown-item">Trainers</button>
+                  <div class="dropdown">
+                  <button class="dropdown-item">Mens Clothing</button>
+                        <div class="dropdown-content" ngbDropdownMenu>
+                          <button class="dropdown-item">T-Shirts/Tops</button>
+                          <button class="dropdown-item">Sweatshirts/Hoodies</button>
+                          <button class="dropdown-item">Jackets</button>
+                          <button class="dropdown-item">Pants</button>
+                        </div>
+                      </div>
+
+                  <div class="dropdown">
+                  <button class="dropdown-item">Mens Shoes</button>
+                        <div class="dropdown-content" ngbDropdownMenu>
+                          <button class="dropdown-item">Sneakers</button>
+                          <button class="dropdown-item">Running</button>
+                          <button class="dropdown-item">Football</button>
+                          <button class="dropdown-item">Sandals/Flipflops</button>
+                        </div>
+                      </div>
+
+                  <div class="dropdown">
+                  <button class="dropdown-item">Womens Clothing</button>
+                        <div class="dropdown-content" ngbDropdownMenu>
+                          <button class="dropdown-item">T-Shirts/Tops</button>
+                          <button class="dropdown-item">Sweatshirts/Hoodies</button>
+                          <button class="dropdown-item">Jackets</button>
+                          <button class="dropdown-item">Pants</button>
+                        </div>
+                      </div>
+
+                      <div class="dropdown">
+                      <button class="dropdown-item">Womens Shoes</button>
+                            <div class="dropdown-content" ngbDropdownMenu>
+                              <button class="dropdown-item">Sneakers</button>
+                              <button class="dropdown-item">Running</button>
+                              <button class="dropdown-item">Training</button>
+                              <button class="dropdown-item">Sandals/Flipflops</button>
+                            </div>
+                          </div>
                 </div>
               </div>
           </div>
@@ -66,12 +102,14 @@
                   <p> WRTS001</p>
                 </div>
 
-                <div class="col-sm-1 text-right">
+                <div class="col-sm-2 text-right">
                   <p>Category:</p>
+                  <p>Sub-Category</p>
                 </div>
 
                 <div class="col-sm-2">
-                  <p>Mens T-shirts</p>
+                  <p>Mens Clothing</p>
+                  <p>T-Shirts/Tops</p>
                 </div>
 
                 <div class="col-sm-1  text-right">
@@ -82,7 +120,7 @@
                   <p>4</p>
                 </div>
 
-                <div class="col-sm-1 offset-sm-1">
+                <div class="col-sm-1">
                   <a class="btn btn-secondary btn-card-toggle" (click)="isCollapsed = !isCollapsed"
                           [attr.aria-expanded]="!isCollapsed" aria-controls="toggle-1">View Details</a>
                 </div>
@@ -92,8 +130,8 @@
           </div>
 
 
-<div id="toggle-1" [ngbCollapse]="isCollapsed">
-  <div class="card">
+<div id="toggle-1" [ngbCollapse]="!isCollapsed">
+  <div class="card toggle-card">
     <div class="card-body">
 
         <div class="row">
@@ -146,7 +184,7 @@
   </div>
 </div>
 
-<br>
+
   <!--   =========  CARD BLOCK 2 ==========       -->
   <div class="card">
     <div class="card-block">
@@ -165,12 +203,15 @@
           <p> BRTS001</p>
         </div>
 
-        <div class="col-sm-1 text-right">
+        <div class="col-sm-2 text-right">
           <p>Category:</p>
+          <p>Sub-Category: </p>
         </div>
 
         <div class="col-sm-2">
-          <p>Mens T-shirts</p>
+          <p>Mens Clothing</p>
+          <p> T-Shirt/Tops</p>
+
         </div>
 
         <div class="col-sm-1  text-right">
@@ -181,7 +222,7 @@
           <p>4</p>
         </div>
 
-        <div class="col-sm-1 offset-sm-1">
+        <div class="col-sm-1">
           <a class="btn btn-secondary btn-card-toggle" (click)="isCollapsed = !isCollapsed"
                   [attr.aria-expanded]="!isCollapsed" aria-controls="toggle-2">View Details</a>
         </div>
@@ -191,8 +232,8 @@
   </div>
 
 
-<div id="toggle-2" [ngbCollapse]="isCollapsed">
-<div class="card">
+<div id="toggle-2" [ngbCollapse]="!isCollapsed">
+<div class="card toggle-card">
 <div class="card-body">
 
 <div class="row">
@@ -254,7 +295,7 @@
   <ngb-tab id="sku-tab" title="SKU & Inventory">
     <ng-template ngbTabContent>
       <div class="container-fluid inventory-only">
-        <p>Content 2 here</p>
+        <app-inventory-stock></app-inventory-stock>
       </div>
     </ng-template>
   </ngb-tab>
