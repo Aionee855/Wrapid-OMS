@@ -85,6 +85,7 @@
         <br>
           <!--   =========  CARD BLOCK 1   ==========       -->
 
+  <div *ngFor="let data of inventory; let i = index">
           <div class="card">
             <div class="card-block">
               <div class="row">
@@ -93,13 +94,13 @@
                 </div>
 
                 <div class="col-sm-1 text-right">
-                  <p> Name: </p>
+                  <p> Name:  </p>
                   <p> Code: </p>
                 </div>
 
                 <div class="col-sm-2">
-                  <p> White Rebel T-Shirt </p>
-                  <p> WRTS001</p>
+                  <p> {{data.productName}} </p>
+                  <p>{{data.productCode}}</p>
                 </div>
 
                 <div class="col-sm-2 text-right">
@@ -108,8 +109,7 @@
                 </div>
 
                 <div class="col-sm-2">
-                  <p>Mens Clothing</p>
-                  <p>T-Shirts/Tops</p>
+                  <p>{{data.category}}</p>
                 </div>
 
                 <div class="col-sm-1  text-right">
@@ -117,12 +117,12 @@
                 </div>
 
                 <div class="col-sm-1">
-                  <p>4</p>
+                  <p>{{data.variants}}</p>
                 </div>
 
-                <div class="col-sm-1">
-                  <a class="btn btn-secondary btn-card-toggle" (click)="isCollapsed = !isCollapsed"
-                          [attr.aria-expanded]="!isCollapsed" aria-controls="toggle-1">View Details</a>
+                <div class="col-sm-1 offset-sm-1">
+                  <a class="btn btn-secondary btn-card-toggle" (click)="hideme[i] = !hideme[i]"
+                         aria-controls="toggle-1" activeIds = "toggle-1">View Details</a>
                 </div>
 
             </div>
@@ -130,7 +130,7 @@
           </div>
 
 
-<div id="toggle-1" [ngbCollapse]="!isCollapsed">
+<div id="toggle-1" [hidden]="!hideme[i]">
   <div class="card toggle-card">
     <div class="card-body">
 
@@ -148,32 +148,32 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>White Rebel T-shirt</td>
-                  <td>Demo40000</td>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuS}}</td>
                   <td>S</td>
-                  <td>50</td>
-                  <td>16</td>
+                  <td>{{data.stockQuantityS}}</td>
+                  <td>{{data.sellingPrice}}</td>
                 </tr>
                 <tr>
-                  <td>White Rebel T-shirt</td>
-                  <td>Demo40001</td>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuM}}</td>
                   <td>M</td>
-                  <td>23</td>
-                  <td>16</td>
+                  <td>{{data.stockQuantityM}}</td>
+                  <td>{{data.sellingPrice}}</td>
                 </tr>
                 <tr>
-                  <td>White Rebel T-shirt</td>
-                  <td>Demo40002</td>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuL}}</td>
                   <td>L</td>
-                  <td>35</td>
-                  <td>16</td>
+                  <td>{{data.stockQuantityL}}</td>
+                  <td>{{data.sellingPrice}}</td>
                 </tr>
                 <tr>
-                  <td>White Rebel T-shirt</td>
-                  <td>Demo40003</td>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuXL}}</td>
                   <td>XL</td>
-                  <td>20</td>
-                  <td>16</td>
+                  <td>{{data.stockQuantityXL}}</td>
+                  <td>{{data.sellingPrice}}</td>
                 </tr>
               </tbody>
             </table>
@@ -184,107 +184,11 @@
   </div>
 </div>
 
-
-  <!--   =========  CARD BLOCK 2 ==========       -->
-  <div class="card">
-    <div class="card-block">
-      <div class="row">
-        <div class="col-sm-1">
-          <img src="../../assets/mens_rebel_t-shirt_black.jpg" alt="t-shirt-white" class="img-thumbnail">
-        </div>
-
-        <div class="col-sm-1 text-right">
-          <p> Name: </p>
-          <p> Code: </p>
-        </div>
-
-        <div class="col-sm-2">
-          <p> Black Rebel T-Shirt </p>
-          <p> BRTS001</p>
-        </div>
-
-        <div class="col-sm-2 text-right">
-          <p>Category:</p>
-          <p>Sub-Category: </p>
-        </div>
-
-        <div class="col-sm-2">
-          <p>Mens Clothing</p>
-          <p> T-Shirt/Tops</p>
-
-        </div>
-
-        <div class="col-sm-1  text-right">
-          <p>Has Variants:</p>
-        </div>
-
-        <div class="col-sm-1">
-          <p>4</p>
-        </div>
-
-        <div class="col-sm-1">
-          <a class="btn btn-secondary btn-card-toggle" (click)="isCollapsed = !isCollapsed"
-                  [attr.aria-expanded]="!isCollapsed" aria-controls="toggle-2">View Details</a>
-        </div>
-
-    </div>
-    </div>
-  </div>
-
-
-<div id="toggle-2" [ngbCollapse]="!isCollapsed">
-<div class="card toggle-card">
-<div class="card-body">
-
-<div class="row">
-  <div class="col-md-8 offset-md-2">
-    <table class="table table-striped">
-      <thead class="thead-inverse">
-        <tr>
-          <th>Name</th>
-          <th>SKU</th>
-          <th>Size</th>
-          <th>In Stock</th>
-          <th>Selling Price (£)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Black Rebel T-shirt</td>
-          <td>Demo50000</td>
-          <td>S</td>
-          <td>50</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>Black Rebel T-shirt</td>
-          <td>Demo50001</td>
-          <td>M</td>
-          <td>23</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>Black Rebel T-shirt</td>
-          <td>Demo50002</td>
-          <td>L</td>
-          <td>35</td>
-          <td>16</td>
-        </tr>
-        <tr>
-          <td>Black Rebel T-shirt</td>
-          <td>Demo50003</td>
-          <td>XL</td>
-          <td>20</td>
-          <td>16</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
 
-</div>
-</div>
-</div>
+<br>
+
+
 
 
       </div>   <!-- CONTAINER-FLUID INVENTORY-ONLY -->
