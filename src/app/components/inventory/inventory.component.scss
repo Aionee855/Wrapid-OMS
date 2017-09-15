@@ -1,13 +1,24 @@
 @import '../orders/orders-table/orders.component';
 
 .container-fluid.inventory-only {
-  height: 500px;
+  height: 700px;
+  background: $main-grey;
   border-left: 2px solid #ddd;
   border-right: 2px solid #ddd;
   border-bottom: 2px solid #ddd;
 }
 
-.nav-link {
+// ===================    TABS STYLING  ==================
+.nav-tabs {
+  box-shadow: 0px -1px 0px 0px #ddd inset;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  border: 2px solid #ddd;
+  border-bottom: none;
+}
+
+#product-tab, #sku-tab, #catalogue-tab {
   color: black;
   font-weight: 500;
   &:hover {
@@ -20,8 +31,28 @@
 }
 }
 
+// ===================    BUTTONS STYLING  ==================
+.btn.btn-secondary.search-btn {
+  background: $main-grey;
+}
+
 .fa.fa-search:hover {
+  background: #f7f8f9;
   color: #0061ff;
+}
+
+input.form-control {
+  font-family: "Catamaran" sans-serif;
+  font-size: 0.9rem;
+  color: grey;
+}
+
+#category-btn {
+  font-family: "Catamaran" sans-serif;
+  font-size: 0.9rem;
+  height: 38px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .dropdown-menu-center {
@@ -30,13 +61,64 @@
 }
 
 #label-variants {
-
-  font-weight: 600;
+  font-family: "Catamaran" sans-serif;
+  color: black;
+  font-size: 1rem;
 }
+
 #variants {
   position: relative;
+  background-color: white;
   height: 25px;
   width: 25px;
   margin-right: 10px;
   transform: translateY(25%);
+}
+
+.btn.btn-outline-default {
+  font-family: "Catamaran" sans-serif;
+  color: black;
+  font-size: 0.9rem;
+  height: 38px;
+  background: white;
+  border-color: #ddd;
+  margin-left: 30px;
+  cursor: pointer;
+
+}
+
+#product-actions-btn {
+  margin-left: 30px;
+}
+
+.fa.fa-plus-circle {
+  margin-right: 10px;
+}
+
+.icon-box {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.btn.btn-secondary.btn-card-toggle {
+  margin-top: 25%;
+  cursor: pointer;
+  &:hover {
+    color: #0061ff;
+    text-decoration: underline;
+  }
+}
+
+// ===================    ACCORDION STYLING  ==================
+
+.img-thumbnail {
+  width: 100px;
+}
+
+.table-striped>tbody>tr:nth-child(odd) {
+  background: white;
+}
+
+.table-striped>tbody>tr:nth-child(even) {
+  background: $main-grey;
 }
