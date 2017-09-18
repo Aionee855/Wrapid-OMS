@@ -1,0 +1,213 @@
+<h1>Products</h1>
+
+<ngb-tabset>
+  <ngb-tab id="product-tab" title="Products">
+    <ng-template ngbTabContent>
+      <div class="container-fluid inventory-only">
+        <br>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by Product Name/Product Code">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="btn-group" ngbDropdown>
+                <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>All Categories </button>
+                <div ngbDropdownMenu dropdown-menu-center aria-labelledby="dropdownBasic1">
+                  <div class="dropdown">
+                  <button class="dropdown-item">Mens Clothing</button>
+                        <div class="dropdown-content" ngbDropdownMenu>
+                          <button class="dropdown-item">T-Shirts/Tops</button>
+                          <button class="dropdown-item">Sweatshirts/Hoodies</button>
+                          <button class="dropdown-item">Jackets</button>
+                          <button class="dropdown-item">Pants</button>
+                        </div>
+                      </div>
+
+                  <div class="dropdown">
+                  <button class="dropdown-item">Mens Shoes</button>
+                        <div class="dropdown-content" ngbDropdownMenu>
+                          <button class="dropdown-item">Sneakers</button>
+                          <button class="dropdown-item">Running</button>
+                          <button class="dropdown-item">Football</button>
+                          <button class="dropdown-item">Sandals/Flipflops</button>
+                        </div>
+                      </div>
+
+                  <div class="dropdown">
+                  <button class="dropdown-item">Womens Clothing</button>
+                        <div class="dropdown-content" ngbDropdownMenu>
+                          <button class="dropdown-item">T-Shirts/Tops</button>
+                          <button class="dropdown-item">Sweatshirts/Hoodies</button>
+                          <button class="dropdown-item">Jackets</button>
+                          <button class="dropdown-item">Pants</button>
+                        </div>
+                      </div>
+
+                      <div class="dropdown">
+                      <button class="dropdown-item">Womens Shoes</button>
+                            <div class="dropdown-content" ngbDropdownMenu>
+                              <button class="dropdown-item">Sneakers</button>
+                              <button class="dropdown-item">Running</button>
+                              <button class="dropdown-item">Training</button>
+                              <button class="dropdown-item">Sandals/Flipflops</button>
+                            </div>
+                          </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-2">
+            <input type="checkbox" value="None" id="variants" name="check" />
+            <label id="label-variants" for="variants"> Has Variants</label>
+          </div>
+
+          <div class="col-md-5 text-right">
+            <button type="button" class="btn btn-outline-default"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Product</button>
+
+            <div class="btn-group" ngbDropdown>
+              <button class="btn btn-outline-default" id="product-actions-btn" ngbDropdownToggle>
+               <img class="icon-box" src="../../assets/box.png" alt="box"> Product Actions </button>
+              <div ngbDropdownMenu dropdown-menu-action aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item">Upload Products</button>
+                <button class="dropdown-item">Download Products</button>
+                <button class="dropdown-item">Fetch from Online Channel</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <br>
+          <!--   =========  CARD BLOCK 1   ==========       -->
+
+  <div *ngFor="let data of inventory; let i = index">
+          <div class="card">
+            <div class="card-block">
+              <div class="row">
+                <div class="col-sm-1">
+                  <img src="../../assets/mens_rebel_t-shirt_white.jpg" alt="t-shirt-white" class="img-thumbnail">
+                </div>
+
+                <div class="col-sm-1 text-right">
+                  <p> Name:  </p>
+                  <p> Code: </p>
+                </div>
+
+                <div class="col-sm-2">
+                  <p> {{data.productName}} </p>
+                  <p>{{data.productCode}}</p>
+                </div>
+
+                <div class="col-sm-2 text-right">
+                  <p>Category:</p>
+                  <p>Sub-Category</p>
+                </div>
+
+                <div class="col-sm-2">
+                  <p>{{data.category}}</p>
+                </div>
+
+                <div class="col-sm-1  text-right">
+                  <p>Has Variants:</p>
+                </div>
+
+                <div class="col-sm-1">
+                  <p>{{data.variants}}</p>
+                </div>
+
+                <div class="col-sm-1 offset-sm-1">
+                  <a class="btn btn-secondary btn-card-toggle" (click)="hideme[i] = !hideme[i]"
+                         aria-controls="toggle-1" activeIds = "toggle-1">View Details</a>
+                </div>
+
+            </div>
+            </div>
+          </div>
+
+
+<div id="toggle-1" [hidden]="!hideme[i]">
+  <div class="card toggle-card">
+    <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <table class="table table-striped">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Name</th>
+                  <th>SKU</th>
+                  <th>Size</th>
+                  <th>In Stock</th>
+                  <th>Selling Price (£)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuS}}</td>
+                  <td>S</td>
+                  <td>{{data.stockQuantityS}}</td>
+                  <td>{{data.sellingPrice}}</td>
+                </tr>
+                <tr>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuM}}</td>
+                  <td>M</td>
+                  <td>{{data.stockQuantityM}}</td>
+                  <td>{{data.sellingPrice}}</td>
+                </tr>
+                <tr>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuL}}</td>
+                  <td>L</td>
+                  <td>{{data.stockQuantityL}}</td>
+                  <td>{{data.sellingPrice}}</td>
+                </tr>
+                <tr>
+                  <td>{{data.productName}}</td>
+                  <td>{{data.skuXL}}</td>
+                  <td>XL</td>
+                  <td>{{data.stockQuantityXL}}</td>
+                  <td>{{data.sellingPrice}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<br>
+
+
+
+
+      </div>   <!-- CONTAINER-FLUID INVENTORY-ONLY -->
+    </ng-template>
+  </ngb-tab>
+
+
+  <ngb-tab id="sku-tab" title="Stock Allocation">
+    <ng-template ngbTabContent>
+      <div class="container-fluid inventory-only">
+        <app-products-stock></app-products-stock>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="catalogue-tab" title="Channel Catalogue">
+    <ng-template ngbTabContent>
+      <div class="container-fluid inventory-only">
+        <p>Content 3 here</p>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
