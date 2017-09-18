@@ -5,7 +5,7 @@
   <ngb-tabset #tabSet="ngbTabset">
     <ngb-tab id="all-tab" >
       <ng-template ngbTabTitle>
-        <div (click)="navbarChoiceClick('ALL', 'All Orders')">All</div>
+        <div (click)="navbarChoiceClick('ALL', 'All Orders')">All <span class="badge badge-pill badge-default">100</span></div>
       </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
@@ -14,7 +14,7 @@
 
       <ngb-tab id="new-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('Created', 'New Orders')">New</div>
+          <div (click)="navbarChoiceClick('Created', 'New Orders')">New <span class="badge badge-pill badge-default">100</span></div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
@@ -23,7 +23,7 @@
 
       <ngb-tab id="confirmed-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('Confirmed', 'Confirmed Orders')">Confirmed</div>
+          <div (click)="navbarChoiceClick('Confirmed', 'Confirmed Orders')">Confirmed <span class="badge badge-pill badge-default">100</span></div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
@@ -32,7 +32,7 @@
 
       <ngb-tab id="rts-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('ReadyToShip', 'Ready To Ship')">Ready To Ship</div>
+          <div (click)="navbarChoiceClick('ReadyToShip', 'Ready To Ship')">Ready To Ship <span class="badge badge-pill badge-default">100</span></div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
@@ -41,7 +41,7 @@
 
       <ngb-tab id="shipped-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('Shipped', 'Shipped Orders')">Shipped</div>
+          <div (click)="navbarChoiceClick('Shipped', 'Shipped Orders')">Shipped <span class="badge badge-pill badge-default">100</span></div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
@@ -50,7 +50,7 @@
 
       <ngb-tab id="pending-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('PendingInvoice', 'Pending Invoice')">Pending Invoice</div>
+          <div (click)="navbarChoiceClick('PendingInvoice', 'Pending Invoice')">Pending Invoice <span class="badge badge-pill badge-default">100</span></div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
@@ -59,7 +59,7 @@
 
       <ngb-tab id="cancelled-tab">
         <ng-template ngbTabTitle>
-          <div (click)="navbarChoiceClick('Cancelled', 'Cancelled Orders')">Cancelled</div>
+          <div (click)="navbarChoiceClick('Cancelled', 'Cancelled Orders')">Cancelled <span class="badge badge-pill badge-default">100</span></div>
         </ng-template>
         <ng-template ngbTabContent>
           <app-orders-table></app-orders-table>
