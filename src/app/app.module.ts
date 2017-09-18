@@ -36,6 +36,8 @@ import { FilterPipe, FilterStatusPipe, FilterChannelPipe } from './pipes/filter.
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { InventoryStockComponent } from './components/inventory-stock/inventory-stock.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductsStockComponent } from './components/products/products-stock/products-stock.component';
 
 
 
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
   {path:'uploads', component: UploadsComponent},
   {path: 'orders/orderDetails', component: OrderDetailsComponent},
   {path:'inventory', component: InventoryComponent},
+  {path:'products', component: ProductsComponent},
 ]
 
 @NgModule({
@@ -67,6 +70,8 @@ const appRoutes: Routes = [
     OrdersNavigationComponent,
     InventoryComponent,
     InventoryStockComponent,
+    ProductsComponent,
+    ProductsStockComponent,
 
 
 

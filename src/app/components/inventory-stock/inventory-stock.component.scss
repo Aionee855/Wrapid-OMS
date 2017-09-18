@@ -1,2 +1,25 @@
 @import '../orders/orders-table/orders.component';
 @import '../inventory/inventory.component';
+
+table.table-bordered {
+  background-color: white;
+
+}
+
+#scroller {
+  width: 1000px;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+}
+
+.number-row {
+  width: 2rem;
+}
+
+.row-span-lg {
+  width: 16rem;
+}
+
+.row-span-md {
+  width: 8rem;
+}
