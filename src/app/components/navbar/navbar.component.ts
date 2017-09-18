@@ -15,6 +15,7 @@ import { NavbarComOrdersService } from '../../services/navbar-com-orders.service
 export class NavbarComponent implements OnInit {
 
 
+
   choiceNavbarHeader;
 
 //Navbar header - variables - count how many orders by status
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
   numberOfOrdersByShipped;
   numberOfOrdersByPI;
   numberOfAllOrders;
+
 
 
 //Make Navbar header buttons active
@@ -46,6 +48,16 @@ export class NavbarComponent implements OnInit {
   this.getNumberOfOrdersByStatus('PendingInvoice');
   }
 
+  toogle(){
+    $(function () {
+  $('#dash').on('click', function (e) {
+    $('#wrapper').toggleClass('toggled');
+    e.stopPropagation();
+    return false;
+  });
+  });
+  }
+
   setChoiceNavbar(choiceNavbarHeader: string){
     this.navbarComOrdersService.choiceService = choiceNavbarHeader;
   }
@@ -57,20 +69,17 @@ export class NavbarComponent implements OnInit {
 
 //NG constructor - toggle side navbar
   ngOnInit() {
-
     $(function () {
   $('#menu-toggle').on('click', function (e) {
     $('#wrapper').toggleClass('toggled');
-
     e.stopPropagation();
     return false;
   });
-
   $('*:not(#menu-toggle)').on('click', function () {
     $('#wrapper').removeClass('toggled');
   });
-
 });
+
   }
 
 //Navbar header - counts how many orders and shows in 'badge'

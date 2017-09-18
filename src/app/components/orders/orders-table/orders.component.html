@@ -93,6 +93,8 @@
 <tr class="datatableBody" *ngFor="let order of orders
                          | filterSKU: filterSKUvalue
                          | filterChannel: dropSelected
+                         | filterDateMin: beginDate
+                         | filterDateMax: endDate
                          | orderBy: order: reverse
                          | paginate: { itemsPerPage: rowsOnPage, currentPage: p}
                          ;let i = index

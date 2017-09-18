@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { OrdersComponent } from '../orders-table/orders.component';
 import { OrdersService } from '../orders-service/orders.service';
+import { OrderService} from '../../../services/order.service';
 
 @Component({
   selector: 'app-orders-navigation',
@@ -10,9 +11,18 @@ import { OrdersService } from '../orders-service/orders.service';
 })
 export class OrdersNavigationComponent implements OnInit {
 
+  private numberOfAll;
+  private numberOfNew;
+  private numberOfConfirmed;
+  private numberOfRTS;
+  private numberOfShipped;
+  private numberOfPendingInvoice;
+  private numberOfCancelled;
 
-  constructor(private ordersService:OrdersService) {
 
+
+  constructor(private ordersService:OrdersService, private orderService: OrderService) {
+  this.getNumberOfStatus();
    }
 
   ngOnInit() {
@@ -61,7 +71,28 @@ export class OrdersNavigationComponent implements OnInit {
 }
 },)
 
+  }
 
+  getNumberOfStatus(){
+
+    this.orderService.getCountByStatus('Created').then(
+      (results) => { this.numberOfNew = results}
+    )
+    this.orderService.getCountByStatus('Confirmed').then(
+      (results) => { this.numberOfConfirmed = results}
+    )
+    this.orderService.getCountByStatus('ReadyToShip').then(
+      (results) => { this.numberOfRTS = results}
+    )
+    this.orderService.getCountByStatus('Shipped').then(
+      (results) => { this.numberOfShipped = results}
+    )
+    this.orderService.getCountByStatus('PendingInvoice').then(
+      (results) => { this.numberOfPendingInvoice = results}
+    )
+    this.orderService.getCountByStatus('Cancelled').then(
+      (results) => { this.numberOfCancelled = results}
+    )
   }
 
   navbarChoiceClick(value, title){

@@ -48,6 +48,7 @@ export class OrdersComponent implements OnInit, OnDestroy {
 
 
 
+
   private subscription: Subscription;
 
   //rows on page by default
@@ -69,7 +70,6 @@ export class OrdersComponent implements OnInit, OnDestroy {
               private ordersService:OrdersService,
             )
               {
-                console.log(this.testDate);
 
                if(ordersService.tabsChoice == "ALL" || ordersService.tabsChoice == undefined){
                  ordersService.title = "All Orders";
@@ -149,8 +149,6 @@ private getOrdersByStatus(status){
 
   //Date Picker
 
-  testDate = '2017-08-02';
-
 
   private myDateRangePickerOptions: IMyDrpOptions = {
         // other options...
@@ -170,15 +168,14 @@ private getOrdersByStatus(status){
         console.log(this.beginDate);
         console.log(this.endDate);
 
-
+        /*
         console.log(this.orders[1].date);
 
         var b = moment(this.beginDate).format('DD/MM/YYYY');
         moment('01/12/2016', 'DD/MM/YYYY', true).format()
 
         console.log(b);
-
-
+        */
     }
 
 

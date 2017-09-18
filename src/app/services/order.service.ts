@@ -82,6 +82,27 @@ export class OrderService {
       return promise;
   }
 
+  getCountByStatus(status){
+    //let apiURL = '${this.apiUrl}?/orders/';
+    let results;
+    let promise = new Promise((resolve, reject) => {
+    this.http.get(this.apiUrl + 'orders/orderStatus/count/' + status)
+        .toPromise()
+        .then(
+          res => {
+            results = res.json();
+            //console.log(results);
+            resolve(results);
+          },
+          msg => {
+            console.log("ERROR - can't get invenotry!");
+            reject();
+          }
+        )
+      });
+      return promise;
+  }
+
 //////////////////////////////////////CHECKED ABOVE
   getOrderId(id){
       return this.http.get(this.apiUrl + 'orderItems/order/'+ id)

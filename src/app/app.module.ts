@@ -63,9 +63,11 @@ const appRoutes: Routes = [
     FilterStatusPipe,
     FilterChannelPipe,
     FilterDateMinPipe,
+    FilterDateMaxPipe,
     OrdersNavigationComponent,
     InventoryComponent,
     InventoryStockComponent,
+
 
 
 
