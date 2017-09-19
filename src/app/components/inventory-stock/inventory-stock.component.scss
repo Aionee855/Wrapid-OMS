@@ -1,25 +1,30 @@
 @import '../orders/orders-table/orders.component';
 @import '../inventory/inventory.component';
 
-table.table-bordered {
-  background-color: white;
+.btn.btn-primary {
+  background-color: #3a5175;
+  border-color: #26416d;
 
+    -webkit-box-shadow: 2px 2px 0px rgba(36, 65, 109, 0.6);
+      -moz-box-shadow:    2px 2px 0px rgba(36, 65, 109, 0.6);
+      box-shadow:         2px 2px 0px rgba(36, 65, 109, 0.6);
 }
 
-#scroller {
-  width: 1000px;
-    overflow-x: scroll;
-    margin-bottom: 20px;
+.btn.btn-primary:hover {
+  cursor: pointer;
+  background-color: #0d2956;
 }
 
-.number-row {
-  width: 2rem;
+.btn.btn-warning {
+  background-color:#ffce66;
+  border-color: #f9aa00;
+
+    -webkit-box-shadow: 2px 2px 0px rgba(249, 170, 0, 0.6);
+      -moz-box-shadow:    2px 2px 0px rgba(249, 170, 0, 0.6);
+      box-shadow:         2px 2px 0px rgba(249, 170, 0, 0.6);
 }
 
-.row-span-lg {
-  width: 16rem;
-}
-
-.row-span-md {
-  width: 8rem;
+.btn.btn-warning:hover {
+  cursor: pointer;
+  background-color: #ffbb28;
 }
