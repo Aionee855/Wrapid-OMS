@@ -24,18 +24,23 @@
       <th class="text-center row-span-md">Total Qty</th>
       <th class="text-center row-span-md">Allocated</th>
       <th class="text-center row-span-md">Un-Allocated</th>
-      <th class="text-center row-span-lg">Amazon</th>
+      <th class="text-center row-span-lg" *ngFor="let marketplace of marketplacesList">{{marketplace.marketplaceName}}</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row" class="text-center">1</th>
-      <td>DEMO4000</td>
-      <td class="text-center">100</td>
-      <td class="text-center">30</td>
-      <td class="text-center">70</td>
-      <td class="text-center">30</td>
+
+    <tr *ngFor="let inv of inventory; let i = index;">
+
+      <th scope="row" class="text-center">{{i+1}}</th>
+      <td>{{inv.sku}}</td>
+      <td class="text-center">{{inv.stockQuantity}}</td>
+      <td class="text-center">N/A</td>
+      <td class="text-center">N/A</td>
+
+      <td class="text-center" *ngFor="let marketplace of marketplacesList">N/A</td>
     </tr>
+
+
   </tbody>
 </table>
 </div>
