@@ -32,7 +32,7 @@ import { NavbarComOrdersService } from './services/navbar-com-orders.service';
 import { CsvfileService} from './components/uploads/services/csvfile.service';
 
 import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
-import { FilterPipe, FilterStatusPipe, FilterChannelPipe } from './pipes/filter.pipe';
+import { FilterPipe, FilterStatusPipe, FilterChannelPipe, FilterProductCodePipe, FilterProductCategoriesPipe, FilterProductSubCategoriesPipe, FilterStockSkuPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { InventoryStockComponent } from './components/inventory-stock/inventory-stock.component';
@@ -62,11 +62,18 @@ const appRoutes: Routes = [
     DashboardComponent,
     ChartsComponent,
     UploadsComponent,
+
     FilterPipe,
     FilterStatusPipe,
     FilterChannelPipe,
     FilterDateMinPipe,
     FilterDateMaxPipe,
+    FilterProductCodePipe,
+    FilterProductCategoriesPipe,
+    FilterProductSubCategoriesPipe,
+    FilterStockSkuPipe,
+
+
     OrdersNavigationComponent,
     InventoryComponent,
     InventoryStockComponent,

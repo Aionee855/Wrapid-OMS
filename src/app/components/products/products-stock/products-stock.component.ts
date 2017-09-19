@@ -8,8 +8,10 @@ import { OrderService} from '../../../services/order.service';
 })
 export class ProductsStockComponent implements OnInit {
 
-  marketplacesList;
-  inventory;
+  private marketplacesList;
+  private inventory;
+
+  private searchSkuValue;
 
 
 
@@ -42,6 +44,10 @@ export class ProductsStockComponent implements OnInit {
       (results) => (this.inventory = results, console.log(this.inventory))
     )
 
+  }
+
+  setSearchSkuValue(sku){
+    this.searchSkuValue = sku;
   }
 
 

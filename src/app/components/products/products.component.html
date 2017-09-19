@@ -8,56 +8,26 @@
           <div class="row">
             <div class="col-md-3">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search by Product Name/Product Code">
+                <input type="text" class="form-control" placeholder="Search by Product Name/Product Code" [(ngModel)]="productValue">
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <button class="btn btn-secondary search-btn" type="button" (click)="searchProduct(productValue)"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
               </div>
             </div>
 
             <div class="col-md-2">
               <div class="btn-group" ngbDropdown>
-                <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>All Categories </button>
+                <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>{{categoryName}}</button>
                 <div ngbDropdownMenu dropdown-menu-center aria-labelledby="dropdownBasic1">
-                  <div class="dropdown">
-                  <button class="dropdown-item">Mens Clothing</button>
+                  <button class="dropdown-item" value='Mens Clothing' (click)="setCategoryName('All Categories',''); categorySearchValue = ''; subcategorySearchValue=''">All Categories</button>
+                  <div class="dropdown" *ngFor="let category of CATEGORY; let i = index">
+                  <button class="dropdown-item" value='Mens Clothing' (click)="setCategoryName(CATEGORY[i].category,''); setSearchCategories(CATEGORY[i].category); subcategorySearchValue=''">{{CATEGORY[i].category}}</button>
                         <div class="dropdown-content" ngbDropdownMenu>
-                          <button class="dropdown-item">T-Shirts/Tops</button>
-                          <button class="dropdown-item">Sweatshirts/Hoodies</button>
-                          <button class="dropdown-item">Jackets</button>
-                          <button class="dropdown-item">Pants</button>
+                          <div *ngFor="let sub of category.subcategory; let j = index">
+                          <button class="dropdown-item" (click)="setCategoryName(CATEGORY[i].category,CATEGORY[i].subcategory[j]); setSearchSubCategories(CATEGORY[i].category,sub)">{{sub}}</button>
+                         </div>
                         </div>
                       </div>
-
-                  <div class="dropdown">
-                  <button class="dropdown-item">Mens Shoes</button>
-                        <div class="dropdown-content" ngbDropdownMenu>
-                          <button class="dropdown-item">Sneakers</button>
-                          <button class="dropdown-item">Running</button>
-                          <button class="dropdown-item">Football</button>
-                          <button class="dropdown-item">Sandals/Flipflops</button>
-                        </div>
-                      </div>
-
-                  <div class="dropdown">
-                  <button class="dropdown-item">Womens Clothing</button>
-                        <div class="dropdown-content" ngbDropdownMenu>
-                          <button class="dropdown-item">T-Shirts/Tops</button>
-                          <button class="dropdown-item">Sweatshirts/Hoodies</button>
-                          <button class="dropdown-item">Jackets</button>
-                          <button class="dropdown-item">Pants</button>
-                        </div>
-                      </div>
-
-                      <div class="dropdown">
-                      <button class="dropdown-item">Womens Shoes</button>
-                            <div class="dropdown-content" ngbDropdownMenu>
-                              <button class="dropdown-item">Sneakers</button>
-                              <button class="dropdown-item">Running</button>
-                              <button class="dropdown-item">Training</button>
-                              <button class="dropdown-item">Sandals/Flipflops</button>
-                            </div>
-                          </div>
                 </div>
               </div>
           </div>
@@ -85,7 +55,12 @@
         <br>
           <!--   =========  CARD BLOCK 1   ==========       -->
 
-  <div *ngFor="let data of inventory; let i = index">
+  <div *ngFor="let data of arrayOfSortedInventory
+              | filterProductCode: productValueToSearch
+              | filterProductCategory: categorySearchValue
+              | filterProductSubCategory: subcategorySearchValue
+              ; let i = index">
+
           <div class="card">
             <div class="card-block">
               <div class="row">
@@ -110,6 +85,7 @@
 
                 <div class="col-sm-2">
                   <p>{{data.category}}</p>
+                  <p>{{data.subCategory}}</p>
                 </div>
 
                 <div class="col-sm-1  text-right">
@@ -149,31 +125,31 @@
               <tbody>
                 <tr>
                   <td>{{data.productName}}</td>
-                  <td>{{data.skuS}}</td>
-                  <td>S</td>
-                  <td>{{data.stockQuantityS}}</td>
-                  <td>{{data.sellingPrice}}</td>
+                  <td>{{data.sku1}}</td>
+                  <td>{{data.size1}}</td>
+                  <td>{{data.stockQuantity1}}</td>
+                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
                 </tr>
                 <tr>
                   <td>{{data.productName}}</td>
-                  <td>{{data.skuM}}</td>
-                  <td>M</td>
-                  <td>{{data.stockQuantityM}}</td>
-                  <td>{{data.sellingPrice}}</td>
+                  <td>{{data.sku2}}</td>
+                  <td>{{data.size2}}</td>
+                  <td>{{data.stockQuantity2}}</td>
+                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
                 </tr>
                 <tr>
                   <td>{{data.productName}}</td>
-                  <td>{{data.skuL}}</td>
-                  <td>L</td>
-                  <td>{{data.stockQuantityL}}</td>
-                  <td>{{data.sellingPrice}}</td>
+                  <td>{{data.sku3}}</td>
+                  <td>{{data.size3}}</td>
+                  <td>{{data.stockQuantity3}}</td>
+                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
                 </tr>
                 <tr>
                   <td>{{data.productName}}</td>
-                  <td>{{data.skuXL}}</td>
-                  <td>XL</td>
-                  <td>{{data.stockQuantityXL}}</td>
-                  <td>{{data.sellingPrice}}</td>
+                  <td>{{data.sku4}}</td>
+                  <td>{{data.size4}}</td>
+                  <td>{{data.stockQuantity4}}</td>
+                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
                 </tr>
               </tbody>
             </table>
