@@ -1,5 +1,5 @@
-@import '../orders/orders-table/orders.component';
-@import '../inventory/inventory.component';
+@import '../../orders/orders-table/orders.component';
+@import '../../inventory/inventory.component';
 
 .btn.btn-primary {
   background-color: #3a5175;
@@ -27,4 +27,20 @@
 .btn.btn-warning:hover {
   cursor: pointer;
   background-color: #ffbb28;
+}
+
+#category-btn {
+  width: 12rem;
+}
+.input-group {
+  width: 20rem;
+}
+
+.mp-logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.thead-inverse th{
+  background-color: #231f20!important;
 }

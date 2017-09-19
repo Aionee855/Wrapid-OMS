@@ -35,9 +35,10 @@ import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
 import { FilterPipe, FilterStatusPipe, FilterChannelPipe, FilterProductCodePipe, FilterProductCategoriesPipe, FilterProductSubCategoriesPipe, FilterStockSkuPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
-import { InventoryStockComponent } from './components/inventory-stock/inventory-stock.component';
+import { InventoryStockComponent } from './components/inventory/inventory-stock/inventory-stock.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductsStockComponent } from './components/products/products-stock/products-stock.component';
+import { InventoryMultiComponent } from './components/inventory/inventory-multi/inventory-multi.component';
 
 
 
@@ -79,6 +80,7 @@ const appRoutes: Routes = [
     InventoryStockComponent,
     ProductsComponent,
     ProductsStockComponent,
+    InventoryMultiComponent,
 
 
 

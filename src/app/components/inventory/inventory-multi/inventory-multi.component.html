@@ -1,0 +1,71 @@
+<div class="container-fluid inventory-only">
+  <br>
+  <h1 class="underline">Upload Multiple SKU's Inventory</h1>
+
+  <!-- ======== BUTTONS =============  -->
+  <div class="row">
+    <div class="col-md-1">
+      <button type="button" class="btn btn-primary">Template</button>
+    </div>
+
+<div class="col-md-6 text-right">
+    <div class="btn-group date-picker-btn">
+          <my-date-range-picker placeholder="Select Date" [options]="myDateRangePickerOptions"
+                              (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+    </div>
+  </div>
+
+    <div class="col-md-3 offset-md-2 text-right">
+        <button type="button" class="btn btn-default">Update</button>
+        <button type="button" class="btn btn-warning"><i class="fa fa-plus" aria-hidden="true"></i> Choose File</button>
+    </div>
+  </div>
+  <br>
+
+</div>
+
+<br>
+<div class="container-fluid bordered">
+  <br>
+  <h5>Select Marketplace *</h5>
+  <br>
+  <div class="row">
+    <div class="col-md-2">
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Amazon" value="Amazon"> All
+      </form>
+    </div>
+
+    <div class="col-md-10">
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Amazon" value="Amazon">
+          <img class="mini-logo" src="../../../assets/amazon-white.jpg" alt="amazon-white"> Amazon
+      </form>
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Flipkart" value="Flipkart">
+          <img class="mini-logo" src="../../../assets/flipkart-white.jpg" alt="flipkart-white"> Flipkart
+      </form>
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Flipkart" value="Flipkart">
+          <img class="mini-logo" src="../../../assets/limeroad.png" alt="limeroad"> Limeroad
+      </form>
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Flipkart" value="Flipkart">
+          <img class="mini-logo" src="../../../assets/myntra.jpg" alt="myntra"> Myntra
+      </form>
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Flipkart" value="Flipkart">
+          <img class="mini-logo-2" src="../../../assets/paytm-white.png" alt="paytm-white"> Paytm
+      </form>
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Amazon" value="Amazon">
+          <img class="mini-logo" src="../../../assets/puma-red.png" alt="puma-red"> Puma
+      </form>
+      <form class="form-border">
+          <input type="checkbox" class="checkbox-style" name="Amazon" value="Amazon">
+          <img class="mini-logo" src="../../../assets/shopclues.png" alt="shopclues"> Shopclues
+      </form>
+    </div>
+
+
+</div>

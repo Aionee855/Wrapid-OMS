@@ -93,16 +93,12 @@
 
   <ngb-tab id="sku-tab" title="Upload Single SKU">
     <ng-template ngbTabContent>
-      <div class="container-fluid inventory-only">
         <app-inventory-stock></app-inventory-stock>
-      </div>
     </ng-template>
   </ngb-tab>
   <ngb-tab id="catalogue-tab" title="Upload Multiple SKU">
     <ng-template ngbTabContent>
-      <div class="container-fluid inventory-only">
-        <p>Content 3 here</p>
-      </div>
+      <app-inventory-multi></app-inventory-multi>
     </ng-template>
   </ngb-tab>
 </ngb-tabset>
