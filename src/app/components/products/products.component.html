@@ -33,8 +33,16 @@
           </div>
 
           <div class="col-md-2">
-            <input type="checkbox" value="None" id="variants" name="check" />
-            <label id="label-variants" for="variants"> Has Variants</label>
+              <div class="btn-group" ngbDropdown>
+                <button class="btn btn-outline-default" ngbDropdownToggle>All</button>
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownBasic1">
+                  <div class="dropdown">
+                    <button class="dropdown-item">All</button>
+                    <button class="dropdown-item">Enabled</button>
+                    <button class="dropdown-item">Disabled</button>
+                  </div>
+                </div>
+              </div>
           </div>
 
           <div class="col-md-4 text-right">
@@ -71,29 +79,32 @@
                 <div class="col-sm-1 text-right">
                   <p> Name:  </p>
                   <p> Code: </p>
+                  <p> HSN: </p>
                 </div>
 
                 <div class="col-sm-2">
                   <p> {{data.productName}} </p>
                   <p>{{data.productCode}}</p>
+                  <p> 1234567890 </p>
                 </div>
 
                 <div class="col-sm-2 text-right">
                   <p>Category:</p>
-                  <p>Sub-Category</p>
+                  <p>Sub-Category:</p>
+                  <p>Product Type:</p>
                 </div>
 
                 <div class="col-sm-2">
                   <p>{{data.category}}</p>
-                  <p>{{data.subCategory}}</p>
+                  <p><!--{{data.subCategory}}--> T-Shirt</p>
+                  <p>SIMPLE</p>
                 </div>
 
-                <div class="col-sm-1  text-right">
-                  <p>Has Variants:</p>
-                </div>
-
-                <div class="col-sm-1">
-                  <p>{{data.variants}}</p>
+                <div class="col-sm-2">
+                  <div class="toggle toggle--knob">
+                  			<input type="checkbox" id="toggle--knob" class="toggle--checkbox">
+                  			<label class="toggle--btn" for="toggle--knob"><span class="toggle--feature" data-label-on="enabled"  data-label-off="disabled"></span></label>
+                  		</div>
                 </div>
 
                 <div class="col-sm-1 offset-sm-1">
@@ -111,48 +122,77 @@
     <div class="card-body">
 
         <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <table class="table table-striped">
-              <thead class="thead-inverse">
-                <tr>
-                  <th>Name</th>
-                  <th>SKU</th>
-                  <th>Size</th>
-                  <th>In Stock</th>
-                  <th>Selling Price (£)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{{data.productName}}</td>
-                  <td>{{data.sku1}}</td>
-                  <td>{{data.size1}}</td>
-                  <td>{{data.stockQuantity1}}</td>
-                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
-                </tr>
-                <tr>
-                  <td>{{data.productName}}</td>
-                  <td>{{data.sku2}}</td>
-                  <td>{{data.size2}}</td>
-                  <td>{{data.stockQuantity2}}</td>
-                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
-                </tr>
-                <tr>
-                  <td>{{data.productName}}</td>
-                  <td>{{data.sku3}}</td>
-                  <td>{{data.size3}}</td>
-                  <td>{{data.stockQuantity3}}</td>
-                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
-                </tr>
-                <tr>
-                  <td>{{data.productName}}</td>
-                  <td>{{data.sku4}}</td>
-                  <td>{{data.size4}}</td>
-                  <td>{{data.stockQuantity4}}</td>
-                  <td>{{data.sellingPrice | currency: 'GBP': true}}</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="col-md-10 offset-md-1">
+            <div class="sticky-wrapper">
+              <div id="sticky-scroller">
+                <table class="table table-striped">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th class="sticky-col">Product Code</th>
+                      <th>SKU</th>
+                      <th class="text-center">Size</th>
+                      <th class="text-center">Brand</th>
+                      <th class="text-center">Stock Qty</th>
+                      <th class="text-center">Base Price (£)</th>
+                      <th class="text-center">Cost Price (£)</th>
+                      <th class="text-center">MRP (£)</th>
+                      <th class="text-center">Tax Type</th>
+                      <th class="text-center">GST Tax Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="sticky-col">{{data.productCode}}</td>
+                      <td>{{data.sku1}}</td>
+                      <td class="text-center">{{data.size1}}</td>
+                      <td class="text-center">Puma</td>
+                      <td class="text-center">{{data.stockQuantity1}}</td>
+                      <td class="text-center">{{data.sellingPrice | currency: 'GBP': true}}</td>
+                      <td class="text-center">3.00</td>
+                      <td class="text-center">18.00</td>
+                      <td class="text-center">N/A</td>
+                      <td class="text-center">N/A</td>
+                    </tr>
+                    <tr>
+                      <td class="sticky-col">{{data.productCode}}</td>
+                      <td>{{data.sku2}}</td>
+                      <td class="text-center">{{data.size2}}</td>
+                      <td class="text-center">Puma</td>
+                      <td class="text-center">{{data.stockQuantity2}}</td>
+                      <td class="text-center">{{data.sellingPrice | currency: 'GBP': true}}</td>
+                      <td class="text-center">3.00</td>
+                      <td class="text-center">18.00</td>
+                      <td class="text-center">N/A</td>
+                      <td class="text-center">N/A</td>
+                    </tr>
+                    <tr>
+                      <td class="sticky-col">{{data.productCode}}</td>
+                      <td>{{data.sku3}}</td>
+                      <td class="text-center">{{data.size3}}</td>
+                      <td class="text-center">Puma</td>
+                      <td class="text-center">{{data.stockQuantity3}}</td>
+                      <td class="text-center">{{data.sellingPrice | currency: 'GBP': true}}</td>
+                      <td class="text-center">3.00</td>
+                      <td class="text-center">18.00</td>
+                      <td class="text-center">N/A</td>
+                      <td class="text-center">N/A</td>
+                    </tr>
+                    <tr>
+                      <td class="sticky-col">{{data.productCode}}</td>
+                      <td>{{data.sku4}}</td>
+                      <td class="text-center">{{data.size4}}</td>
+                      <td class="text-center">Puma</td>
+                      <td class="text-center">{{data.stockQuantity4}}</td>
+                      <td class="text-center">{{data.sellingPrice | currency: 'GBP': true}}</td>
+                      <td class="text-center">3.00</td>
+                      <td class="text-center">18.00</td>
+                      <td class="text-center">N/A</td>
+                      <td class="text-center">N/A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
 
