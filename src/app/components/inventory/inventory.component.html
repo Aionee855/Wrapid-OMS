@@ -6,10 +6,10 @@
         <h1 class="underline">Marketplace SKU Mapping</h1>
 
           <div class="row">
-            <div class="col-md-2 offset-md-2 text-right">
+            <div class="col-md-4 text-right">
               <div class="btn-group" ngbDropdown>
                 <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>All Marketplace </button>
-                <div ngbDropdownMenu dropdown-menu-center aria-labelledby="dropdownBasic1">
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownBasic1">
                   <div class="dropdown">
                     <button class="dropdown-item">Amazon</button>
                     <button class="dropdown-item">Flipkart</button>
@@ -23,7 +23,7 @@
               </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search by SKU">
               <span class="input-group-btn">
@@ -32,7 +32,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search by Marketplace SKU">
               <span class="input-group-btn">
@@ -91,14 +91,29 @@
   </ngb-tab>
 
 
-  <ngb-tab id="sku-tab" title="Upload Single SKU">
+  <ngb-tab id="sku-tab" title="Upload Single Inventory">
     <ng-template ngbTabContent>
         <app-inventory-stock></app-inventory-stock>
     </ng-template>
   </ngb-tab>
-  <ngb-tab id="catalogue-tab" title="Upload Multiple SKU">
+  <ngb-tab id="catalogue-tab" title="Upload Multiple Inventory">
     <ng-template ngbTabContent>
       <app-inventory-multi></app-inventory-multi>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="upload-d-tab" title="Upload Dedicated Inventory">
+    <ng-template ngbTabContent>
+      <app-inventory-upload-dedicated></app-inventory-upload-dedicated>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="remove-d-tab" title="Remove Dedicated Inventory">
+    <ng-template ngbTabContent>
+      <app-inventory-remove-dedicated></app-inventory-remove-dedicated>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="history-tab" title="Upload History">
+    <ng-template ngbTabContent>
+      <app-inventory-update-history></app-inventory-update-history>
     </ng-template>
   </ngb-tab>
 </ngb-tabset>

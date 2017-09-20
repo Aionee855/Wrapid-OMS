@@ -25,38 +25,34 @@ $main-grey:  #f7f8f9;
   margin: 0
 }
 
-.text-center {
-   text-align:center
-}
-
+// =============    BUTTONS     ==================
 .btn.btn-outline-default.channel-button {
+  width: 10rem;
+  height: 38px;
   background-color: white;
   border-color: #ddd;
-  text-align: left;
-  padding-right: 40px;
   font-size: 0.9rem;
   color: grey;
-
-
 }
-#SKU-button {
-
-  margin: 0 20px 0 20px;
-}
-
-.date-picker-btn {
-  margin-top: 4px;
-  height: 38px;
-}
-
 
 .dropdown-menu-center {
   left: 50% !important;
   right: auto !important;
-  text-align: center !important;
+  text-align: left !important;
   transform: translate(-50%, 0) !important;
 }
 
+.input-group {
+  width: 100%;
+}
+.form-control {
+  font-family: "Catamaran" sans-serif;
+  font-size: 0.9rem;
+  color: grey;
+}
+.date-picker-btn {
+  height: 38px;
+}
 
 /******************************************/
 

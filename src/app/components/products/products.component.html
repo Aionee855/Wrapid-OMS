@@ -15,10 +15,10 @@
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="btn-group" ngbDropdown>
                 <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>{{categoryName}}</button>
-                <div ngbDropdownMenu dropdown-menu-center aria-labelledby="dropdownBasic1">
+                <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownBasic1">
                   <button class="dropdown-item" value='Mens Clothing' (click)="setCategoryName('All Categories',''); categorySearchValue = ''; subcategorySearchValue=''">All Categories</button>
                   <div class="dropdown" *ngFor="let category of CATEGORY; let i = index">
                   <button class="dropdown-item" value='Mens Clothing' (click)="setCategoryName(CATEGORY[i].category,''); setSearchCategories(CATEGORY[i].category); subcategorySearchValue=''">{{CATEGORY[i].category}}</button>
@@ -37,7 +37,7 @@
             <label id="label-variants" for="variants"> Has Variants</label>
           </div>
 
-          <div class="col-md-5 text-right">
+          <div class="col-md-4 text-right">
             <button type="button" class="btn btn-outline-default"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Product</button>
 
             <div class="btn-group" ngbDropdown>
