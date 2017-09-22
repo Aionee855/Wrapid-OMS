@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { OrderService} from '../../services/order.service';
-import { HttpModule, Http } from '@angular/http';
-
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 
 
@@ -15,91 +15,32 @@ import { HttpModule, Http } from '@angular/http';
 
 
 })
-export class UploadsComponent implements OnInit {
+export class UploadsComponent {
 
-fileName: string;
-fileContent;
-headers;
+  apiEndPoint='http://localhost:8080/upload/item';
 
-testValue= "name";
+      constructor(private http: Http) {}
 
-myString: string;
-myStringfy: string;
-myJSONstring: string;
-myJsonObcjects: object[];
-
- constructor(private http: Http){
-
- };
-
- ngOnInit(){
-
- };
-
- changeListener($event) : void {
-    this.readThis($event.target);
-  }
-  readThis(inputValue: any) : void {
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();
-    this.fileName = file.name;
-    console.log(file);
-
-
-    myReader.onloadend = (e) => {
-      //result as text
-      this.myString = myReader.result;
-      console.log(this.myString);
-
-      //result as a stringify
-      this.myStringfy = JSON.stringify(this.myString);
-      console.log(this.myStringfy);
-
-      //result as JSON object string
-      this.myJSONstring = this.csvJSON(this.myString);
-      console.log(this.myJSONstring);
-
-      //result as JSON objects
-      this.myJsonObcjects = JSON.parse(this.csvJSON(this.myString));
-      console.log(this.myJsonObcjects);
+      fileChange(event) {
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+        let file: File = fileList[0];
+        let formData:FormData = new FormData();
+        formData.append('file', file, file.name);
+        let headers = new Headers();
+        /** No need to include Content-Type in Angular 4 */
+        //headers.append('Content-Type', 'multipart/form-data');
+        //headers.append('Accept', 'application/json');
+        let options = new RequestOptions({ headers: headers });
+        this.http.post(`${this.apiEndPoint}`, formData)
+            .map(res => res.json())
+            .catch(error => Observable.throw(error))
+            .subscribe(
+                data => console.log('success'),
+                error => console.log(error)
+            )
     }
-    myReader.readAsText(file);
-  }
-
-  /////JSON
-
-  public csvJSON(csv) {
-    var lines = csv.split("\n");
-    var result = [];
-    var headers = lines[0].split(",");
-
-    for (var i = 1; i < lines.length; i++) {
-        var obj = {};
-        var currentline = lines[i].split(",");
-
-        for (var j = 0; j < headers.length; j++) {
-            obj[headers[j]] = currentline[j];
-        }
-
-        result.push(obj);
-    }
-    this.headers = headers;
-    return JSON.stringify(result); //JSON
 }
-
-//Saving to database
-
-
-saveData(){
-  console.log(JSON.stringify(this.myString));
-  var url = 'https://localhost:8080/order';
-  this.http.post(url, JSON.stringify(this.myString));
-
-}
-
-//File uploader
-
-
 
 
 }

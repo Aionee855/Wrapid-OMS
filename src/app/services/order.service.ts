@@ -124,6 +124,14 @@ export class OrderService {
       return promise;
   }
 
+  saveItem(file){
+    console.log("SaveItem running!!")
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('http://localhost:8080/upload/item', file, {headers: headers})
+    .map(res => res.json());
+  }
+
 //////////////////////////////////////CHECKED ABOVE
   getOrderId(id){
       return this.http.get(this.apiUrl + 'orderItems/order/'+ id)

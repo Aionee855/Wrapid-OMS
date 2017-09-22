@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   choiceNavbarHeader;
 
-//Navbar header - variables - count how many orders by status
+// Navbar header - variables - count how many orders by status
   numberOfOrdersByCreated;
   numberOfOrdersByRTS;
   numberOfOrdersByShipped;
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
 
 
 
-//Make Navbar header buttons active
+// Make Navbar header buttons active
     reverse: boolean = false;
     activeButton: string = 'name';
 
@@ -38,9 +38,9 @@ export class NavbarComponent implements OnInit {
       this.activeButton = value;
     }
 
-  constructor(private navbarComOrdersService:NavbarComOrdersService, private orderService:OrderService) {
+  constructor(private navbarComOrdersService: NavbarComOrdersService, private orderService: OrderService) {
 
-//Runs all GETS number functions for the navbar header
+// Runs all GETS number functions for the navbar header
   this.getNumberOfAllOrders();
   this.getNumberOfOrdersByStatus('Created');
   this.getNumberOfOrdersByStatus('ReadyToShip');
@@ -48,7 +48,7 @@ export class NavbarComponent implements OnInit {
   this.getNumberOfOrdersByStatus('PendingInvoice');
   }
 
-  toogle(){
+  toogle() {
     $(function () {
   $('#dash').on('click', function (e) {
     $('#wrapper').toggleClass('toggled');
@@ -58,16 +58,16 @@ export class NavbarComponent implements OnInit {
   });
   }
 
-  setChoiceNavbar(choiceNavbarHeader: string){
+  setChoiceNavbar(choiceNavbarHeader: string) {
     this.navbarComOrdersService.choiceService = choiceNavbarHeader;
   }
 
-//Communication between navbar.component->navbar-co-orders.service->orders.component
-  navbarHeadingChoiceStatus(value){
+// Communication between navbar.component->navbar-co-orders.service->orders.component
+  navbarHeadingChoiceStatus(value) {
     this.navbarComOrdersService.notifyOther({option: value, value: 'From header'});
   }
 
-//NG constructor - toggle side navbar
+// NG constructor - toggle side navbar
   ngOnInit() {
     $(function () {
   $('#menu-toggle').on('click', function (e) {
@@ -82,9 +82,9 @@ export class NavbarComponent implements OnInit {
 
   }
 
-//Navbar header - counts how many orders and shows in 'badge'
-getNumberOfAllOrders(){
-      var numberOfAllOrders;
+// Navbar header - counts how many orders and shows in 'badge'
+getNumberOfAllOrders() {
+      let numberOfAllOrders;
       this.orderService.getOrders().subscribe(number => {
       numberOfAllOrders = number;
       this.numberOfAllOrders = numberOfAllOrders.length;
@@ -92,23 +92,23 @@ getNumberOfAllOrders(){
 
 }
 
-getNumberOfOrdersByStatus(status){
-      var numberOfOrders;
+getNumberOfOrdersByStatus(status) {
+      let numberOfOrders;
       this.orderService.getNumberOfOrdersByStatus(status).subscribe(number => {
       numberOfOrders = number;
 
       console.log(numberOfOrders);
 
-      if(status==='Created'){
+      if (status === 'Created') {
         this.numberOfOrdersByCreated = number;
       }
-      if(status==='ReadyToShip'){
-        this.numberOfOrdersByRTS= number;
+      if (status === 'ReadyToShip') {
+        this.numberOfOrdersByRTS = number;
       }
-      if(status==='Shipped'){
-        this.numberOfOrdersByShipped= number;
+      if (status === 'Shipped') {
+        this.numberOfOrdersByShipped = number;
       }
-      if(status==='PendingInvoice'){
+      if (status === 'PendingInvoice') {
         this.numberOfOrdersByPI = number;
       }
   });

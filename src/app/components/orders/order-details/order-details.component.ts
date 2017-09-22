@@ -27,7 +27,7 @@ orderId;
 
   ngOnInit() {
 
-  //Loading data from 'orders' collection
+  // Loading data from 'orders' collection
     this.orderService.getOrderId(this.orderDetailsService.chosenOrderId ).subscribe(ordersDetails => {
       this.ordersDetailsArray = ordersDetails;
       this.ordersDetails = this.ordersDetailsArray[0];

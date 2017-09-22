@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
@@ -12,6 +13,10 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DropdownModule} from "ng2-dropdown";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
+
+
+
 
 
 
@@ -34,7 +39,7 @@ import { CsvfileService} from './components/uploads/services/csvfile.service';
 import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
 import { FilterPipe, FilterStatusPipe, FilterChannelPipe, FilterProductCodePipe, FilterProductCategoriesPipe, FilterProductSubCategoriesPipe, FilterStockSkuPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
-import { InventoryComponent } from './components/inventory/inventory.component';
+import { InventoryComponent } from './components/inventory/inventory-sku-mapping/inventory.component';
 import { InventoryStockComponent } from './components/inventory/inventory-stock/inventory-stock.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductsStockComponent } from './components/products/products-stock/products-stock.component';
@@ -64,6 +69,8 @@ const appRoutes: Routes = [
     ChartsComponent,
     UploadsComponent,
 
+
+
     FilterPipe,
     FilterStatusPipe,
     FilterChannelPipe,
@@ -81,6 +88,7 @@ const appRoutes: Routes = [
     ProductsComponent,
     ProductsStockComponent,
     InventoryMultiComponent,
+    FileDropDirective, FileSelectDirective
 
 
 
@@ -101,6 +109,9 @@ const appRoutes: Routes = [
     MyDateRangePickerModule,
     FormsModule,
     NgbModule.forRoot (),
+    HttpClientModule
+
+
   ],
 
 
