@@ -1,4 +1,5 @@
 @import '../orders/orders-table/orders.component';
+@import '../orders/orders-navigation/orders-navigation.component';
 
 .container-fluid.inventory-only {
   height: auto;
@@ -15,6 +16,8 @@ div.card {
 .card.toggle-card {
   margin-top: -20px;
 }
+
+
 // ===================    TABS STYLING  ==================
 .nav-tabs {
   box-shadow: 0px -1px 0px 0px #ddd inset;
@@ -56,18 +59,17 @@ input.form-control {
 
 //   ======= CATEGORIES DROPDOWN ==========
 
+
 #category-btn {
+  width: 300px;
+  padding: 0;
+  margin: 0;
   font-family: "Catamaran" sans-serif;
   font-size: 0.9rem;
   height: 38px;
-  padding-left: 30px;
-  padding-right: 30px;
+
 }
 
-.dropdown-menu-center {
-  left: 55% !important;
-  text-align: left !important;
-}
 
 .dropdown-item {
   cursor: pointer;
@@ -104,26 +106,6 @@ input.form-control {
 
 .dropdown:hover .dropdown-item:hover {
   background-color: #ddd!important;
-}
-
-
-
-
-//   ======= VARIANTS ==========
-
-#label-variants {
-  font-family: "Catamaran" sans-serif;
-  color: black;
-  font-size: 1rem;
-}
-
-#variants {
-  position: relative;
-  background-color: white;
-  height: 25px;
-  width: 25px;
-  margin-right: 10px;
-  transform: translateY(25%);
 }
 
 
@@ -172,9 +154,164 @@ input.form-control {
 // ===================    ACCORDION STYLING  ==================
 
 .img-thumbnail {
+  margin-top: 10px;
   width: 100px;
 }
 
 .table-striped {
-    margin-top: 10px;
+    margin-top: 15px;
 }
+
+// ============== TABLE SCROLL ================
+
+.sticky-wrapper {
+    position: relative;
+    width: 100%;
+}
+#sticky-scroller {
+    margin-left: 300px;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 5px;
+}
+
+.table-striped .sticky-col {
+    border-right: 2px solid #ddd;
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 300px;
+}
+th.sticky-col {
+  margin-left: 0!important;
+}
+
+// ============== ENABLE/DISABLE BUTTON ================
+
+.toggle {
+	display: block;
+	text-align: center;
+	margin-top: 35px;
+  user-select: none;
+}
+	.toggle--checkbox {
+    display: none;
+	}
+	.toggle--btn {
+		display: block;
+		margin: 0 auto;
+
+		font-size: 0.9em;
+
+		transition: all 250ms ease-in;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.toggle--btn,
+	.toggle--checkbox,
+	.toggle--feature {
+		&,
+		&:before,
+		&:after {
+			transition: all 250ms ease-in;
+		}
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+		}
+	}
+
+  /* =====================================================
+     Toggle - knob button style
+     ===================================================== */
+
+  	$toggleHeight: 30px;
+  	$toggleWidth: 120px;
+
+  	$toggleBtnRadius: 35px;
+  	$toggleBtnColor: #f1f1f1;
+
+  	$toggle-bgColor--inactive: #a2a2a2;
+  	$toggle-bgColor--active: #a4bf4d;
+
+  	$toggle-textColor: #fff;
+
+  	.toggle--knob {
+
+  		& .toggle--btn {
+  			position: relative;
+  			width: $toggleWidth;
+  			height: $toggleHeight;
+
+  			font-family: 'PT Sans', Sans Serif;
+  			text-transform: uppercase;
+  			color: $toggle-textColor;
+
+  			background: $toggle-bgColor--active;
+  			box-shadow: inset 0 20px 40px -10px #7b9d25;
+  			border-radius: 40px;
+
+  			//contains the actual knob part of the button and the 'on' text
+  			&:before {
+  				display: block;
+  				position: absolute;
+  				top: 50%;
+  				left: 80%;
+  				transform: translateY(-50%);
+
+  				width: $toggleBtnRadius;
+  				height: $toggleBtnRadius;
+  				border-radius: 50%;
+  				background: $toggleBtnColor;
+  				box-shadow: 0 4px 10px 0 #999,
+  							inset 0 10px 10px 8px rgba($toggleBtnColor, 0.6),
+  							inset 0 0 8px 0px #333,
+  							inset 0 0 0 14px $toggleBtnColor;
+
+  				text-indent: -100%;
+  			}
+  		}
+
+  		& .toggle--feature {
+  			position: relative;
+  			display: block;
+  			overflow: hidden;
+  			height: $toggleHeight;
+  			text-shadow: 0 1px 2px #666;
+
+  			&:before,
+  			&:after {
+  				position: absolute;
+  				top: 50%;
+  				transform: translateY(-50%);
+  			}
+  			&:before {
+  				content: attr(data-label-on);
+  				left: 15%;
+  			}
+  			&:after {
+  				content: attr(data-label-off);
+  				right: -60%;
+  			}
+  		}
+
+  		& .toggle--checkbox {
+  			&:checked {
+  				& + .toggle--btn {
+  					background: $toggle-bgColor--inactive;
+  					box-shadow: inset 0 20px 40px -10px #7e7e7e;
+
+  					&:before { left: 0; }
+
+  					& .toggle--feature {
+  						&:before	{ left: -60%; }
+  						&:after		{ right: 5%; }
+  					}
+  				}
+  			}
+  		}
+  	}

@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   inventory;
   hideToggle = true;
   hideme = [];
+  trigger;
 
   private productValue:String;
   private productValueToSearch:String;
@@ -33,13 +34,14 @@ export class ProductsComponent implements OnInit {
   arrayOfSortedInventory;
 
    constructor(private orderService: OrderService) {
+     this.trigger=true;
 
      this.categoryName = "All Categories";
 
-     this.MENSCLOTHES = ["T-Shirts/Tops", "Sweatshirts/Hoodies", "Jackets", "Pants"];
-     this.MENSSHOES = ["Sneakers", "Running", "Football", "Sandals/Flipflops"];
-     this.WOMENSCLOTHES = ["T-Shirts/Tops", "Sweatshirts/Hoodies", "Jackets", "Pants"];
-     this.WOMENSSHOES = ["Sneakers", "Running", "Football", "Sandals/Flipflops"];
+     this.MENSCLOTHES = ["T-Shirts", "Sweatshirts/Hoodies", "Jackets", "Pants"];
+     this.MENSSHOES = ["Sneakers", "Running Shoes", "Football", "Sandals/Flipflops"];
+     this.WOMENSCLOTHES = ["T-Shirts", "Sweatshirts/Hoodies", "Jackets", "Pants"];
+     this.WOMENSSHOES = ["Sneakers", "Running Shoes", "Football", "Sandals/Flipflops"];
 
      this.CATEGORY = [{category: "Mens Clothing", subcategory: this.MENSCLOTHES},
                          {category: "Mens Shoes", subcategory: this.MENSSHOES},
@@ -49,7 +51,7 @@ export class ProductsComponent implements OnInit {
 
 
      setTimeout(() => {
-          this.getInventory();
+          this.getItems();
       }, 200);
 
       setTimeout(() => {
@@ -61,8 +63,8 @@ export class ProductsComponent implements OnInit {
    ngOnInit() {
    }
 
-   getInventory(){
-     this.orderService.getAllInventory().then(
+   getItems(){
+     this.orderService.getProducts('items').then(
        (results) => (this.inventory = results, console.log(this.inventory))
      )
 
@@ -79,35 +81,37 @@ export class ProductsComponent implements OnInit {
       let counterInput: number=0;
       var arrayOfSortedInventory=[];
       console.log(this.inventory);
+      console.log("Inventory Length");
+      console.log(this.inventory.length);
+
 
       for(counterInput; counterInput < this.inventory.length; counterInput++ ){
 
-        if(counterInput == 0 || this.inventory[counterInput].productCode != this.inventory[counterInput-1].productCode){
-         arrayOfSortedInventory.push({'productCode':this.inventory[counterInput].productCode,
-                                      'productName':this.inventory[counterInput].productName,
+
+         arrayOfSortedInventory.push({'productCode':this.inventory[counterInput].id,
+                                      'productName':this.inventory[counterInput].description,
                                       'category':this.inventory[counterInput].category,
-                                      'subCategory':this.inventory[counterInput].subCategory,
-                                      'variants':this.inventory[counterInput].variants,
-                                      'size1':this.inventory[counterInput].size,
-                                      'size2':this.inventory[counterInput+1].size,
-                                      'size3':this.inventory[counterInput+2].size,
-                                      'size4':this.inventory[counterInput+3].size,
-                                      'sellingPrice':this.inventory[counterInput].sellingPrice,
-                                      'stockQuantity1':this.inventory[counterInput].stockQuantity,
-                                      'stockQuantity2':this.inventory[counterInput+1].stockQuantity,
-                                      'stockQuantity3':this.inventory[counterInput+2].stockQuantity,
-                                      'stockQuantity4':this.inventory[counterInput+3].stockQuantity,
-                                      'sku1':this.inventory[counterInput].sku,
-                                      'sku2':this.inventory[counterInput+1].sku,
-                                      'sku3':this.inventory[counterInput+2].sku,
-                                      'sku4':this.inventory[counterInput+3].sku
-                                     },
-                                   );
-        console.log(arrayOfSortedInventory);
+                                      'subCategory':this.inventory[counterInput].category,
+                                      //'variants':this.inventory[counterInput].variants,
+                                      //'size1':this.inventory[counterInput].size,
+                                      //'size2':this.inventory[counterInput+1].size,
+                                      //'size3':this.inventory[counterInput+2].size,
+                                      //'size4':this.inventory[counterInput+3].size,
+                                      'sellingPrice':this.inventory[counterInput].price,
+                                      //'stockQuantity1':this.inventory[counterInput].stockQuantity,
+                                      //'stockQuantity2':this.inventory[counterInput+1].stockQuantity,
+                                      //'stockQuantity3':this.inventory[counterInput+2].stockQuantity,
+                                      //'stockQuantity4':this.inventory[counterInput+3].stockQuantity,
+                                      'sku':this.inventory[counterInput].sku,
+                                      //'sku2':this.inventory[counterInput+1].sku,
+                                      //'sku3':this.inventory[counterInput+2].sku,
+                                      //'sku4':this.inventory[counterInput+3].sku
+                                    });
        }
 
-      }
       this.arrayOfSortedInventory = arrayOfSortedInventory;
+      console.log('SORTED INVENTORY');
+      console.log(arrayOfSortedInventory);
    }
 
    searchProduct(value){

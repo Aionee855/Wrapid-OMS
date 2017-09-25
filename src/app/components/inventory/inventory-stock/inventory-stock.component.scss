@@ -29,6 +29,16 @@
   background-color: #ffbb28;
 }
 
+.btn.btn-info {
+  margin-left: 15px;
+  background-color:#d1d1d1;
+  border-color: #bfbfbf;
+
+    -webkit-box-shadow: 2px 2px 0px rgba(191, 191, 191, 0.7);
+      -moz-box-shadow:    2px 2px 0px rgba(191, 191, 191, 0.7);
+      box-shadow:         2px 2px 0px rgba(191, 191, 191, 0.7);
+}
+
 #category-btn {
   width: 12rem;
 }

@@ -17,11 +17,16 @@ import {Observable} from 'rxjs';
 })
 export class UploadsComponent {
 
-  apiEndPoint='http://localhost:8080/upload/item';
+  private apiEndPoint;
 
       constructor(private http: Http) {}
 
-      fileChange(event) {
+      fileChange(event, chosenFile) {
+
+     if(chosenFile == 'Inventory'){ this.apiEndPoint='http://localhost:8080/upload/inventory'; }
+     if(chosenFile == 'Item'){ this.apiEndPoint='http://localhost:8080/upload/item'; }
+     if(chosenFile == 'Mapping'){ this.apiEndPoint='http://localhost:8080/upload/marketplaceItemMapping'; }
+
     let fileList: FileList = event.target.files;
     if(fileList.length > 0) {
         let file: File = fileList[0];

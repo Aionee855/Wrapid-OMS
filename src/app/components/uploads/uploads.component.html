@@ -1,1 +1,5 @@
-<input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".csv">
+<h3>Inventory file</h3><input type="file" (change)="fileChange($event,'Inventory')" placeholder="Upload file" accept=".csv">
+<br><br>
+<h3>Item file</h3><input type="file" (change)="fileChange($event,'Item')" placeholder="Upload file" accept=".csv">
+<br><br>
+<h3>Mapping file</h3><input type="file" (change)="fileChange($event,'Mapping')" placeholder="Upload file" accept=".csv">

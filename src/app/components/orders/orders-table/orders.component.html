@@ -2,30 +2,36 @@
   <h1 id="jumbo-h1"> {{ordersService.title}} </h1>
 
 <!-- FILTERS -->
-<div class="row justify-content-center">
-  <div class="col col-md-8 col-offset-4">
-    <div class="text-center">
+<div class="row ">
+  <div class="col-md-4 text-right">
     <div class="btn-group" ngbDropdown>
-      <button type="button" class="btn btn-outline-default channel-button">{{dropSelected}}</button>
-      <button class="btn btn-default dropdown-toggle-split" ngbDropdownToggle></button>
+      <button type="button" class="btn btn-outline-default channel-button" ngbDropdownToggle>{{dropSelected}}</button>
         <div class="dropdown-menu dropdown-menu-center" ngbDropdownMenu>
         <button class="dropdown-item" (click)="dropSelected = 'All'">All</button>
         <button *ngFor="let channel of dropChannelsList" class="dropdown-item" (click)="dropSelected = channel">{{channel}}</button>
       </div>
     </div>
-
-  <div class="btn-group">
-        <input id="SKU-button" type="text" name="filter" class="form-control" placeholder="SKU/Order No." [(ngModel)]="filterSKUvalue">
   </div>
 
-  <div class="btn-group date-picker-btn">
-        <my-date-range-picker placeholder="Date" [options]="myDateRangePickerOptions"
-                            (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
-  </div>
-</div>
+    <div class="col-md-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="SKU/Order No"  [(ngModel)]="filterSKUvalue">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="btn-group date-picker-btn">
+            <my-date-range-picker placeholder="Date" [options]="myDateRangePickerOptions"
+                                (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+      </div>
+    </div>
+
 </div>   <!-- button-row -->
 </div>   <!-- jumbotron  -->
-</div>
+
 
 <br>
 

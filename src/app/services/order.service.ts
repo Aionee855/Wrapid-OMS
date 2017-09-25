@@ -61,11 +61,11 @@ export class OrderService {
           return promise;
   }
 
-  getAllInventory(){
+  getProducts(route){
     //let apiURL = '${this.apiUrl}?/orders/';
     let results;
     let promise = new Promise((resolve, reject) => {
-    this.http.get(this.apiUrl + 'inventory/')
+    this.http.get(this.apiUrl + route)
         .toPromise()
         .then(
           res => {
@@ -107,7 +107,7 @@ export class OrderService {
     //let apiURL = '${this.apiUrl}?/orders/';
     let results;
     let promise = new Promise((resolve, reject) => {
-    this.http.get(this.apiUrl + 'marketplaces/')
+    this.http.get(this.apiUrl + 'marketplace')
         .toPromise()
         .then(
           res => {
@@ -124,13 +124,27 @@ export class OrderService {
       return promise;
   }
 
-  saveItem(file){
-    console.log("SaveItem running!!")
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:8080/upload/item', file, {headers: headers})
-    .map(res => res.json());
+  getMarketplaceMappings(){
+    //let apiURL = '${this.apiUrl}?/orders/';
+    let results;
+    let promise = new Promise((resolve, reject) => {
+    this.http.get(this.apiUrl + 'marketplaceItemMappings')
+        .toPromise()
+        .then(
+          res => {
+            results = res.json();
+            //console.log(results);
+            resolve(results);
+          },
+          msg => {
+            console.log("ERROR - can't get marketplaces mapping!");
+            reject();
+          }
+        )
+      });
+      return promise;
   }
+
 
 //////////////////////////////////////CHECKED ABOVE
   getOrderId(id){

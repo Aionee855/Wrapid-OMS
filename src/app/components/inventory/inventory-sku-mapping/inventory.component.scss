@@ -26,7 +26,8 @@ h1.underline {
   border-bottom: none;
 }
 
-#product-tab, #sku-tab, #catalogue-tab {
+#product-tab, #sku-tab, #catalogue-tab,
+#upload-d-tab, #remove-d-tab, #history-tab{
   color: black;
   font-weight: 500;
   &:hover {
@@ -65,10 +66,7 @@ input.form-control {
   padding-right: 30px;
 }
 
-.dropdown-menu-center {
-  left: 55% !important;
-  text-align: left !important;
-}
+
 
 .dropdown-item {
   cursor: pointer;

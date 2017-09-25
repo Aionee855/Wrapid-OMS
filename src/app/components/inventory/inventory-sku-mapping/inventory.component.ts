@@ -17,7 +17,7 @@ export class InventoryComponent implements OnInit {
   constructor(private orderService: OrderService) {
 
     setTimeout(() => {
-         this.getInventory();
+         this.getSkuMapping();
      }, 200);
    }
 
@@ -25,8 +25,8 @@ export class InventoryComponent implements OnInit {
 
   }
 
-  getInventory(){
-    this.orderService.getAllInventory().then(
+  getSkuMapping(){
+    this.orderService.getMarketplaceMappings().then(
       (results) => (this.inventory = results, console.log(this.inventory))
     )
 
