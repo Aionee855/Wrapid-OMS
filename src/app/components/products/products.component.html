@@ -1,5 +1,3 @@
-<h1>Products</h1>
-
 <ngb-tabset>
   <ngb-tab id="product-tab" title="Products">
     <ng-template ngbTabContent>
@@ -77,19 +75,19 @@
                   <img src="../../assets/mens_rebel_t-shirt_white.jpg" alt="t-shirt-white" class="img-thumbnail">
                 </div>
 
-                <div class="col-sm-1 text-right">
+                <div class="col-sm-1 text-right bold-font">
                   <p> Name:  </p>
                   <p> Code: </p>
                   <p> HSN: </p>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                   <p> {{data.productName}} </p>
                   <p>{{data.productCode}}</p>
                   <p> N/A </p>
                 </div>
 
-                <div class="col-sm-2 text-right">
+                <div class="col-sm-2 text-right bold-font">
                   <p>Category:</p>
                   <p>Sub-Category:</p>
                   <p>Product Type:</p>
@@ -108,7 +106,7 @@
                   		</div>
                 </div>
 
-                <div class="col-sm-1 offset-sm-1">
+                <div class="col-sm-1">
                   <a class="btn btn-secondary btn-card-toggle" (click)="hideme[i] = !hideme[i]"
                          aria-controls="toggle-1" activeIds = "toggle-1">View Details</a>
                 </div>
@@ -126,11 +124,11 @@
           <div class="col-md-12">
             <div class="sticky-wrapper">
               <div id="sticky-scroller">
-                <table class="table table-striped">
+                <table class="table table-striped table-bordered">
                   <thead class="thead-inverse">
                     <tr>
                       <th class="sticky-col">Product Code</th>
-                      <th>SKU</th>
+                      <th class="SKU-col">SKU</th>
                       <th class="text-center">Size</th>
                       <th class="text-center">Brand</th>
                       <th class="text-center">Stock Qty</th>
@@ -144,7 +142,7 @@
                   <tbody>
                     <tr>
                       <td class="sticky-col">{{data.productCode}}</td>
-                      <td>{{data.sku}}</td>
+                      <td class="SKU-col">{{data.sku}}</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
@@ -156,7 +154,7 @@
                     </tr>
                     <tr>
                       <td class="sticky-col">{{data.productCode}}</td>
-                      <td>{{data.sku}}</td>
+                      <td class="SKU-col">{{data.sku}}</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
@@ -168,7 +166,7 @@
                     </tr>
                     <tr>
                       <td class="sticky-col">{{data.productCode}}</td>
-                      <td>{{data.sku}}</td>
+                      <td class="SKU-col">{{data.sku}}</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
@@ -180,7 +178,7 @@
                     </tr>
                     <tr>
                       <td class="sticky-col">{{data.productCode}}</td>
-                      <td>{{data.sku}}</td>
+                      <td class="SKU-col">{{data.sku}}</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
                       <td class="text-center">N/A</td>
@@ -215,16 +213,12 @@
 
   <ngb-tab id="sku-tab" title="Stock Allocation">
     <ng-template ngbTabContent>
-      <div class="container-fluid inventory-only">
         <app-products-stock></app-products-stock>
-      </div>
     </ng-template>
   </ngb-tab>
-  <ngb-tab id="catalogue-tab" title="Channel Catalogue">
+  <ngb-tab id="catalogue-tab" title="Listings">
     <ng-template ngbTabContent>
-      <div class="container-fluid inventory-only">
-        <p>Content 3 here</p>
-      </div>
-    </ng-template>
+          <app-product-listings></app-product-listings>
+  </ng-template>
   </ngb-tab>
 </ngb-tabset>

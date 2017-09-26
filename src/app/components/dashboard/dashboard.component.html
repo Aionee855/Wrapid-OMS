@@ -1,8 +1,245 @@
-<p>dashboard works!</p>
+<p>Products/ Add Products</p>
+<hr/>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-2 with-padding">
+    <h3> General Details </h3>
+    <p> These are basic details to define a product.<p>
+    <p> Fields in italics are Optional.<p>
+  </div>
 
 
+<div class="col-md-10">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="SKU-code-input" class="col-form-label">SKU Code</label>
+        <input class="form-control" type="text" placeholder="Enter SKU Code" id="SKU-code-input">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="product-name-input" class="col-form-label">Product Name</label>
+        <input class="form-control" type="text" placeholder="e.g: Shirts" id="product-name-input">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="product-category-select" class="col-form-label">Product Category</label>
+        <select class="form-control" id="product-category-select">
+          <option>Please Select Category</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-    <div class="toggle toggle--knob">
-    			<input type="checkbox" id="toggle--knob" class="toggle--checkbox">
-    			<label class="toggle--btn" for="toggle--knob"><span class="toggle--feature" data-label-on="enabled"  data-label-off="disabled"></span></label>
-    		</div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="tax-type-select" class="col-form-label"><span class="italic">Tax Type (Optional)</span></label>
+        <select class="form-control" id="tax-type-select">
+          <option>Please Select A Tax Type</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="base-price-input" class="col-form-label"><span class="italic">Base Price (Optional)</span></label>
+        <input class="form-control" type="text" placeholder="e.g: 550" id="base-price-input">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="mrp-input" class="col-form-label"><span class="italic">MRP (Optional)</span></label>
+        <input class="form-control" type="text" placeholder="e.g: 695" id="mrp-input">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="hsn-code-input" class="col-form-label">HSN Code</label>
+        <input class="form-control" type="text" placeholder="Enter HSN Code" id="hsn-code-input">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="cost-price-input" class="col-form-label"><span class="italic">Cost Price (Optional)</span></label>
+        <input class="form-control" type="text" placeholder="e.g: 500" id="cost-price-input">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="tax-type-select" class="col-form-label"><span class="italic">GST Tax Type (Optional)</span></label>
+        <select class="form-control" id="tax-type-select">
+          <option>Please Select A Tax Type</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group row">
+        <label for="product-type-select" class="col-form-label">Product Type</label>
+        <select class="form-control" id="product-type-select">
+          <option>SIMPLE</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<hr/>
+
+<div class="row">
+  <div class="col-md-2 with-padding">
+    <h3> Product Description </h3>
+    <p> Description, Dimensions and other details about the product.<p>
+    <p> Fields in italics are Optional.<p>
+  </div>
+
+
+<div class="col-md-10">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group row">
+        <label for="comment" class="col-form-label"><span class="italic">Brief Description About the Product (Optional)</span></label>
+        <textarea class="form-control" rows="3" id="comment"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label for="brand-input" class="col-form-label"><span class="italic">Brand (Optional)</span></label>
+        <input class="form-control" type="text" placeholder="e.g: Arrow" id="brand-input">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label for="product-url-input" class="col-form-label"><span class="italic">Product URL (Optional)</span></label>
+        <input class="form-control" type="text" placeholder="e.g: http://example.com/product/gsot" id="product-url-input">
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-5 diff-1">
+        <div class="form-group row-diff-1">
+          <label for="image-url-input" class="col-form-label"><span class="italic">Image URL (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="e.g: http://example.com/images/abc.png" id="image-url-input">
+        </div>
+      </div>
+
+
+        <div class="col-md-1 alter-padding">
+          <img id="imagePreview" src="#" alt="no image preview">
+        </div>
+
+
+      <div class="col-md-6 alter-left">
+        <div class="form-group row-diff-2">
+          <label for="color-input" class="col-form-label"><span class="italic">Color (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="e.g: Yellow" id="color-input">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="size-input" class="col-form-label"><span class="italic">Size (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="" id="size-input">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="volume-input" class="col-form-label"><span class="italic">Volume (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="length" id="length-input">
+          <input class="form-control" type="text" placeholder="width" id="width-input">
+          <input class="form-control" type="text" placeholder="height" id="height-input">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="weight-input" class="col-form-label"><span class="italic">Weight (Gm.) (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="" id="weight-input">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="scan-input" class="col-form-label"><span class="italic">Scannable Identifier (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="" id="scan-input">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="upc-input" class="col-form-label"><span class="italic">UPC (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="" id="upc-input">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="isbn-input" class="col-form-label"><span class="italic">ISBN (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="" id="isbn-input">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="tags-input" class="col-form-label"><span class="italic">Tags (Optional)</span></label>
+          <input class="form-control" type="text" placeholder="Enter multiple tags separated by comma" id="tags-input">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="enable-select" class="col-form-label">Enabled</label>
+          <select class="form-control" id="enable-select">
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+$('#search').on('input', function(e) {
+    if('' == this.value) {
+        alert('Please enter a search criteria!');
+    }
+});
+</script>
