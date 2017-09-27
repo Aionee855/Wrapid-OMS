@@ -23,6 +23,7 @@ export class ProductsStockComponent implements OnInit {
 
   constructor(private orderService: OrderService) {
 
+
     this.arrayOfUnAllocated = [];
     this.arrayOfAllocated = [];
 

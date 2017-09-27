@@ -117,7 +117,8 @@ export class FilterPipe implements PipeTransform {
                                                       console.log(counter);
 
                                                     }
-                                                  return result.sku.toLowerCase().includes(term.toLowerCase());
+                                                    return result.sku == term;
+                                                  //return result.sku.toLowerCase().includes(term.toLowerCase());
                                                 });
                                               };
                         if(arg1 === 'marketplace'){

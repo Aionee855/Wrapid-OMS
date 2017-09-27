@@ -5,13 +5,26 @@
         <br>
           <div class="row">
             <div class="col-md-3">
+              <div class="search-wrapper">
+              	<form>
+                  <div class="btn-group">
+                	  <input type="text" name="focus" required class="search-box" placeholder="Search by Product Name/Product Code"  [(ngModel)]="productValue" (keyup.enter)="searchProduct(productValue)"/>
+                		<button class="close-icon" type="reset" (click)="productValueToSearch=''"></button>
+                    <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"  (click)="searchProduct(productValue)"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!--
+            <div class="col-md-3">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search by Product Name/Product Code" [(ngModel)]="productValue">
+                <input type="text" class="form-control" placeholder="Search by Product Name/Product Code" [(ngModel)]="productValue" (keyup.enter)="searchProduct(productValue)">
                 <span class="input-group-btn">
                   <button class="btn btn-secondary search-btn" type="button" (click)="searchProduct(productValue)"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
               </div>
             </div>
+          -->
 
             <div class="col-md-3">
               <div class="btn-group" ngbDropdown>
@@ -65,6 +78,7 @@
 <!--| filterProductCategory: categorySearchValue -->
   <div *ngFor="let data of arrayOfSortedInventory
               | filterProductCode: productValueToSearch
+              | filterProductCategory: categorySearchValue
               | filterProductSubCategory: subcategorySearchValue
               ; let i = index">
 
@@ -95,14 +109,14 @@
 
                 <div class="col-sm-2">
                   <p>{{data.category}}</p>
-                  <p><!--{{data.subCategory}}--> {{data.category}}</p>
+                  <p>{{data.subCategory}}</p>
                   <p>N/A</p>
                 </div>
 
                 <div class="col-sm-2">
-                  <div class="toggle toggle--knob">
-                  			<input type="checkbox" id="toggle--knob" class="toggle--checkbox" >
-                  			<label class="toggle--btn" for="toggle--knob"><span class="toggle--feature" data-label-on="enabled"  data-label-off="disabled"></span></label>
+                  <div class="toggle toggle--knob" >
+                  			<input type="checkbox" id="toggle--knob" class="toggle--checkbox" [(ngModel)]="knob[i]">
+                  			<label class="toggle--btn" (click)="knob[i]= !knob[i]"><span class="toggle--feature" data-label-on="enabled"  data-label-off="disabled"></span></label>
                   		</div>
                 </div>
 

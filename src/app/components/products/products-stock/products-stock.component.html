@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search by Product ID/SKU" [(ngModel)]="searchValue">
+        <input type="text" class="form-control" placeholder="Search by Product ID/SKU" [(ngModel)]="searchValue" (keyup.enter)="setSearchSkuValue(searchValue)">
         <span class="input-group-btn">
           <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="setSearchSkuValue(searchValue)"></i></button>
         </span>
@@ -35,7 +35,7 @@
   <tbody>
 
     <tr *ngFor="let inv of inventory
-                | filterSku: searchSkuValue
+                | filterSku: searchSkuValue: 'inventory'
                 ; let i = index;">
 
       <th scope="row" class="text-center">{{i+1}}</th>

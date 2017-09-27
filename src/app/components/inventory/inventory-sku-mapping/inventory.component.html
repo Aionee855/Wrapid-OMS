@@ -23,7 +23,7 @@
             	<form>
                 <div class="btn-group">
               	  <input type="text" name="focus" required class="search-box" placeholder="Search by SKU"  [(ngModel)]="_skuSearchValue" (keyup.enter)="skuSearchValue = _skuSearchValue"/>
-              		<button class="close-icon" type="reset"></button>
+              		<button class="close-icon" type="reset" (click)="skuSearchValue = ''"></button>
                   <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"  (click)="skuSearchValue = _skuSearchValue"></i></button>
                 </div>
               </form>
@@ -35,7 +35,7 @@
             	<form>
                 <div class="btn-group">
               	  <input type="text" name="focus" required class="search-box" placeholder="Search by Marketplace SKU" [(ngModel)]="_skuSearchMp" (keyup.enter)="skuSearchMp = _skuSearchMp" />
-              		<button class="close-icon" type="reset"></button>
+              		<button class="close-icon" type="reset" (click)="skuSearchMp = ''"></button>
                   <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="skuSearchMp = _skuSearchMp"></i></button>
                 </div>
               </form>

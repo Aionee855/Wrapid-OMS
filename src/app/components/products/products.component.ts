@@ -14,6 +14,8 @@ export class ProductsComponent implements OnInit {
   hideme = [];
   trigger;
 
+  private knob: boolean[];
+
   private productValue:String;
   private productValueToSearch:String;
 
@@ -34,6 +36,8 @@ export class ProductsComponent implements OnInit {
   arrayOfSortedInventory;
 
    constructor(private orderService: OrderService) {
+
+     this.knob =[];
      this.trigger=true;
 
      this.categoryName = "All Categories";
@@ -61,6 +65,7 @@ export class ProductsComponent implements OnInit {
     }
 
    ngOnInit() {
+
    }
 
    getItems(){
@@ -91,7 +96,7 @@ export class ProductsComponent implements OnInit {
          arrayOfSortedInventory.push({'productCode':this.inventory[counterInput].id,
                                       'productName':this.inventory[counterInput].description,
                                       'category':this.inventory[counterInput].category,
-                                      'subCategory':this.inventory[counterInput].category,
+                                      'subCategory':this.inventory[counterInput].subcategory,
                                       //'variants':this.inventory[counterInput].variants,
                                       //'size1':this.inventory[counterInput].size,
                                       //'size2':this.inventory[counterInput+1].size,
