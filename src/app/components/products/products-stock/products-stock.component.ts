@@ -16,10 +16,16 @@ export class ProductsStockComponent implements OnInit {
 
   private test;
 
+  private arrayOfUnAllocated: number[];
+  private arrayOfAllocated: number[];
 
 
 
   constructor(private orderService: OrderService) {
+
+    this.arrayOfUnAllocated = [];
+    this.arrayOfAllocated = [];
+
 
     setTimeout(() => {
         this.getMarketplaces();
@@ -27,6 +33,7 @@ export class ProductsStockComponent implements OnInit {
 
      setTimeout(() => {
           this.getInventory();
+
       }, 200);
 
       setTimeout(() => {
@@ -39,6 +46,16 @@ export class ProductsStockComponent implements OnInit {
 
   }
 
+  getQuantity(){
+    let counter = 0;
+
+    for(counter; counter < this.inventory.length; counter++){
+      this.arrayOfUnAllocated[counter] = this.inventory[counter].quantity;
+      this.arrayOfAllocated[counter] = 0;
+    }
+
+  }
+
   getMarketplaceMappings(){
     console.log("Marketplace Mapping");
     this.orderService.getMarketplaceMappings().then(
@@ -48,7 +65,7 @@ export class ProductsStockComponent implements OnInit {
 
 
   getMarketplaces(){
-    console.log("Marketplaces List");
+  //  console.log("Marketplaces List");
     this.orderService.getMarketplaces().then(
       (results) => (this.marketplacesList = results, console.log(this.marketplacesList))
     )
@@ -58,9 +75,8 @@ export class ProductsStockComponent implements OnInit {
   getInventory(){
     console.log("Inventory");
     this.orderService.getProducts('inventory').then(
-      (results) => (this.inventory = results, console.log(this.inventory))
+      (results) => (this.inventory = results, console.log(this.inventory), this.getQuantity())
     )
-
   }
 
   setSearchSkuValue(sku){
@@ -68,7 +84,7 @@ export class ProductsStockComponent implements OnInit {
   }
 
   checkTrueFalse(sku, marketplace){
-    console.log(sku, marketplace);
+  //  console.log(sku, marketplace);
     let counter=0;
 
     if(this.marketplacesMapping === undefined){ return;};
@@ -80,5 +96,18 @@ export class ProductsStockComponent implements OnInit {
       }
     }
     return false;
+    }
+
+    findQuantity(skuInv, mp, i){
+      let counter=0;
+      for(counter; counter < this.marketplacesMapping.length; counter++){
+        if(skuInv === this.marketplacesMapping[counter].sku && mp === this.marketplacesMapping[counter].marketplace){
+          if(this.arrayOfUnAllocated[i] != undefined && this.arrayOfAllocated[i] != undefined){
+          this.arrayOfUnAllocated[i] -= this.marketplacesMapping[counter].quantity;
+          this.arrayOfAllocated[i] += +this.marketplacesMapping[counter].quantity;
+          }
+          return this.marketplacesMapping[counter].quantity;
+        }
+      }
     }
   }

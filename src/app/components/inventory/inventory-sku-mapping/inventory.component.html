@@ -8,16 +8,11 @@
           <div class="row">
             <div class="col-md-4 text-right">
               <div class="btn-group" ngbDropdown>
-                <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>All Marketplace </button>
+                <button class="btn btn-outline-default" id="category-btn" ngbDropdownToggle>{{dropSelection}}</button>
                 <div ngbDropdownMenu class="dropdown-menu-right" aria-labelledby="dropdownBasic1">
                   <div class="dropdown">
-                    <button class="dropdown-item">Amazon</button>
-                    <button class="dropdown-item">Flipkart</button>
-                    <button class="dropdown-item">Limeroad</button>
-                    <button class="dropdown-item">Myntra</button>
-                    <button class="dropdown-item">PayTM</button>
-                    <button class="dropdown-item">Puma</button>
-                    <button class="dropdown-item">Shopclues</button>
+                    <button class="dropdown-item" (click)="mpChoice = All; dropSelection = 'All Marketplaces'">All Marketplaces</button>
+                    <button class="dropdown-item" *ngFor="let mpList of mpList" (click)="mpChoice = mpList.name; dropSelection = mpList.name">{{mpList.name}}</button>
                   </div>
                 </div>
               </div>
@@ -25,18 +20,18 @@
 
           <div class="col-md-3">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search by SKU">
+              <input type="text" class="form-control" placeholder="Search by SKU" [(ngModel)]="_skuSearchValue" (keyup.enter)="skuSearchValue = _skuSearchValue">
               <span class="input-group-btn">
-                <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="skuSearchValue = _skuSearchValue"></i></button>
               </span>
             </div>
           </div>
 
           <div class="col-md-3">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search by Marketplace SKU">
+              <input type="text" class="form-control" placeholder="Search by Marketplace SKU" [(ngModel)]="_skuSearchMp" (keyup.enter)="skuSearchMp = _skuSearchMp">
               <span class="input-group-btn">
-                <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="skuSearchMp = _skuSearchMp"></i></button>
               </span>
             </div>
           </div>
@@ -50,12 +45,14 @@
       <div class="container-fluid bordered">
       <br>
       <div class="row">
-          <div class="col-md-6">
-          <p>Displaying 1 0f 20 Records</p>
+         <div class="col-md-6">
+
+          <p>Displaying  {{firstIndexOnPage}}-{{lastIndexOnPage}} 0f {{totalRows}} Records</p>
+
         </div>
-          <div class="col-md-6">
-          <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-        </div>
+          <!-- Page # --><label class="label-control">
+                      <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+                    </label>
       </div>
 
           <div class="row">
@@ -73,15 +70,22 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let mapping of inventory; let i = index">
-                  <th scope="row" class="text-center">{{i+1}}</th>
+                <tr *ngFor="let mapping of inventory
+                           | filterChannel: mpChoice: 'marketplace'
+                           | filterSku: skuSearchValue: 'inventory'
+                           | filterSku: skuSearchMp: 'marketplace'
+                           | paginate: { itemsPerPage: rowsOnPage, currentPage: p}
+                           ; let i = index">
+                  <div hidden>{{getNumberOfRowsOnPage(i)}}</div>
+                  <div hidden>{{getFirstIndexOnPage(i+1)}}</div>
+                  <th scope="row" class="text-center">{{getIndexNumber(i)}}</th>
                   <td>{{mapping.sku}}</td>
                   <td class="text-center">{{mapping.mpsku}}</td>
                   <td class="text-center">{{mapping.marketplace}}</td>
+                  <td class="text-center">{{mapping.quantity}}</td>
                   <td class="text-center">N/A</td>
-                  <td class="text-center">N/A</td>
-                  <td class="text-center">N/A</td>
-                  <td class="text-center">N/A</td>
+                  <td class="text-center">{{mapping.createdAt | date}}</td>
+                  <td class="text-center">{{mapping.updatedAt | date}}</td>
                 </tr>
               </tbody>
             </table>
@@ -117,3 +121,10 @@
     </ng-template>
   </ngb-tab>
 </ngb-tabset>
+<div class="label-control">Rows on page
+            <select class="show-page" [(ngModel)]="rowsOnPage">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="15">15</option>
+            </select>
+</div>

@@ -58,18 +58,20 @@
         <th class="text-center" rowspan="2">#</th>
         <th class="text-center" rowspan="2">SKU</th>
         <th class="text-center" rowspan="2">Global Qty</th>
-        <th class="text-center" colspan="2" scope="colgroup">
-          <img class="mp-logo" src="../../../assets/amazon2.jpg" alt="amazon2"> Amazon</th>
+        <th class="text-center" colspan="2" scope="colgroup" *ngFor="let marketplaces of marketplacesList"> {{marketplaces.name}}</th>
+      </tr>
+    <!--
         <th class="text-center" colspan="2" scope="colgroup">
           <img class="mp-logo" src="../../../assets/flipkart_logo.jpg" alt="flipkart_logo">Flipkart</th>
       </tr>
+    -->
       <tr>
 
-        <th class="text-center" scope="col">Status</th>
-        <th class="text-center" scope="col">Time</th>
-        <th class="text-center" scope="col">Status</th>
-        <th class="text-center" scope="col">Time</th>
+        <th class="text-center" scope="col" *ngFor="let marketplaces of marketplacesList">Status</th>
+        <th class="text-center" scope="col" *ngFor="let marketplaces of marketplacesList">Time</th>
+
       </tr>
+
     </thead>
     <tbody>
       <tr>

@@ -31,17 +31,17 @@
   <tbody>
 
     <tr *ngFor="let inv of inventory
-                | filterStockSku: searchSkuValue
+                | filterSku: searchSkuValue
                 ; let i = index;">
 
       <th scope="row" class="text-center">{{i+1}}</th>
       <td>{{inv.sku}}</td>
       <td class="text-center">{{inv.quantity}}</td>
-      <td class="text-center">N/A</td>
-      <td class="text-center">N/A</td>
+      <td class="text-center">{{arrayOfAllocated[i]}}</td>
+      <td class="text-center">{{arrayOfUnAllocated[i]}}</td>
 
       <td class="text-center" *ngFor="let marketplace of marketplacesList">
-        <div *ngIf="checkTrueFalse(inv.sku,marketplace.name) === true">Allocated</div>
+        <div *ngIf="checkTrueFalse(inv.sku,marketplace.name) === true">{{findQuantity(inv.sku, marketplace.name, i)}}</div>
       </td>
 
 
