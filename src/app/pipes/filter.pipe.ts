@@ -132,4 +132,18 @@ export class FilterPipe implements PipeTransform {
                                                 });
                                               };
                 }
+
             }
+
+            @Pipe({
+                    name: 'filterProductActivation',
+                })
+
+              export class FilterProductActivationsPipe implements PipeTransform {
+                        transform(value: any, term: any): any {
+                          if( term === undefined || term === '') return value;
+                        return value.filter(function(data){
+                          return data.productActivation == term;
+                    })
+                  }
+              }

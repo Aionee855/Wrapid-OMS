@@ -27,8 +27,10 @@ export class ProductsComponent implements OnInit {
   private MENSSHOES: string[];
   private WOMENSCLOTHES: string[];
   private WOMENSSHOES: string[];
+  private PRODUCTACTIVATION: string[];
 
   private CATEGORY: Object[];
+  private _valueSearchProductActivation_default:string;
 
 
 
@@ -39,6 +41,7 @@ export class ProductsComponent implements OnInit {
 
      this.knob =[];
      this.trigger=true;
+     this._valueSearchProductActivation_default = 'All';
 
      this.categoryName = "All Categories";
 
@@ -51,6 +54,7 @@ export class ProductsComponent implements OnInit {
                          {category: "Mens Shoes", subcategory: this.MENSSHOES},
                          {category: "Womens Clothing", subcategory: this.WOMENSCLOTHES},
                          {category: "Womens Shoes", subcategory: this.WOMENSSHOES}];
+    this.PRODUCTACTIVATION = ["All", "Enabled", "Disabled"];
 
 
 
@@ -97,6 +101,7 @@ export class ProductsComponent implements OnInit {
                                       'productName':this.inventory[counterInput].description,
                                       'category':this.inventory[counterInput].category,
                                       'subCategory':this.inventory[counterInput].subcategory,
+                                      'productActivation':this.inventory[counterInput].productActivation,
                                       //'variants':this.inventory[counterInput].variants,
                                       //'size1':this.inventory[counterInput].size,
                                       //'size2':this.inventory[counterInput+1].size,
@@ -139,6 +144,18 @@ export class ProductsComponent implements OnInit {
    setSearchSubCategories(category, subcategory){
      this.subcategorySearchValue = subcategory;
      this.categorySearchValue = category;
+   }
+
+   setValueSearchProductActivation(value){
+     if(value === 'All'){
+       return '';
+     }
+     if(value === 'Enabled'){
+       return true;
+     }
+     if(value === 'Disabled'){
+       return false;
+     }
    }
 
 }

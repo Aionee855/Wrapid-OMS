@@ -37,7 +37,7 @@ import { NavbarComOrdersService } from './services/navbar-com-orders.service';
 import { CsvfileService} from './components/uploads/services/csvfile.service';
 
 import { FilterDateMinPipe, FilterDateMaxPipe } from './pipes/filter_date.pipe';
-import { FilterPipe, FilterStatusPipe, FilterChannelPipe, FilterProductCodePipe, FilterProductCategoriesPipe, FilterProductSubCategoriesPipe, FilterStockSkuPipe } from './pipes/filter.pipe';
+import { FilterPipe, FilterStatusPipe, FilterChannelPipe, FilterProductCodePipe, FilterProductCategoriesPipe, FilterProductSubCategoriesPipe, FilterStockSkuPipe, FilterProductActivationsPipe } from './pipes/filter.pipe';
 import { OrdersNavigationComponent } from './components/orders/orders-navigation/orders-navigation.component';
 import { InventoryComponent } from './components/inventory/inventory-sku-mapping/inventory.component';
 import { InventoryStockComponent } from './components/inventory/inventory-stock/inventory-stock.component';
@@ -48,6 +48,8 @@ import { InventoryUploadDedicatedComponent } from './components/inventory/invent
 import { InventoryRemoveDedicatedComponent } from './components/inventory/inventory-remove-dedicated/inventory-remove-dedicated.component';
 import { InventoryUpdateHistoryComponent } from './components/inventory/inventory-update-history/inventory-update-history.component';
 import { ProductListingsComponent } from './components/products/product-listings/product-listings.component';
+import { ProductEnablementComponent } from './components/products/product-enablement/product-enablement.component';
+import { ProductAddNewComponent } from './components/products/product-add-new/product-add-new.component';
 
 
 
@@ -61,6 +63,7 @@ const appRoutes: Routes = [
   {path: 'orders/orderDetails', component: OrderDetailsComponent},
   {path:'inventory', component: InventoryComponent},
   {path:'products', component: ProductsComponent},
+  {path:'products/productAddNew', component: ProductAddNewComponent},
 ]
 
 @NgModule({
@@ -84,6 +87,7 @@ const appRoutes: Routes = [
     FilterProductCategoriesPipe,
     FilterProductSubCategoriesPipe,
     FilterStockSkuPipe,
+    FilterProductActivationsPipe,
 
 
     OrdersNavigationComponent,
@@ -95,7 +99,11 @@ const appRoutes: Routes = [
     InventoryUploadDedicatedComponent,
     InventoryRemoveDedicatedComponent,
     InventoryUpdateHistoryComponent,
-    FileDropDirective, FileSelectDirective, ProductListingsComponent
+    FileDropDirective,
+    FileSelectDirective,
+    ProductListingsComponent,
+    ProductEnablementComponent,
+    ProductAddNewComponent,
 
 
 

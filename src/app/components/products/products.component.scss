@@ -53,27 +53,7 @@ div.card {
 
 
 // ===================    TABS STYLING  ==================
-.nav-tabs {
-  box-shadow: 0px -1px 0px 0px #ddd inset;
-}
 
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-  border: 2px solid #ddd;
-  border-bottom: none;
-}
-
-#product-tab, #sku-tab, #catalogue-tab {
-  color: black;
-  font-weight: 500;
-  &:hover {
-    color: #0061ff;
-    border: none;
-  }
-  &.active {
-  font-weight: 700;
-  background-color: #f7f8f9;
-}
-}
 
 // ===================    BUTTONS STYLING  ==================
 .btn.btn-secondary.search-btn {
