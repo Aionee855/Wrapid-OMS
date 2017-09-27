@@ -8,7 +8,8 @@
 
 }
 
-#all-tab, #new-tab, #confirmed-tab, #rts-tab, #shipped-tab, #cancelled-tab, #pending-tab  {
+#all-tab, #new-tab, #confirmed-tab, #rts-tab, #shipped-tab, #cancelled-tab, #pending-tab,
+#product-tab, #sku-tab, #catalogue-tab, #enablement-tab {
   color: black;
   font-weight: 500;
   &:hover {

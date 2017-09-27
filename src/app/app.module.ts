@@ -48,6 +48,7 @@ import { InventoryUploadDedicatedComponent } from './components/inventory/invent
 import { InventoryRemoveDedicatedComponent } from './components/inventory/inventory-remove-dedicated/inventory-remove-dedicated.component';
 import { InventoryUpdateHistoryComponent } from './components/inventory/inventory-update-history/inventory-update-history.component';
 import { ProductListingsComponent } from './components/products/product-listings/product-listings.component';
+import { ProductEnablementComponent } from './components/products/product-enablement/product-enablement.component';
 
 
 
@@ -95,7 +96,7 @@ const appRoutes: Routes = [
     InventoryUploadDedicatedComponent,
     InventoryRemoveDedicatedComponent,
     InventoryUpdateHistoryComponent,
-    FileDropDirective, FileSelectDirective, ProductListingsComponent
+    FileDropDirective, FileSelectDirective, ProductListingsComponent, ProductEnablementComponent
 
 
 
