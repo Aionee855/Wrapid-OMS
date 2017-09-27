@@ -19,22 +19,30 @@
           </div>
 
           <div class="col-md-3">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search by SKU" [(ngModel)]="_skuSearchValue" (keyup.enter)="skuSearchValue = _skuSearchValue">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="skuSearchValue = _skuSearchValue"></i></button>
-              </span>
+            <div class="search-wrapper">
+            	<form>
+                <div class="btn-group">
+              	  <input type="text" name="focus" required class="search-box" placeholder="Search by SKU"  [(ngModel)]="_skuSearchValue" (keyup.enter)="skuSearchValue = _skuSearchValue"/>
+              		<button class="close-icon" type="reset"></button>
+                  <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true"  (click)="skuSearchValue = _skuSearchValue"></i></button>
+                </div>
+              </form>
             </div>
           </div>
 
-          <div class="col-md-3">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search by Marketplace SKU" [(ngModel)]="_skuSearchMp" (keyup.enter)="skuSearchMp = _skuSearchMp">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="skuSearchMp = _skuSearchMp"></i></button>
-              </span>
+          <div class="col-md-5">
+            <div class="search-wrapper">
+            	<form>
+                <div class="btn-group">
+              	  <input type="text" name="focus" required class="search-box" placeholder="Search by Marketplace SKU" [(ngModel)]="_skuSearchMp" (keyup.enter)="skuSearchMp = _skuSearchMp" />
+              		<button class="close-icon" type="reset"></button>
+                  <button class="btn btn-secondary search-btn" type="button"><i class="fa fa-search" aria-hidden="true" (click)="skuSearchMp = _skuSearchMp"></i></button>
+                </div>
+              </form>
+
             </div>
           </div>
+
 
       </div>
       <br>

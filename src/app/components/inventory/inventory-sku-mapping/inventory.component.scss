@@ -1,4 +1,5 @@
 @import '../../orders/orders-table/orders.component';
+@import '../inventory-update-history/inventory-update-history.component';
 
 .container-fluid.inventory-only {
   height: auto;
@@ -55,6 +56,7 @@ input.form-control {
   font-size: 0.9rem;
   color: grey;
 }
+
 
 //   ======= CATEGORIES DROPDOWN ==========
 
@@ -115,4 +117,34 @@ input.form-control {
   border-color: #ddd;
   margin-left: 30px;
   cursor: pointer;
+}
+
+@media only screen and (max-width:1580px){
+.search-box {
+  width:18rem;
+}
+}
+
+@media only screen and (min-width : 1581px) and (max-width:1680px){
+.search-box {
+  width:19.5rem;
+}
+}
+
+@media only screen and (min-width : 1681px) and (max-width:1780px){
+.search-box {
+  width:21.5rem;
+}
+}
+
+@media only screen and (min-width : 1781px) and (max-width:1880px){
+.search-box {
+  width:22.3rem;
+}
+}
+
+@media only screen and (min-width : 1881px){
+.search-box {
+  width:23.5rem;
+}
 }

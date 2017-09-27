@@ -1,0 +1,39 @@
+@import '../../orders/orders-table/orders.component';
+@import '../../inventory/inventory-sku-mapping/inventory.component';
+
+.stretch {
+  width: 158px;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+td, th {
+  white-space: nowrap;
+}
+
+.channel-box {
+  width: 10rem;
+}
+
+.summary-box {
+  width: 30rem;
+}
+
+.summary-box p {
+  margin-bottom: 2px;
+}
+
+.date-box {
+  width: 15rem;
+}
+
+.bold-font {
+  font-weight: bold;
+}

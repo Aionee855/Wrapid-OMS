@@ -17,6 +17,10 @@ div.card {
   margin-top: -20px;
 }
 
+.bold-font {
+  font-weight: bold;
+}
+
 
 // ===================    TABS STYLING  ==================
 .nav-tabs {
@@ -144,6 +148,8 @@ input.form-control {
 
 .btn.btn-secondary.btn-card-toggle {
   margin-top: 25%;
+  padding-left: 10px;
+  padding-right: 10px;
   cursor: pointer;
   &:hover {
     color: #0061ff;
@@ -170,9 +176,19 @@ input.form-control {
 }
 #sticky-scroller {
     margin-left: 300px;
-    overflow-x: scroll;
-    overflow-y: visible;
     padding-bottom: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+td,th{
+  white-space: nowrap;
 }
 
 .table-striped .sticky-col {
@@ -186,12 +202,22 @@ th.sticky-col {
   margin-left: 0!important;
 }
 
+.SKU-col {
+  width: 250px;
+}
+
+.text-center {
+  width: 160px;
+}
+
+
+
 // ============== ENABLE/DISABLE BUTTON ================
 
 .toggle {
 	display: block;
 	text-align: center;
-	margin-top: 35px;
+	margin-top: 12.5%;
   user-select: none;
 }
 	.toggle--checkbox {

@@ -1,0 +1,69 @@
+<div class="container-fluid inventory-only">
+  <br>
+    <h1  class="underline">Listings</h1>
+
+    <div class="col-md-3">
+      <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-default stretch" id="dropdownBasic1" ngbDropdownToggle>Sync Enabled</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">Sync Disabled</button>
+            <button class="dropdown-item">Linked</button>
+            <button class="dropdown-item">Unlinked</button>
+          </div>
+        </div>
+    </div>
+  <br>
+</div>
+
+<br>
+  <div class="row">
+      <div class="col-md-6">
+      <p>Displaying 1 0f 20 Records</p>
+    </div>
+      <div class="col-md-6">
+      <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+  </div>
+      <div style="overflow-x:auto">
+        <table class="table table-responsive table-striped table-bordered">
+          <thead class="thead-inverse">
+            <tr>
+              <th class="text-center"></th>
+              <th class="text-center channel-box">Channels</th>
+              <th class="summary-box">SKU Summary</th>
+              <th class="summary-box">Product Name on Channel</th>
+              <th class="text-center channel-box">Listing Status</th>
+              <th class="text-center channel-box">Disabled D...</th>
+              <th class="text-center channel-box">Manually Disable</th>
+              <th class="text-center channel-box">Synced From</th>
+              <th class="text-center channel-box">Next Inventory Update</th>
+              <th class="text-center channel-box">Blocked Inventory</th>
+              <th class="text-center channel-box">Last Inventory ...</th>
+              <th class="text-center channel-box">Inventory Update ...</th>
+              <th class="text-center date-box">Created</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="text-center"><input type="checkbox" class="checkbox-style-1" name="checkbox" value="checkbox"></th>
+              <td class="text-center channel-box">Amazon</td>
+              <td class="summary-box">
+                <p><span class="bold-font">SKU Code: </span> 123456789</p>
+                <p><span class="bold-font">Seller SKU on Channel:  </span> 123456789</p>
+                <p><span class="bold-font">Channel Product ID:  </span> ABCDE_12345_FGHIJ_67890</p>
+              </td>
+              <td class="summary-box">Puma Printed Men's Round Neck Multicolor</td>
+              <td class="text-center channel-box">Active</td>
+              <td class="text-center channel-box">No</td>
+              <td class="text-center channel-box">false</td>
+              <td class="text-center channel-box">catalogue</td>
+              <td class="text-center channel-box">0</td>
+              <td class="text-center channel-box">0</td>
+              <td class="text-center channel-box">0</td>
+              <td class="text-center channel-box">N/A</td>
+              <td class="text-center date-box">30 OCT 2017 15:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
