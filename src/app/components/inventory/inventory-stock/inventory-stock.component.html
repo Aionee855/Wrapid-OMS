@@ -48,43 +48,44 @@
     </div>
   </div>
 
-  <div class="row">
+
+<div class="row">
+  <div class="col-md-3 adjustment-margin1">
     <table class="table table-striped table-bordered">
-    <thead class="thead-inverse">
+      <thead class="thead-inverse">
+        <tr>
+          <th class="text-center height-control">#</th>
+          <th class="text-center height-control">SKU</th>
+          <th class="text-center height-control">Global Qty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="text-center" scope="row">1</th>
+          <td class="text-center">DEMO4001</td>
+          <td class="text-center">N/A</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-      <colgroup span="2"></colgroup>
-      <colgroup span="2"></colgroup>
-      <tr>
-        <th class="text-center" rowspan="2">#</th>
-        <th class="text-center" rowspan="2">SKU</th>
-        <th class="text-center" rowspan="2">Global Qty</th>
-        <th class="text-center" colspan="2" scope="colgroup" *ngFor="let marketplaces of marketplacesList"> {{marketplaces.name}}</th>
-      </tr>
-    <!--
-        <th class="text-center" colspan="2" scope="colgroup">
-          <img class="mp-logo" src="../../../assets/flipkart_logo.jpg" alt="flipkart_logo">Flipkart</th>
-      </tr>
-    -->
-      <tr>
-
-        <th class="text-center" scope="col" *ngFor="let marketplaces of marketplacesList">Status</th>
-        <th class="text-center" scope="col" *ngFor="let marketplaces of marketplacesList">Time</th>
-
-      </tr>
-
-    </thead>
-    <tbody>
-      <tr>
-        <th class="text-center" scope="row">1</th>
-        <td class="text-center">DEMO4001</td>
-        <td class="text-center">N/A</td>
+  <div class="col-md-9 adjustment-margin2">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-inverse  width-control" style="display:inline-block" *ngFor="let marketplaces of marketplacesList">
+        <colgroup span="2"></colgroup>
+        <tr>
+          <th class="text-center width-control" colspan="2" scope="colgroup"> {{marketplaces.name}}</th>
+        </tr>
+        <tr>
+          <th class="text-center" scope="col">Status</th>
+          <th class="text-center" scope="col">Time</th>
+        </tr>
+        <tr>
         <td class="text-center">pending</td>
         <td class="text-center">28/09/2017 14:30</td>
-        <td class="text-center">pending</td>
-        <td class="text-center">28/09/2017 15:33</td>
-      </tr>
+        <tr>
+      </thead>
 
-    </tbody>
     </table>
   </div>
 </div>
